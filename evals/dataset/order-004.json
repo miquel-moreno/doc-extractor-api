@@ -1,0 +1,37 @@
+{
+  "document_type": "order",
+  "document_number": "PED-4774",
+  "issuer_name": "Minería Plana y asociados S.Coop.",
+  "issuer_tax_id": null,
+  "issue_date": "2025-06-10",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Correa de distribución",
+      "quantity": "2",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Bomba de agua",
+      "quantity": "7",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Kit de embrague",
+      "quantity": "6",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Anticongelante (5 L)",
+      "quantity": "3",
+      "unit_price": null,
+      "amount": null
+    }
+  ],
+  "subtotal": null,
+  "vat_amount": null,
+  "total": null
+}

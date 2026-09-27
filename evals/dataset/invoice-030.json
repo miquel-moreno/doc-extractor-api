@@ -1,0 +1,31 @@
+{
+  "document_type": "invoice",
+  "document_number": "FAC005472",
+  "issuer_name": "Alimentación Carretero y asociados S.Coop.",
+  "issuer_tax_id": "B11240553",
+  "issue_date": "2026-06-04",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Desengrasante (5 L)",
+      "quantity": "11",
+      "unit_price": "23.29",
+      "amount": "256.19"
+    },
+    {
+      "description": "Filtro de habitáculo",
+      "quantity": "10",
+      "unit_price": "15.23",
+      "amount": "152.30"
+    },
+    {
+      "description": "Bomba de agua",
+      "quantity": "4",
+      "unit_price": "121.52",
+      "amount": "486.08"
+    }
+  ],
+  "subtotal": "894.57",
+  "vat_amount": "187.86",
+  "total": "1082.43"
+}

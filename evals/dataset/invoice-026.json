@@ -1,0 +1,25 @@
+{
+  "document_type": "invoice",
+  "document_number": "F-2025-9363",
+  "issuer_name": "Fábrica Internacionales S.L.N.E",
+  "issuer_tax_id": "B73344814",
+  "issue_date": "2025-11-28",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Escobillas limpiaparabrisas",
+      "quantity": "8",
+      "unit_price": "22.34",
+      "amount": "178.72"
+    },
+    {
+      "description": "Desengrasante (5 L)",
+      "quantity": "5",
+      "unit_price": "34.08",
+      "amount": "170.40"
+    }
+  ],
+  "subtotal": "349.12",
+  "vat_amount": "73.32",
+  "total": "422.44"
+}

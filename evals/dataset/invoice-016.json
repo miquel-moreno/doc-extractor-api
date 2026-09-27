@@ -1,0 +1,61 @@
+{
+  "document_type": "invoice",
+  "document_number": "2025/00673",
+  "issuer_name": "Inmobiliaria Hurtado y asociados S.L.",
+  "issuer_tax_id": "B75471383",
+  "issue_date": "2025-03-07",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Pastillas de freno delanteras",
+      "quantity": "3",
+      "unit_price": "69.36",
+      "amount": "208.08"
+    },
+    {
+      "description": "Aceite motor 5W30 (5 L)",
+      "quantity": "4",
+      "unit_price": "37.58",
+      "amount": "150.32"
+    },
+    {
+      "description": "Batería 12V 70Ah",
+      "quantity": "4",
+      "unit_price": "100.18",
+      "amount": "400.72"
+    },
+    {
+      "description": "Silentblock",
+      "quantity": "6",
+      "unit_price": "11.33",
+      "amount": "67.98"
+    },
+    {
+      "description": "Juego de juntas",
+      "quantity": "5",
+      "unit_price": "13.66",
+      "amount": "68.30"
+    },
+    {
+      "description": "Lámpara H7",
+      "quantity": "8",
+      "unit_price": "4.85",
+      "amount": "38.80"
+    },
+    {
+      "description": "Correa de distribución",
+      "quantity": "11",
+      "unit_price": "85.52",
+      "amount": "940.72"
+    },
+    {
+      "description": "Desengrasante (5 L)",
+      "quantity": "4",
+      "unit_price": "27.99",
+      "amount": "111.96"
+    }
+  ],
+  "subtotal": "1986.88",
+  "vat_amount": "79.48",
+  "total": "2066.36"
+}

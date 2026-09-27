@@ -38,6 +38,24 @@ src/doc_extractor_api/
 | Tolerancia de 1 céntimo por línea y 2 en totales | Las facturas redondean línea a línea; exigir igualdad exacta mandaría a revisión documentos correctos. |
 | Casi todos los campos del esquema son opcionales | Si el LLM no encuentra un campo, el documento no se rechaza: la regla de campos obligatorios lo marca para revisión y la persona ve exactamente qué falta. |
 
+## Datos de prueba
+
+Todos los documentos son **sintéticos** (Faker `es_ES` + reportlab): empresas, personas, direcciones y NIF inventados.
+
+```bash
+uv run python -m scripts.generate_invoices   # regenera evals/dataset/ (semilla 1)
+```
+
+| Tipo | Nº | Variedad |
+|---|---|---|
+| Facturas (PDF) | 30 | 3 diseños: etiquetas distintas ("Base imponible" / "Subtotal" / "Importe neto"), fechas `13/07/2026`, `1 de septiembre de 2026` o `2026-07-13`, importes `1.234,56 €` o `EUR 1234.56`, NIF con o sin prefijo `ES` o guion, emisor en la cabecera o en el pie. IVA del 21, 10 o 4 % |
+| Albaranes (PDF) | 10 | Sin precios, solo cantidades |
+| Pedidos por email (texto) | 10 | Tres formatos de línea; la mitad sin CIF (el extractor debe dejarlo vacío, no inventarlo) |
+
+Cada documento tiene su JSON esperado (`<id>.json`) y `manifest.json` los lista. Los tests comprueban que todos los JSON esperados pasan las reglas de negocio, que los PDF contienen los datos y que la misma semilla produce archivos idénticos byte a byte.
+
+**Decisión:** el dataset se versiona en el repo (≈ 380 KB) en lugar de generarse al vuelo, para que cualquier evaluación, hoy o dentro de meses, se ejecute sobre exactamente los mismos documentos aunque cambie la versión de Faker.
+
 ## Evaluación
 
 _Pendiente._ Resultados en `evals/results/`, con fecha y modelo.

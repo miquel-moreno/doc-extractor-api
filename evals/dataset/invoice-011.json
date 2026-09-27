@@ -1,0 +1,37 @@
+{
+  "document_type": "invoice",
+  "document_number": "2025/08189",
+  "issuer_name": "Cipriano Nicolau Gordillo S.Com.",
+  "issuer_tax_id": "B95677209",
+  "issue_date": "2025-02-08",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Correa de distribución",
+      "quantity": "11",
+      "unit_price": "100.93",
+      "amount": "1110.23"
+    },
+    {
+      "description": "Pastillas de freno delanteras",
+      "quantity": "10",
+      "unit_price": "40.90",
+      "amount": "409.00"
+    },
+    {
+      "description": "Batería 12V 70Ah",
+      "quantity": "8",
+      "unit_price": "88.55",
+      "amount": "708.40"
+    },
+    {
+      "description": "Rodamiento de rueda",
+      "quantity": "11",
+      "unit_price": "51.95",
+      "amount": "571.45"
+    }
+  ],
+  "subtotal": "2799.08",
+  "vat_amount": "587.81",
+  "total": "3386.89"
+}

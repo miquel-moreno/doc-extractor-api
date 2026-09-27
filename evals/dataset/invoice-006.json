@@ -1,0 +1,37 @@
+{
+  "document_type": "invoice",
+  "document_number": "FAC008823",
+  "issuer_name": "Hnos Montesinos S.L.",
+  "issuer_tax_id": "G00957837",
+  "issue_date": "2025-05-13",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Amortiguador trasero",
+      "quantity": "10",
+      "unit_price": "85.41",
+      "amount": "854.10"
+    },
+    {
+      "description": "Filtro de aire",
+      "quantity": "4",
+      "unit_price": "28.67",
+      "amount": "114.68"
+    },
+    {
+      "description": "Lámpara H7",
+      "quantity": "7",
+      "unit_price": "12.93",
+      "amount": "90.51"
+    },
+    {
+      "description": "Correa de distribución",
+      "quantity": "6",
+      "unit_price": "97.89",
+      "amount": "587.34"
+    }
+  ],
+  "subtotal": "1646.63",
+  "vat_amount": "345.79",
+  "total": "1992.42"
+}

@@ -1,0 +1,49 @@
+{
+  "document_type": "invoice",
+  "document_number": "F-2026-8206",
+  "issuer_name": "Domínguez y Domingo S.Coop.",
+  "issuer_tax_id": "B04872230",
+  "issue_date": "2026-07-21",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Neumático 205/55 R16",
+      "quantity": "7",
+      "unit_price": "123.61",
+      "amount": "865.27"
+    },
+    {
+      "description": "Papel de taller (rollo)",
+      "quantity": "9",
+      "unit_price": "23.15",
+      "amount": "208.35"
+    },
+    {
+      "description": "Mano de obra (hora)",
+      "quantity": "2",
+      "unit_price": "42.61",
+      "amount": "85.22"
+    },
+    {
+      "description": "Escobillas limpiaparabrisas",
+      "quantity": "11",
+      "unit_price": "20.14",
+      "amount": "221.54"
+    },
+    {
+      "description": "Líquido de frenos DOT4 (1 L)",
+      "quantity": "2",
+      "unit_price": "13.60",
+      "amount": "27.20"
+    },
+    {
+      "description": "Filtro de aceite",
+      "quantity": "6",
+      "unit_price": "24.34",
+      "amount": "146.04"
+    }
+  ],
+  "subtotal": "1553.62",
+  "vat_amount": "326.26",
+  "total": "1879.88"
+}

@@ -1,0 +1,43 @@
+{
+  "document_type": "delivery_note",
+  "document_number": "ALB-51080",
+  "issuer_name": "Llorente y Pellicer S.Com.",
+  "issuer_tax_id": "G46853867",
+  "issue_date": "2025-12-04",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Aceite motor 5W30 (5 L)",
+      "quantity": "10",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Guantes de nitrilo (caja 100)",
+      "quantity": "3",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Neumático 205/55 R16",
+      "quantity": "6",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Filtro de aire",
+      "quantity": "7",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Rodamiento de rueda",
+      "quantity": "10",
+      "unit_price": null,
+      "amount": null
+    }
+  ],
+  "subtotal": null,
+  "vat_amount": null,
+  "total": null
+}

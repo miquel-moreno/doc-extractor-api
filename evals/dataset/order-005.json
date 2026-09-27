@@ -1,0 +1,49 @@
+{
+  "document_type": "order",
+  "document_number": "PED-6842",
+  "issuer_name": "Desarrollo Benavent S.L.N.E",
+  "issuer_tax_id": null,
+  "issue_date": "2025-11-02",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Correa de distribución",
+      "quantity": "9",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Aceite motor 5W30 (5 L)",
+      "quantity": "2",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Anticongelante (5 L)",
+      "quantity": "3",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Kit de embrague",
+      "quantity": "6",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Guantes de nitrilo (caja 100)",
+      "quantity": "12",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Filtro de aceite",
+      "quantity": "6",
+      "unit_price": null,
+      "amount": null
+    }
+  ],
+  "subtotal": null,
+  "vat_amount": null,
+  "total": null
+}

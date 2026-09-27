@@ -1,0 +1,55 @@
+{
+  "document_type": "delivery_note",
+  "document_number": "ALB-71699",
+  "issuer_name": "Fanny Chaparro Carballo",
+  "issuer_tax_id": "41640051T",
+  "issue_date": "2026-08-17",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Batería 12V 70Ah",
+      "quantity": "4",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Escobillas limpiaparabrisas",
+      "quantity": "2",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Aceite motor 5W30 (5 L)",
+      "quantity": "1",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Anticongelante (5 L)",
+      "quantity": "1",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Lámpara H7",
+      "quantity": "1",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Rodamiento de rueda",
+      "quantity": "8",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Pastillas de freno delanteras",
+      "quantity": "6",
+      "unit_price": null,
+      "amount": null
+    }
+  ],
+  "subtotal": null,
+  "vat_amount": null,
+  "total": null
+}

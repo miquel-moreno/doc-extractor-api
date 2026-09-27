@@ -1,0 +1,43 @@
+{
+  "document_type": "invoice",
+  "document_number": "2025/09677",
+  "issuer_name": "Torrecilla y asociados S.A.T.",
+  "issuer_tax_id": "B45341880",
+  "issue_date": "2025-01-11",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Desengrasante (5 L)",
+      "quantity": "3",
+      "unit_price": "30.92",
+      "amount": "92.76"
+    },
+    {
+      "description": "Amortiguador trasero",
+      "quantity": "5",
+      "unit_price": "79.69",
+      "amount": "398.45"
+    },
+    {
+      "description": "Papel de taller (rollo)",
+      "quantity": "3",
+      "unit_price": "19.56",
+      "amount": "58.68"
+    },
+    {
+      "description": "Juego de juntas",
+      "quantity": "9",
+      "unit_price": "11.85",
+      "amount": "106.65"
+    },
+    {
+      "description": "Líquido de frenos DOT4 (1 L)",
+      "quantity": "5",
+      "unit_price": "11.22",
+      "amount": "56.10"
+    }
+  ],
+  "subtotal": "712.64",
+  "vat_amount": "149.65",
+  "total": "862.29"
+}

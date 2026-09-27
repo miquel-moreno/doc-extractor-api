@@ -1,0 +1,25 @@
+{
+  "document_type": "order",
+  "document_number": "PED-8941",
+  "issuer_name": "Lupe Vallejo Barón",
+  "issuer_tax_id": null,
+  "issue_date": "2025-09-30",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Batería 12V 70Ah",
+      "quantity": "2",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Aceite motor 5W30 (5 L)",
+      "quantity": "11",
+      "unit_price": null,
+      "amount": null
+    }
+  ],
+  "subtotal": null,
+  "vat_amount": null,
+  "total": null
+}

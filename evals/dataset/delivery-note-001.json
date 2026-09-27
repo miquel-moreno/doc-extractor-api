@@ -1,0 +1,31 @@
+{
+  "document_type": "delivery_note",
+  "document_number": "ALB-73093",
+  "issuer_name": "Talleres Llabrés y asociados S.L.",
+  "issuer_tax_id": "A87778015",
+  "issue_date": "2025-02-20",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Líquido de frenos DOT4 (1 L)",
+      "quantity": "12",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Guantes de nitrilo (caja 100)",
+      "quantity": "9",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Mano de obra (hora)",
+      "quantity": "5",
+      "unit_price": null,
+      "amount": null
+    }
+  ],
+  "subtotal": null,
+  "vat_amount": null,
+  "total": null
+}

@@ -1,0 +1,19 @@
+{
+  "document_type": "order",
+  "document_number": "PED-3332",
+  "issuer_name": "Talleres del Sur S.Com.",
+  "issuer_tax_id": "A42208231",
+  "issue_date": "2026-03-15",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Filtro de aire",
+      "quantity": "11",
+      "unit_price": null,
+      "amount": null
+    }
+  ],
+  "subtotal": null,
+  "vat_amount": null,
+  "total": null
+}

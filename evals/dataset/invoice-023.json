@@ -1,0 +1,55 @@
+{
+  "document_type": "invoice",
+  "document_number": "FAC006265",
+  "issuer_name": "Despacho Anglada S.A.",
+  "issuer_tax_id": "B36510352",
+  "issue_date": "2026-05-22",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Desengrasante (5 L)",
+      "quantity": "12",
+      "unit_price": "13.66",
+      "amount": "163.92"
+    },
+    {
+      "description": "Guantes de nitrilo (caja 100)",
+      "quantity": "9",
+      "unit_price": "6.92",
+      "amount": "62.28"
+    },
+    {
+      "description": "Correa de distribución",
+      "quantity": "5",
+      "unit_price": "46.55",
+      "amount": "232.75"
+    },
+    {
+      "description": "Bomba de agua",
+      "quantity": "5",
+      "unit_price": "48.71",
+      "amount": "243.55"
+    },
+    {
+      "description": "Kit de embrague",
+      "quantity": "3",
+      "unit_price": "322.14",
+      "amount": "966.42"
+    },
+    {
+      "description": "Bujía de encendido",
+      "quantity": "11",
+      "unit_price": "5.67",
+      "amount": "62.37"
+    },
+    {
+      "description": "Juego de juntas",
+      "quantity": "8",
+      "unit_price": "44.85",
+      "amount": "358.80"
+    }
+  ],
+  "subtotal": "2090.09",
+  "vat_amount": "83.60",
+  "total": "2173.69"
+}

@@ -1,0 +1,37 @@
+{
+  "document_type": "invoice",
+  "document_number": "FAC008622",
+  "issuer_name": "Osorio y asociados S.Com.",
+  "issuer_tax_id": "G63343750",
+  "issue_date": "2025-10-12",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Escobillas limpiaparabrisas",
+      "quantity": "12",
+      "unit_price": "20.50",
+      "amount": "246.00"
+    },
+    {
+      "description": "Silentblock",
+      "quantity": "12",
+      "unit_price": "14.97",
+      "amount": "179.64"
+    },
+    {
+      "description": "Kit de embrague",
+      "quantity": "8",
+      "unit_price": "323.17",
+      "amount": "2585.36"
+    },
+    {
+      "description": "Amortiguador trasero",
+      "quantity": "11",
+      "unit_price": "83.49",
+      "amount": "918.39"
+    }
+  ],
+  "subtotal": "3929.39",
+  "vat_amount": "825.17",
+  "total": "4754.56"
+}

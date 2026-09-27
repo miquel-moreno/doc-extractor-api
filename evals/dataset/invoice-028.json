@@ -1,0 +1,25 @@
+{
+  "document_type": "invoice",
+  "document_number": "FAC002558",
+  "issuer_name": "Quevedo y asociados S.Coop.",
+  "issuer_tax_id": "B97198162",
+  "issue_date": "2026-08-22",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Lámpara H7",
+      "quantity": "4",
+      "unit_price": "8.95",
+      "amount": "35.80"
+    },
+    {
+      "description": "Mano de obra (hora)",
+      "quantity": "11",
+      "unit_price": "35.85",
+      "amount": "394.35"
+    }
+  ],
+  "subtotal": "430.15",
+  "vat_amount": "90.33",
+  "total": "520.48"
+}
