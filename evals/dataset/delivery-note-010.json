@@ -1,0 +1,37 @@
+{
+  "document_type": "delivery_note",
+  "document_number": "ALB-71687",
+  "issuer_name": "Izaguirre & Asociados S.Coop.",
+  "issuer_tax_id": "G87605887",
+  "issue_date": "2026-02-27",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Desengrasante (5 L)",
+      "quantity": "2",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Juego de juntas",
+      "quantity": "12",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Amortiguador trasero",
+      "quantity": "5",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Papel de taller (rollo)",
+      "quantity": "12",
+      "unit_price": null,
+      "amount": null
+    }
+  ],
+  "subtotal": null,
+  "vat_amount": null,
+  "total": null
+}

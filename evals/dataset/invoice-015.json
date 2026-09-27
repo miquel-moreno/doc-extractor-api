@@ -1,0 +1,55 @@
+{
+  "document_type": "invoice",
+  "document_number": "F-2025-4843",
+  "issuer_name": "Gelabert y Azorin S.Coop.",
+  "issuer_tax_id": "G02440774",
+  "issue_date": "2025-07-12",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Bujía de encendido",
+      "quantity": "7",
+      "unit_price": "11.74",
+      "amount": "82.18"
+    },
+    {
+      "description": "Pastillas de freno delanteras",
+      "quantity": "9",
+      "unit_price": "49.08",
+      "amount": "441.72"
+    },
+    {
+      "description": "Escobillas limpiaparabrisas",
+      "quantity": "9",
+      "unit_price": "18.37",
+      "amount": "165.33"
+    },
+    {
+      "description": "Mano de obra (hora)",
+      "quantity": "12",
+      "unit_price": "54.53",
+      "amount": "654.36"
+    },
+    {
+      "description": "Neumático 205/55 R16",
+      "quantity": "6",
+      "unit_price": "63.20",
+      "amount": "379.20"
+    },
+    {
+      "description": "Guantes de nitrilo (caja 100)",
+      "quantity": "4",
+      "unit_price": "12.67",
+      "amount": "50.68"
+    },
+    {
+      "description": "Desengrasante (5 L)",
+      "quantity": "6",
+      "unit_price": "13.62",
+      "amount": "81.72"
+    }
+  ],
+  "subtotal": "1855.19",
+  "vat_amount": "389.59",
+  "total": "2244.78"
+}

@@ -1,0 +1,55 @@
+{
+  "document_type": "invoice",
+  "document_number": "2025/00310",
+  "issuer_name": "Minería Guerra y asociados S.Coop.",
+  "issuer_tax_id": "B92769876",
+  "issue_date": "2025-07-02",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Juego de juntas",
+      "quantity": "7",
+      "unit_price": "32.49",
+      "amount": "227.43"
+    },
+    {
+      "description": "Bujía de encendido",
+      "quantity": "5",
+      "unit_price": "15.08",
+      "amount": "75.40"
+    },
+    {
+      "description": "Filtro de aire",
+      "quantity": "8",
+      "unit_price": "26.56",
+      "amount": "212.48"
+    },
+    {
+      "description": "Neumático 205/55 R16",
+      "quantity": "1",
+      "unit_price": "87.41",
+      "amount": "87.41"
+    },
+    {
+      "description": "Aceite motor 5W30 (5 L)",
+      "quantity": "6",
+      "unit_price": "32.02",
+      "amount": "192.12"
+    },
+    {
+      "description": "Filtro de habitáculo",
+      "quantity": "5",
+      "unit_price": "18.94",
+      "amount": "94.70"
+    },
+    {
+      "description": "Escobillas limpiaparabrisas",
+      "quantity": "1",
+      "unit_price": "25.06",
+      "amount": "25.06"
+    }
+  ],
+  "subtotal": "914.60",
+  "vat_amount": "36.58",
+  "total": "951.18"
+}

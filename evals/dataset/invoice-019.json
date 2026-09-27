@@ -1,0 +1,31 @@
+{
+  "document_type": "invoice",
+  "document_number": "F-2025-0521",
+  "issuer_name": "Transportes Doménech y asociados S.Coop.",
+  "issuer_tax_id": "B12936407",
+  "issue_date": "2025-07-03",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Anticongelante (5 L)",
+      "quantity": "12",
+      "unit_price": "22.53",
+      "amount": "270.36"
+    },
+    {
+      "description": "Líquido de frenos DOT4 (1 L)",
+      "quantity": "10",
+      "unit_price": "9.00",
+      "amount": "90.00"
+    },
+    {
+      "description": "Pastillas de freno delanteras",
+      "quantity": "3",
+      "unit_price": "41.93",
+      "amount": "125.79"
+    }
+  ],
+  "subtotal": "486.15",
+  "vat_amount": "102.09",
+  "total": "588.24"
+}

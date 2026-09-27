@@ -1,0 +1,31 @@
+{
+  "document_type": "invoice",
+  "document_number": "2025/00388",
+  "issuer_name": "Velasco y asociados S.Com.",
+  "issuer_tax_id": "A30972442",
+  "issue_date": "2025-06-13",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Papel de taller (rollo)",
+      "quantity": "12",
+      "unit_price": "16.03",
+      "amount": "192.36"
+    },
+    {
+      "description": "Aceite motor 5W30 (5 L)",
+      "quantity": "8",
+      "unit_price": "53.77",
+      "amount": "430.16"
+    },
+    {
+      "description": "Guantes de nitrilo (caja 100)",
+      "quantity": "6",
+      "unit_price": "11.08",
+      "amount": "66.48"
+    }
+  ],
+  "subtotal": "689.00",
+  "vat_amount": "144.69",
+  "total": "833.69"
+}

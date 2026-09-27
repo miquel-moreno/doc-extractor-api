@@ -1,0 +1,37 @@
+{
+  "document_type": "invoice",
+  "document_number": "FAC006991",
+  "issuer_name": "Promociones Marqués & Asociados S.Coop.",
+  "issuer_tax_id": "B70618434",
+  "issue_date": "2025-09-17",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Silentblock",
+      "quantity": "1",
+      "unit_price": "24.27",
+      "amount": "24.27"
+    },
+    {
+      "description": "Amortiguador trasero",
+      "quantity": "3",
+      "unit_price": "42.89",
+      "amount": "128.67"
+    },
+    {
+      "description": "Filtro de aceite",
+      "quantity": "12",
+      "unit_price": "9.28",
+      "amount": "111.36"
+    },
+    {
+      "description": "Neumático 205/55 R16",
+      "quantity": "8",
+      "unit_price": "112.72",
+      "amount": "901.76"
+    }
+  ],
+  "subtotal": "1166.06",
+  "vat_amount": "244.87",
+  "total": "1410.93"
+}

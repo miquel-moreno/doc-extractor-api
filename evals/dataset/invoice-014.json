@@ -1,0 +1,37 @@
+{
+  "document_type": "invoice",
+  "document_number": "FAC004846",
+  "issuer_name": "Dimas del Uría",
+  "issuer_tax_id": "55754483E",
+  "issue_date": "2025-03-20",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Rodamiento de rueda",
+      "quantity": "5",
+      "unit_price": "66.23",
+      "amount": "331.15"
+    },
+    {
+      "description": "Filtro de habitáculo",
+      "quantity": "9",
+      "unit_price": "27.94",
+      "amount": "251.46"
+    },
+    {
+      "description": "Aceite motor 5W30 (5 L)",
+      "quantity": "2",
+      "unit_price": "43.75",
+      "amount": "87.50"
+    },
+    {
+      "description": "Correa de distribución",
+      "quantity": "5",
+      "unit_price": "47.65",
+      "amount": "238.25"
+    }
+  ],
+  "subtotal": "908.36",
+  "vat_amount": "190.76",
+  "total": "1099.12"
+}

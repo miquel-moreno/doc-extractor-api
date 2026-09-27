@@ -1,0 +1,49 @@
+{
+  "document_type": "invoice",
+  "document_number": "F-2025-2889",
+  "issuer_name": "Construcción Girona S.Com.",
+  "issuer_tax_id": "B46175154",
+  "issue_date": "2025-02-19",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Bujía de encendido",
+      "quantity": "9",
+      "unit_price": "11.61",
+      "amount": "104.49"
+    },
+    {
+      "description": "Kit de embrague",
+      "quantity": "3",
+      "unit_price": "349.79",
+      "amount": "1049.37"
+    },
+    {
+      "description": "Batería 12V 70Ah",
+      "quantity": "12",
+      "unit_price": "140.32",
+      "amount": "1683.84"
+    },
+    {
+      "description": "Líquido de frenos DOT4 (1 L)",
+      "quantity": "8",
+      "unit_price": "12.08",
+      "amount": "96.64"
+    },
+    {
+      "description": "Guantes de nitrilo (caja 100)",
+      "quantity": "2",
+      "unit_price": "7.26",
+      "amount": "14.52"
+    },
+    {
+      "description": "Silentblock",
+      "quantity": "10",
+      "unit_price": "29.05",
+      "amount": "290.50"
+    }
+  ],
+  "subtotal": "3239.36",
+  "vat_amount": "680.27",
+  "total": "3919.63"
+}

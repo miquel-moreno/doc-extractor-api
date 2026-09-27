@@ -1,0 +1,49 @@
+{
+  "document_type": "invoice",
+  "document_number": "FAC000622",
+  "issuer_name": "Maxi Cabrera Galiano S.L.",
+  "issuer_tax_id": "B86671013",
+  "issue_date": "2026-02-09",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Papel de taller (rollo)",
+      "quantity": "4",
+      "unit_price": "10.97",
+      "amount": "43.88"
+    },
+    {
+      "description": "Guantes de nitrilo (caja 100)",
+      "quantity": "5",
+      "unit_price": "6.72",
+      "amount": "33.60"
+    },
+    {
+      "description": "Amortiguador trasero",
+      "quantity": "2",
+      "unit_price": "65.42",
+      "amount": "130.84"
+    },
+    {
+      "description": "Filtro de aire",
+      "quantity": "5",
+      "unit_price": "14.48",
+      "amount": "72.40"
+    },
+    {
+      "description": "Líquido de frenos DOT4 (1 L)",
+      "quantity": "7",
+      "unit_price": "11.78",
+      "amount": "82.46"
+    },
+    {
+      "description": "Discos de freno (par)",
+      "quantity": "5",
+      "unit_price": "66.36",
+      "amount": "331.80"
+    }
+  ],
+  "subtotal": "694.98",
+  "vat_amount": "145.95",
+  "total": "840.93"
+}

@@ -1,0 +1,49 @@
+{
+  "document_type": "invoice",
+  "document_number": "F-2025-0662",
+  "issuer_name": "Benítez & Asociados S.A.",
+  "issuer_tax_id": "B67498881",
+  "issue_date": "2025-06-10",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Rodamiento de rueda",
+      "quantity": "11",
+      "unit_price": "27.89",
+      "amount": "306.79"
+    },
+    {
+      "description": "Discos de freno (par)",
+      "quantity": "7",
+      "unit_price": "134.72",
+      "amount": "943.04"
+    },
+    {
+      "description": "Anticongelante (5 L)",
+      "quantity": "6",
+      "unit_price": "29.15",
+      "amount": "174.90"
+    },
+    {
+      "description": "Amortiguador trasero",
+      "quantity": "11",
+      "unit_price": "83.77",
+      "amount": "921.47"
+    },
+    {
+      "description": "Batería 12V 70Ah",
+      "quantity": "8",
+      "unit_price": "142.91",
+      "amount": "1143.28"
+    },
+    {
+      "description": "Aceite motor 5W30 (5 L)",
+      "quantity": "9",
+      "unit_price": "34.61",
+      "amount": "311.49"
+    }
+  ],
+  "subtotal": "3800.97",
+  "vat_amount": "798.20",
+  "total": "4599.17"
+}

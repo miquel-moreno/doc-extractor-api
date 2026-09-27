@@ -1,0 +1,43 @@
+{
+  "document_type": "invoice",
+  "document_number": "2025/02414",
+  "issuer_name": "Renata Santana Alba S.Com.",
+  "issuer_tax_id": "B27942887",
+  "issue_date": "2025-10-02",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Correa de distribución",
+      "quantity": "10",
+      "unit_price": "110.08",
+      "amount": "1100.80"
+    },
+    {
+      "description": "Anticongelante (5 L)",
+      "quantity": "3",
+      "unit_price": "23.87",
+      "amount": "71.61"
+    },
+    {
+      "description": "Pastillas de freno delanteras",
+      "quantity": "9",
+      "unit_price": "88.09",
+      "amount": "792.81"
+    },
+    {
+      "description": "Líquido de frenos DOT4 (1 L)",
+      "quantity": "2",
+      "unit_price": "9.28",
+      "amount": "18.56"
+    },
+    {
+      "description": "Neumático 205/55 R16",
+      "quantity": "1",
+      "unit_price": "88.30",
+      "amount": "88.30"
+    }
+  ],
+  "subtotal": "2072.08",
+  "vat_amount": "435.14",
+  "total": "2507.22"
+}

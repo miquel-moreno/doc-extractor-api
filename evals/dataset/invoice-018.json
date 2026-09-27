@@ -1,0 +1,19 @@
+{
+  "document_type": "invoice",
+  "document_number": "F-2025-2527",
+  "issuer_name": "Chita Serrano",
+  "issuer_tax_id": "63925147M",
+  "issue_date": "2025-03-18",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Líquido de frenos DOT4 (1 L)",
+      "quantity": "6",
+      "unit_price": "11.05",
+      "amount": "66.30"
+    }
+  ],
+  "subtotal": "66.30",
+  "vat_amount": "13.92",
+  "total": "80.22"
+}

@@ -1,0 +1,25 @@
+{
+  "document_type": "invoice",
+  "document_number": "2025/00334",
+  "issuer_name": "Familia Alcalde S.Coop.",
+  "issuer_tax_id": "B97141196",
+  "issue_date": "2025-09-09",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Juego de juntas",
+      "quantity": "10",
+      "unit_price": "43.07",
+      "amount": "430.70"
+    },
+    {
+      "description": "Silentblock",
+      "quantity": "10",
+      "unit_price": "11.77",
+      "amount": "117.70"
+    }
+  ],
+  "subtotal": "548.40",
+  "vat_amount": "115.16",
+  "total": "663.56"
+}

@@ -1,0 +1,355 @@
+{
+  "seed": 1,
+  "documents": [
+    {
+      "id": "invoice-001",
+      "file": "invoice-001.pdf",
+      "expected": "invoice-001.json",
+      "document_type": "invoice",
+      "layout": "classic"
+    },
+    {
+      "id": "invoice-002",
+      "file": "invoice-002.pdf",
+      "expected": "invoice-002.json",
+      "document_type": "invoice",
+      "layout": "compact"
+    },
+    {
+      "id": "invoice-003",
+      "file": "invoice-003.pdf",
+      "expected": "invoice-003.json",
+      "document_type": "invoice",
+      "layout": "modern"
+    },
+    {
+      "id": "invoice-004",
+      "file": "invoice-004.pdf",
+      "expected": "invoice-004.json",
+      "document_type": "invoice",
+      "layout": "classic"
+    },
+    {
+      "id": "invoice-005",
+      "file": "invoice-005.pdf",
+      "expected": "invoice-005.json",
+      "document_type": "invoice",
+      "layout": "compact"
+    },
+    {
+      "id": "invoice-006",
+      "file": "invoice-006.pdf",
+      "expected": "invoice-006.json",
+      "document_type": "invoice",
+      "layout": "modern"
+    },
+    {
+      "id": "invoice-007",
+      "file": "invoice-007.pdf",
+      "expected": "invoice-007.json",
+      "document_type": "invoice",
+      "layout": "classic"
+    },
+    {
+      "id": "invoice-008",
+      "file": "invoice-008.pdf",
+      "expected": "invoice-008.json",
+      "document_type": "invoice",
+      "layout": "compact"
+    },
+    {
+      "id": "invoice-009",
+      "file": "invoice-009.pdf",
+      "expected": "invoice-009.json",
+      "document_type": "invoice",
+      "layout": "modern"
+    },
+    {
+      "id": "invoice-010",
+      "file": "invoice-010.pdf",
+      "expected": "invoice-010.json",
+      "document_type": "invoice",
+      "layout": "classic"
+    },
+    {
+      "id": "invoice-011",
+      "file": "invoice-011.pdf",
+      "expected": "invoice-011.json",
+      "document_type": "invoice",
+      "layout": "compact"
+    },
+    {
+      "id": "invoice-012",
+      "file": "invoice-012.pdf",
+      "expected": "invoice-012.json",
+      "document_type": "invoice",
+      "layout": "modern"
+    },
+    {
+      "id": "invoice-013",
+      "file": "invoice-013.pdf",
+      "expected": "invoice-013.json",
+      "document_type": "invoice",
+      "layout": "classic"
+    },
+    {
+      "id": "invoice-014",
+      "file": "invoice-014.pdf",
+      "expected": "invoice-014.json",
+      "document_type": "invoice",
+      "layout": "compact"
+    },
+    {
+      "id": "invoice-015",
+      "file": "invoice-015.pdf",
+      "expected": "invoice-015.json",
+      "document_type": "invoice",
+      "layout": "modern"
+    },
+    {
+      "id": "invoice-016",
+      "file": "invoice-016.pdf",
+      "expected": "invoice-016.json",
+      "document_type": "invoice",
+      "layout": "classic"
+    },
+    {
+      "id": "invoice-017",
+      "file": "invoice-017.pdf",
+      "expected": "invoice-017.json",
+      "document_type": "invoice",
+      "layout": "compact"
+    },
+    {
+      "id": "invoice-018",
+      "file": "invoice-018.pdf",
+      "expected": "invoice-018.json",
+      "document_type": "invoice",
+      "layout": "modern"
+    },
+    {
+      "id": "invoice-019",
+      "file": "invoice-019.pdf",
+      "expected": "invoice-019.json",
+      "document_type": "invoice",
+      "layout": "classic"
+    },
+    {
+      "id": "invoice-020",
+      "file": "invoice-020.pdf",
+      "expected": "invoice-020.json",
+      "document_type": "invoice",
+      "layout": "compact"
+    },
+    {
+      "id": "invoice-021",
+      "file": "invoice-021.pdf",
+      "expected": "invoice-021.json",
+      "document_type": "invoice",
+      "layout": "modern"
+    },
+    {
+      "id": "invoice-022",
+      "file": "invoice-022.pdf",
+      "expected": "invoice-022.json",
+      "document_type": "invoice",
+      "layout": "classic"
+    },
+    {
+      "id": "invoice-023",
+      "file": "invoice-023.pdf",
+      "expected": "invoice-023.json",
+      "document_type": "invoice",
+      "layout": "compact"
+    },
+    {
+      "id": "invoice-024",
+      "file": "invoice-024.pdf",
+      "expected": "invoice-024.json",
+      "document_type": "invoice",
+      "layout": "modern"
+    },
+    {
+      "id": "invoice-025",
+      "file": "invoice-025.pdf",
+      "expected": "invoice-025.json",
+      "document_type": "invoice",
+      "layout": "classic"
+    },
+    {
+      "id": "invoice-026",
+      "file": "invoice-026.pdf",
+      "expected": "invoice-026.json",
+      "document_type": "invoice",
+      "layout": "compact"
+    },
+    {
+      "id": "invoice-027",
+      "file": "invoice-027.pdf",
+      "expected": "invoice-027.json",
+      "document_type": "invoice",
+      "layout": "modern"
+    },
+    {
+      "id": "invoice-028",
+      "file": "invoice-028.pdf",
+      "expected": "invoice-028.json",
+      "document_type": "invoice",
+      "layout": "classic"
+    },
+    {
+      "id": "invoice-029",
+      "file": "invoice-029.pdf",
+      "expected": "invoice-029.json",
+      "document_type": "invoice",
+      "layout": "compact"
+    },
+    {
+      "id": "invoice-030",
+      "file": "invoice-030.pdf",
+      "expected": "invoice-030.json",
+      "document_type": "invoice",
+      "layout": "modern"
+    },
+    {
+      "id": "delivery-note-001",
+      "file": "delivery-note-001.pdf",
+      "expected": "delivery-note-001.json",
+      "document_type": "delivery_note",
+      "layout": "delivery_note"
+    },
+    {
+      "id": "delivery-note-002",
+      "file": "delivery-note-002.pdf",
+      "expected": "delivery-note-002.json",
+      "document_type": "delivery_note",
+      "layout": "delivery_note"
+    },
+    {
+      "id": "delivery-note-003",
+      "file": "delivery-note-003.pdf",
+      "expected": "delivery-note-003.json",
+      "document_type": "delivery_note",
+      "layout": "delivery_note"
+    },
+    {
+      "id": "delivery-note-004",
+      "file": "delivery-note-004.pdf",
+      "expected": "delivery-note-004.json",
+      "document_type": "delivery_note",
+      "layout": "delivery_note"
+    },
+    {
+      "id": "delivery-note-005",
+      "file": "delivery-note-005.pdf",
+      "expected": "delivery-note-005.json",
+      "document_type": "delivery_note",
+      "layout": "delivery_note"
+    },
+    {
+      "id": "delivery-note-006",
+      "file": "delivery-note-006.pdf",
+      "expected": "delivery-note-006.json",
+      "document_type": "delivery_note",
+      "layout": "delivery_note"
+    },
+    {
+      "id": "delivery-note-007",
+      "file": "delivery-note-007.pdf",
+      "expected": "delivery-note-007.json",
+      "document_type": "delivery_note",
+      "layout": "delivery_note"
+    },
+    {
+      "id": "delivery-note-008",
+      "file": "delivery-note-008.pdf",
+      "expected": "delivery-note-008.json",
+      "document_type": "delivery_note",
+      "layout": "delivery_note"
+    },
+    {
+      "id": "delivery-note-009",
+      "file": "delivery-note-009.pdf",
+      "expected": "delivery-note-009.json",
+      "document_type": "delivery_note",
+      "layout": "delivery_note"
+    },
+    {
+      "id": "delivery-note-010",
+      "file": "delivery-note-010.pdf",
+      "expected": "delivery-note-010.json",
+      "document_type": "delivery_note",
+      "layout": "delivery_note"
+    },
+    {
+      "id": "order-001",
+      "file": "order-001.txt",
+      "expected": "order-001.json",
+      "document_type": "order",
+      "layout": "email"
+    },
+    {
+      "id": "order-002",
+      "file": "order-002.txt",
+      "expected": "order-002.json",
+      "document_type": "order",
+      "layout": "email"
+    },
+    {
+      "id": "order-003",
+      "file": "order-003.txt",
+      "expected": "order-003.json",
+      "document_type": "order",
+      "layout": "email"
+    },
+    {
+      "id": "order-004",
+      "file": "order-004.txt",
+      "expected": "order-004.json",
+      "document_type": "order",
+      "layout": "email"
+    },
+    {
+      "id": "order-005",
+      "file": "order-005.txt",
+      "expected": "order-005.json",
+      "document_type": "order",
+      "layout": "email"
+    },
+    {
+      "id": "order-006",
+      "file": "order-006.txt",
+      "expected": "order-006.json",
+      "document_type": "order",
+      "layout": "email"
+    },
+    {
+      "id": "order-007",
+      "file": "order-007.txt",
+      "expected": "order-007.json",
+      "document_type": "order",
+      "layout": "email"
+    },
+    {
+      "id": "order-008",
+      "file": "order-008.txt",
+      "expected": "order-008.json",
+      "document_type": "order",
+      "layout": "email"
+    },
+    {
+      "id": "order-009",
+      "file": "order-009.txt",
+      "expected": "order-009.json",
+      "document_type": "order",
+      "layout": "email"
+    },
+    {
+      "id": "order-010",
+      "file": "order-010.txt",
+      "expected": "order-010.json",
+      "document_type": "order",
+      "layout": "email"
+    }
+  ]
+}

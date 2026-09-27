@@ -1,0 +1,19 @@
+De: Lorena <alvaro30@example.com>
+Para: Infraestructuras Acevedo S.L. <pedidos@example.com>
+Fecha: 25 de enero de 2026
+Asunto: Pedido PED-5967
+
+Hola,
+
+Os paso el pedido PED-5967:
+
+- 3 unidades de Rodamiento de rueda
+- 1 unidades de Filtro de aire
+
+Por favor, confirmadme el plazo de entrega.
+
+Un saludo,
+Lorena
+Desarrollo Calderón S.A.
+CIF: B11550464
+Plaza de Luis Ángel Calderón 557, Almería, 21683

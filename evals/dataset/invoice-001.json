@@ -1,0 +1,25 @@
+{
+  "document_type": "invoice",
+  "document_number": "F-2026-7298",
+  "issuer_name": "Roselló y Abril S.L.",
+  "issuer_tax_id": "A42793489",
+  "issue_date": "2026-01-24",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Lámpara H7",
+      "quantity": "7",
+      "unit_price": "11.86",
+      "amount": "83.02"
+    },
+    {
+      "description": "Filtro de aceite",
+      "quantity": "10",
+      "unit_price": "21.61",
+      "amount": "216.10"
+    }
+  ],
+  "subtotal": "299.12",
+  "vat_amount": "62.82",
+  "total": "361.94"
+}

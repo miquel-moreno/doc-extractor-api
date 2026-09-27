@@ -1,0 +1,55 @@
+{
+  "document_type": "order",
+  "document_number": "PED-5925",
+  "issuer_name": "Pujadas y Lladó S.Coop.",
+  "issuer_tax_id": null,
+  "issue_date": "2026-01-15",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Líquido de frenos DOT4 (1 L)",
+      "quantity": "1",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Escobillas limpiaparabrisas",
+      "quantity": "3",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Silentblock",
+      "quantity": "5",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Anticongelante (5 L)",
+      "quantity": "11",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Juego de juntas",
+      "quantity": "4",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Kit de embrague",
+      "quantity": "10",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Bujía de encendido",
+      "quantity": "3",
+      "unit_price": null,
+      "amount": null
+    }
+  ],
+  "subtotal": null,
+  "vat_amount": null,
+  "total": null
+}

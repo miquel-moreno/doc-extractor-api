@@ -1,0 +1,31 @@
+{
+  "document_type": "invoice",
+  "document_number": "FAC004608",
+  "issuer_name": "Suministros Ibérica S.Coop.",
+  "issuer_tax_id": "B55555643",
+  "issue_date": "2025-07-01",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Filtro de habitáculo",
+      "quantity": "1",
+      "unit_price": "26.23",
+      "amount": "26.23"
+    },
+    {
+      "description": "Juego de juntas",
+      "quantity": "11",
+      "unit_price": "12.88",
+      "amount": "141.68"
+    },
+    {
+      "description": "Aceite motor 5W30 (5 L)",
+      "quantity": "2",
+      "unit_price": "25.68",
+      "amount": "51.36"
+    }
+  ],
+  "subtotal": "219.27",
+  "vat_amount": "46.05",
+  "total": "265.32"
+}

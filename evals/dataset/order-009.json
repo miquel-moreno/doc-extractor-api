@@ -1,0 +1,55 @@
+{
+  "document_type": "order",
+  "document_number": "PED-2841",
+  "issuer_name": "Banco BFRW S.L.",
+  "issuer_tax_id": null,
+  "issue_date": "2026-06-08",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Filtro de aceite",
+      "quantity": "10",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Rodamiento de rueda",
+      "quantity": "8",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Correa de distribución",
+      "quantity": "4",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Lámpara H7",
+      "quantity": "7",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Líquido de frenos DOT4 (1 L)",
+      "quantity": "8",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Neumático 205/55 R16",
+      "quantity": "11",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Batería 12V 70Ah",
+      "quantity": "6",
+      "unit_price": null,
+      "amount": null
+    }
+  ],
+  "subtotal": null,
+  "vat_amount": null,
+  "total": null
+}

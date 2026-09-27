@@ -1,0 +1,55 @@
+{
+  "document_type": "order",
+  "document_number": "PED-4977",
+  "issuer_name": "Grupo Albero S.A.",
+  "issuer_tax_id": null,
+  "issue_date": "2025-04-07",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Neumático 205/55 R16",
+      "quantity": "7",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Kit de embrague",
+      "quantity": "10",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Juego de juntas",
+      "quantity": "8",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Batería 12V 70Ah",
+      "quantity": "2",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Anticongelante (5 L)",
+      "quantity": "3",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Silentblock",
+      "quantity": "11",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Desengrasante (5 L)",
+      "quantity": "8",
+      "unit_price": null,
+      "amount": null
+    }
+  ],
+  "subtotal": null,
+  "vat_amount": null,
+  "total": null
+}

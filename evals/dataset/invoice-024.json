@@ -1,0 +1,61 @@
+{
+  "document_type": "invoice",
+  "document_number": "FAC002432",
+  "issuer_name": "Gema Murcia Leal",
+  "issuer_tax_id": "68105752S",
+  "issue_date": "2025-05-10",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Batería 12V 70Ah",
+      "quantity": "5",
+      "unit_price": "100.33",
+      "amount": "501.65"
+    },
+    {
+      "description": "Pastillas de freno delanteras",
+      "quantity": "7",
+      "unit_price": "86.40",
+      "amount": "604.80"
+    },
+    {
+      "description": "Amortiguador trasero",
+      "quantity": "9",
+      "unit_price": "40.32",
+      "amount": "362.88"
+    },
+    {
+      "description": "Silentblock",
+      "quantity": "4",
+      "unit_price": "29.64",
+      "amount": "118.56"
+    },
+    {
+      "description": "Juego de juntas",
+      "quantity": "8",
+      "unit_price": "33.71",
+      "amount": "269.68"
+    },
+    {
+      "description": "Papel de taller (rollo)",
+      "quantity": "1",
+      "unit_price": "10.63",
+      "amount": "10.63"
+    },
+    {
+      "description": "Desengrasante (5 L)",
+      "quantity": "11",
+      "unit_price": "21.92",
+      "amount": "241.12"
+    },
+    {
+      "description": "Líquido de frenos DOT4 (1 L)",
+      "quantity": "5",
+      "unit_price": "8.11",
+      "amount": "40.55"
+    }
+  ],
+  "subtotal": "2149.87",
+  "vat_amount": "451.47",
+  "total": "2601.34"
+}

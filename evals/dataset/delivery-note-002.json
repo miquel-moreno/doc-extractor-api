@@ -1,0 +1,49 @@
+{
+  "document_type": "delivery_note",
+  "document_number": "ALB-63390",
+  "issuer_name": "Fábrica Conde S.A.T.",
+  "issuer_tax_id": "G38942249",
+  "issue_date": "2025-09-23",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Desengrasante (5 L)",
+      "quantity": "10",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Neumático 205/55 R16",
+      "quantity": "7",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Aceite motor 5W30 (5 L)",
+      "quantity": "6",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Silentblock",
+      "quantity": "7",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Mano de obra (hora)",
+      "quantity": "4",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Filtro de aceite",
+      "quantity": "5",
+      "unit_price": null,
+      "amount": null
+    }
+  ],
+  "subtotal": null,
+  "vat_amount": null,
+  "total": null
+}

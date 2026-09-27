@@ -1,0 +1,61 @@
+{
+  "document_type": "delivery_note",
+  "document_number": "ALB-17037",
+  "issuer_name": "Bayón y asociados S.Coop.",
+  "issuer_tax_id": "G91029066",
+  "issue_date": "2025-03-23",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Guantes de nitrilo (caja 100)",
+      "quantity": "1",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Líquido de frenos DOT4 (1 L)",
+      "quantity": "5",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Filtro de aceite",
+      "quantity": "2",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Filtro de aire",
+      "quantity": "7",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Juego de juntas",
+      "quantity": "2",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Mano de obra (hora)",
+      "quantity": "4",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Kit de embrague",
+      "quantity": "1",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Discos de freno (par)",
+      "quantity": "8",
+      "unit_price": null,
+      "amount": null
+    }
+  ],
+  "subtotal": null,
+  "vat_amount": null,
+  "total": null
+}

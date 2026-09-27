@@ -1,0 +1,37 @@
+{
+  "document_type": "invoice",
+  "document_number": "FAC008979",
+  "issuer_name": "Valderrama y asociados S.A.",
+  "issuer_tax_id": "B99519712",
+  "issue_date": "2025-06-22",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Filtro de aceite",
+      "quantity": "7",
+      "unit_price": "16.52",
+      "amount": "115.64"
+    },
+    {
+      "description": "Batería 12V 70Ah",
+      "quantity": "6",
+      "unit_price": "158.02",
+      "amount": "948.12"
+    },
+    {
+      "description": "Juego de juntas",
+      "quantity": "10",
+      "unit_price": "24.47",
+      "amount": "244.70"
+    },
+    {
+      "description": "Neumático 205/55 R16",
+      "quantity": "8",
+      "unit_price": "129.52",
+      "amount": "1036.16"
+    }
+  ],
+  "subtotal": "2344.62",
+  "vat_amount": "492.37",
+  "total": "2836.99"
+}

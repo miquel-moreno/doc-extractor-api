@@ -1,0 +1,49 @@
+{
+  "document_type": "invoice",
+  "document_number": "FAC006124",
+  "issuer_name": "Angélica Pellicer Cabezas S.L.U.",
+  "issuer_tax_id": "B52199908",
+  "issue_date": "2025-06-22",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Lámpara H7",
+      "quantity": "4",
+      "unit_price": "8.81",
+      "amount": "35.24"
+    },
+    {
+      "description": "Amortiguador trasero",
+      "quantity": "2",
+      "unit_price": "106.15",
+      "amount": "212.30"
+    },
+    {
+      "description": "Pastillas de freno delanteras",
+      "quantity": "1",
+      "unit_price": "34.67",
+      "amount": "34.67"
+    },
+    {
+      "description": "Batería 12V 70Ah",
+      "quantity": "10",
+      "unit_price": "141.21",
+      "amount": "1412.10"
+    },
+    {
+      "description": "Rodamiento de rueda",
+      "quantity": "1",
+      "unit_price": "64.66",
+      "amount": "64.66"
+    },
+    {
+      "description": "Bomba de agua",
+      "quantity": "5",
+      "unit_price": "57.37",
+      "amount": "286.85"
+    }
+  ],
+  "subtotal": "2045.82",
+  "vat_amount": "429.62",
+  "total": "2475.44"
+}

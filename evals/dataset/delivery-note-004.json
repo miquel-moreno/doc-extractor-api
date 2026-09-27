@@ -1,0 +1,43 @@
+{
+  "document_type": "delivery_note",
+  "document_number": "ALB-15183",
+  "issuer_name": "Hotel OKVG S.A.",
+  "issuer_tax_id": "G73934069",
+  "issue_date": "2025-07-31",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Filtro de habitáculo",
+      "quantity": "8",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Pastillas de freno delanteras",
+      "quantity": "2",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Neumático 205/55 R16",
+      "quantity": "3",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Bomba de agua",
+      "quantity": "1",
+      "unit_price": null,
+      "amount": null
+    },
+    {
+      "description": "Anticongelante (5 L)",
+      "quantity": "1",
+      "unit_price": null,
+      "amount": null
+    }
+  ],
+  "subtotal": null,
+  "vat_amount": null,
+  "total": null
+}

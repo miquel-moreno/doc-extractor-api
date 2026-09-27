@@ -1,0 +1,61 @@
+{
+  "document_type": "invoice",
+  "document_number": "2025/00485",
+  "issuer_name": "Samu Gras Elorza",
+  "issuer_tax_id": "66654242N",
+  "issue_date": "2025-11-07",
+  "currency": "EUR",
+  "lines": [
+    {
+      "description": "Kit de embrague",
+      "quantity": "11",
+      "unit_price": "176.69",
+      "amount": "1943.59"
+    },
+    {
+      "description": "Bomba de agua",
+      "quantity": "6",
+      "unit_price": "124.91",
+      "amount": "749.46"
+    },
+    {
+      "description": "Rodamiento de rueda",
+      "quantity": "12",
+      "unit_price": "50.69",
+      "amount": "608.28"
+    },
+    {
+      "description": "Filtro de aire",
+      "quantity": "2",
+      "unit_price": "25.97",
+      "amount": "51.94"
+    },
+    {
+      "description": "Lámpara H7",
+      "quantity": "11",
+      "unit_price": "13.41",
+      "amount": "147.51"
+    },
+    {
+      "description": "Neumático 205/55 R16",
+      "quantity": "2",
+      "unit_price": "118.77",
+      "amount": "237.54"
+    },
+    {
+      "description": "Desengrasante (5 L)",
+      "quantity": "3",
+      "unit_price": "33.33",
+      "amount": "99.99"
+    },
+    {
+      "description": "Amortiguador trasero",
+      "quantity": "7",
+      "unit_price": "70.35",
+      "amount": "492.45"
+    }
+  ],
+  "subtotal": "4330.76",
+  "vat_amount": "909.46",
+  "total": "5240.22"
+}
