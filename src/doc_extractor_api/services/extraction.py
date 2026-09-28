@@ -32,6 +32,8 @@ the customer or the recipient.
 the order, usually in the signature, not the first name of whoever writes the email.
 - issuer_tax_id: the issuer's Spanish NIF, NIE or CIF, without spaces, dots, dashes \
 or the "ES" prefix.
+- document_number: only the identifier, without labels ("Factura nº F-2026-0001" \
+-> "F-2026-0001", "Albarán Nº ALB-00012" -> "ALB-00012").
 - issue_date: format YYYY-MM-DD.
 - Amounts: plain numbers with a dot as decimal separator and no currency symbol \
 ("1.234,56 €" -> 1234.56, "EUR 1234.56" -> 1234.56).
