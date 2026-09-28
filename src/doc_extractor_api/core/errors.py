@@ -20,6 +20,26 @@ class NotFoundError(AppError):
     code = "not_found"
 
 
+class PayloadTooLargeError(AppError):
+    status_code = 413
+    code = "payload_too_large"
+
+
+class UnsupportedMediaTypeError(AppError):
+    status_code = 415
+    code = "unsupported_media_type"
+
+
+class UnprocessableDocumentError(AppError):
+    status_code = 422
+    code = "unprocessable_document"
+
+
+class ServiceUnavailableError(AppError):
+    status_code = 503
+    code = "service_unavailable"
+
+
 async def _app_error_handler(_: Request, exc: Exception) -> JSONResponse:
     if not isinstance(exc, AppError):  # pragma: no cover - registered only for AppError
         raise exc

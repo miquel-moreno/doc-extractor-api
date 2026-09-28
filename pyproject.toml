@@ -16,6 +16,8 @@ dependencies = [
     "alembic>=1.14",
     "psycopg[binary]>=3.2",
     "asyncpg>=0.30",
+    "pypdf>=6.0",
+    "python-multipart>=0.0.20",
 ]
 
 [dependency-groups]
@@ -24,7 +26,6 @@ dev = [
     "faker>=40.39.0",
     "mypy>=1.13",
     "pre-commit>=4.0",
-    "pypdf>=6.19.0",
     "pytest>=8.3",
     "pytest-asyncio>=0.24",
     "pytest-cov>=6.0",
@@ -67,6 +68,8 @@ addopts = "-q"
 [tool.coverage.run]
 source = ["src/doc_extractor_api"]
 branch = true
+# SQLAlchemy async runs code inside greenlets; without this, lines after an await are missed.
+concurrency = ["thread", "greenlet"]
 
 [tool.coverage.report]
 show_missing = true
