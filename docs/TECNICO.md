@@ -48,6 +48,7 @@ Cabeceras: `X-Webhook-Signature: sha256=<HMAC-SHA256 del cuerpo con WEBHOOK_SECR
 ```python
 import hashlib, hmac
 
+
 def is_valid(raw_body: bytes, secret: str, header: str) -> bool:
     expected = "sha256=" + hmac.new(secret.encode(), raw_body, hashlib.sha256).hexdigest()
     return hmac.compare_digest(expected, header)
