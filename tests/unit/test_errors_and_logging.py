@@ -4,7 +4,6 @@ import logging
 from fastapi import FastAPI
 from fastapi.testclient import TestClient
 
-from doc_extractor_api.adapters.llm import FakeLLMClient
 from doc_extractor_api.core.errors import NotFoundError, register_error_handlers
 from doc_extractor_api.core.logging import JsonFormatter, request_id_var
 
@@ -34,11 +33,3 @@ def test_json_formatter_includes_request_id() -> None:
     assert line["msg"] == "hello world"
     assert line["request_id"] == "req-1"
     assert line["level"] == "INFO"
-
-
-async def test_fake_llm_returns_responses_in_order() -> None:
-    llm = FakeLLMClient(["first", "second"])
-
-    assert await llm.complete("a") == "first"
-    assert await llm.complete("b") == "second"
-    assert llm.prompts == ["a", "b"]

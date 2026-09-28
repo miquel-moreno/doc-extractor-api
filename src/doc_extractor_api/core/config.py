@@ -14,8 +14,10 @@ class Settings(BaseSettings):
     log_level: str = "INFO"
 
     llm_provider: Literal["openai", "anthropic", "ollama"] = "ollama"
-    llm_model: str = "llama3.2"
+    llm_model: str = "qwen2.5:3b"
+    llm_timeout_seconds: float = 120.0
     openai_api_key: SecretStr | None = None
+    openai_base_url: str = "https://api.openai.com/v1"
     anthropic_api_key: SecretStr | None = None
     ollama_base_url: str = "http://localhost:11434"
 
