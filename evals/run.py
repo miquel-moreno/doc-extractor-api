@@ -7,7 +7,7 @@ provider and model from .env unless given here:
     uv run python -m evals.run --provider openai --model gpt-4.1-mini
     uv run python -m evals.run --provider ollama --model qwen2.5:3b --limit 5
 
-Results go to evals/results/<date>_<model>.json.
+Results go to evals/results/<UTC date and time>_<model>.json (one file per run).
 """
 
 import argparse
@@ -165,7 +165,8 @@ async def main() -> int:
 
     RESULTS.mkdir(exist_ok=True)
     safe_model = re.sub(r"[^A-Za-z0-9._-]", "-", model or settings.llm_model)
-    out = RESULTS / f"{date.today().isoformat()}_{safe_model}.json"
+    stamp = datetime.now(UTC).strftime("%Y-%m-%dT%H%MZ")
+    out = RESULTS / f"{stamp}_{safe_model}.json"
     payload = {
         "run_at": datetime.now(UTC).isoformat(timespec="seconds"),
         "provider": settings.llm_provider,

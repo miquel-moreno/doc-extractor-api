@@ -1,0 +1,1761 @@
+{
+  "run_at": "2026-09-28T13:16:05+00:00",
+  "provider": "openai",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "dataset_seed": 1,
+  "limit": null,
+  "summary": {
+    "documents": 50,
+    "perfect": 49,
+    "perfect_pct": 98.0,
+    "field_accuracy_pct": {
+      "document_type": 100.0,
+      "document_number": 100.0,
+      "issuer_name": 98.0,
+      "issuer_tax_id": 100.0,
+      "issue_date": 100.0,
+      "subtotal": 100.0,
+      "vat_amount": 100.0,
+      "total": 100.0,
+      "lines": 100.0
+    },
+    "by_type": {
+      "delivery_note": {
+        "documents": 10,
+        "perfect": 10
+      },
+      "invoice": {
+        "documents": 30,
+        "perfect": 30
+      },
+      "order": {
+        "documents": 10,
+        "perfect": 9
+      }
+    },
+    "wrong_documents": 1,
+    "wrong_sent_to_review": 1,
+    "wrong_marked_valid": 0,
+    "correct_sent_to_review": 0,
+    "extraction_failures": 0,
+    "retried": 0,
+    "seconds_per_document_mean": 3.24,
+    "seconds_per_document_median": 3.12,
+    "input_tokens": 42895,
+    "output_tokens": 11120,
+    "cost_usd": 0.035
+  },
+  "documents": [
+    {
+      "id": "invoice-001",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 3.6,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-002",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 2.16,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-003",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 4.36,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-004",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 4.89,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-005",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 3.87,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-006",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 2.96,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-007",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 2.4,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-008",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 2.71,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-009",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 2.89,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-010",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 3.65,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-011",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 3.08,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-012",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 3.64,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-013",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 2.86,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-014",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 2.69,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-015",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 4.62,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-016",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 4.55,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-017",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 2.41,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-018",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 2.35,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-019",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 3.87,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-020",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 3.62,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-021",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 3.26,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-022",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 3.32,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-023",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 3.44,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-024",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 3.73,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-025",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 3.59,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-026",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 2.23,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-027",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 2.71,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-028",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 2.47,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-029",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 2.88,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-030",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 2.7,
+      "attempts": 1
+    },
+    {
+      "id": "delivery-note-001",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 2.81,
+      "attempts": 1
+    },
+    {
+      "id": "delivery-note-002",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 2.97,
+      "attempts": 1
+    },
+    {
+      "id": "delivery-note-003",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 2.17,
+      "attempts": 1
+    },
+    {
+      "id": "delivery-note-004",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 3.17,
+      "attempts": 1
+    },
+    {
+      "id": "delivery-note-005",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 4.08,
+      "attempts": 1
+    },
+    {
+      "id": "delivery-note-006",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 4.59,
+      "attempts": 1
+    },
+    {
+      "id": "delivery-note-007",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 2.62,
+      "attempts": 1
+    },
+    {
+      "id": "delivery-note-008",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 3.42,
+      "attempts": 1
+    },
+    {
+      "id": "delivery-note-009",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 2.9,
+      "attempts": 1
+    },
+    {
+      "id": "delivery-note-010",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 2.41,
+      "attempts": 1
+    },
+    {
+      "id": "order-001",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 1.64,
+      "attempts": 1
+    },
+    {
+      "id": "order-002",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 3.57,
+      "attempts": 1
+    },
+    {
+      "id": "order-003",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 3.55,
+      "attempts": 1
+    },
+    {
+      "id": "order-004",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 2.72,
+      "attempts": 1
+    },
+    {
+      "id": "order-005",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 4.42,
+      "attempts": 1
+    },
+    {
+      "id": "order-006",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 1.97,
+      "attempts": 1
+    },
+    {
+      "id": "order-007",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 3.57,
+      "attempts": 1
+    },
+    {
+      "id": "order-008",
+      "perfect": false,
+      "status": "needs_review",
+      "issues": [
+        "low_confidence"
+      ],
+      "wrong_fields": {
+        "issuer_name": {
+          "expected": "Lupe Vallejo Barón",
+          "got": "Ángela"
+        }
+      },
+      "seconds": 2.04,
+      "attempts": 1
+    },
+    {
+      "id": "order-009",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 6.62,
+      "attempts": 1
+    },
+    {
+      "id": "order-010",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 3.16,
+      "attempts": 1
+    }
+  ],
+  "scores": [
+    {
+      "doc_id": "invoice-001",
+      "document_type": "invoice",
+      "layout": "classic",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 3603.3585000041057,
+      "input_tokens": 823,
+      "output_tokens": 154,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "invoice-002",
+      "document_type": "invoice",
+      "layout": "compact",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 2155.843599997752,
+      "input_tokens": 806,
+      "output_tokens": 140,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "invoice-003",
+      "document_type": "invoice",
+      "layout": "modern",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 4361.403700000665,
+      "input_tokens": 918,
+      "output_tokens": 277,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "invoice-004",
+      "document_type": "invoice",
+      "layout": "classic",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 4888.176100001147,
+      "input_tokens": 936,
+      "output_tokens": 309,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "invoice-005",
+      "document_type": "invoice",
+      "layout": "compact",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 3873.997099995904,
+      "input_tokens": 862,
+      "output_tokens": 209,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "invoice-006",
+      "document_type": "invoice",
+      "layout": "modern",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 2955.962500003807,
+      "input_tokens": 859,
+      "output_tokens": 201,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "invoice-007",
+      "document_type": "invoice",
+      "layout": "classic",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 2399.89290000085,
+      "input_tokens": 852,
+      "output_tokens": 181,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "invoice-008",
+      "document_type": "invoice",
+      "layout": "compact",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 2708.595800002513,
+      "input_tokens": 850,
+      "output_tokens": 193,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "invoice-009",
+      "document_type": "invoice",
+      "layout": "modern",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 2890.9886999972514,
+      "input_tokens": 869,
+      "output_tokens": 208,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "invoice-010",
+      "document_type": "invoice",
+      "layout": "classic",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 3649.022600002354,
+      "input_tokens": 901,
+      "output_tokens": 272,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "invoice-011",
+      "document_type": "invoice",
+      "layout": "compact",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 3082.0270999975037,
+      "input_tokens": 870,
+      "output_tokens": 212,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "invoice-012",
+      "document_type": "invoice",
+      "layout": "modern",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 3638.6730000012903,
+      "input_tokens": 913,
+      "output_tokens": 277,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "invoice-013",
+      "document_type": "invoice",
+      "layout": "classic",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 2859.7932000047876,
+      "input_tokens": 897,
+      "output_tokens": 247,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "invoice-014",
+      "document_type": "invoice",
+      "layout": "compact",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 2693.0250999939744,
+      "input_tokens": 852,
+      "output_tokens": 204,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "invoice-015",
+      "document_type": "invoice",
+      "layout": "modern",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 4616.24390000361,
+      "input_tokens": 938,
+      "output_tokens": 306,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "invoice-016",
+      "document_type": "invoice",
+      "layout": "classic",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 4546.794399997452,
+      "input_tokens": 938,
+      "output_tokens": 318,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "invoice-017",
+      "document_type": "invoice",
+      "layout": "compact",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 2412.7162999939173,
+      "input_tokens": 812,
+      "output_tokens": 149,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "invoice-018",
+      "document_type": "invoice",
+      "layout": "modern",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 2349.5702000000165,
+      "input_tokens": 813,
+      "output_tokens": 135,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "invoice-019",
+      "document_type": "invoice",
+      "layout": "classic",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 3869.231700002274,
+      "input_tokens": 863,
+      "output_tokens": 198,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "invoice-020",
+      "document_type": "invoice",
+      "layout": "compact",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 3624.647000004188,
+      "input_tokens": 925,
+      "output_tokens": 291,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "invoice-021",
+      "document_type": "invoice",
+      "layout": "modern",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 3261.870300004375,
+      "input_tokens": 920,
+      "output_tokens": 281,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "invoice-022",
+      "document_type": "invoice",
+      "layout": "classic",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 3323.5665000029257,
+      "input_tokens": 913,
+      "output_tokens": 272,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "invoice-023",
+      "document_type": "invoice",
+      "layout": "compact",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 3444.3625999992946,
+      "input_tokens": 911,
+      "output_tokens": 283,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "invoice-024",
+      "document_type": "invoice",
+      "layout": "modern",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 3734.287700004643,
+      "input_tokens": 947,
+      "output_tokens": 317,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "invoice-025",
+      "document_type": "invoice",
+      "layout": "classic",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 3594.1190000012284,
+      "input_tokens": 906,
+      "output_tokens": 263,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "invoice-026",
+      "document_type": "invoice",
+      "layout": "compact",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 2232.1433999968576,
+      "input_tokens": 826,
+      "output_tokens": 164,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "invoice-027",
+      "document_type": "invoice",
+      "layout": "modern",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 2708.5646000050474,
+      "input_tokens": 869,
+      "output_tokens": 202,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "invoice-028",
+      "document_type": "invoice",
+      "layout": "classic",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 2473.581700003706,
+      "input_tokens": 822,
+      "output_tokens": 154,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "invoice-029",
+      "document_type": "invoice",
+      "layout": "compact",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 2875.853700003063,
+      "input_tokens": 888,
+      "output_tokens": 244,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "invoice-030",
+      "document_type": "invoice",
+      "layout": "modern",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 2702.0380000030855,
+      "input_tokens": 847,
+      "output_tokens": 183,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "delivery-note-001",
+      "document_type": "delivery_note",
+      "layout": "delivery_note",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 2811.2300999928266,
+      "input_tokens": 809,
+      "output_tokens": 180,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "delivery-note-002",
+      "document_type": "delivery_note",
+      "layout": "delivery_note",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 2971.362500000396,
+      "input_tokens": 822,
+      "output_tokens": 235,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "delivery-note-003",
+      "document_type": "delivery_note",
+      "layout": "delivery_note",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 2167.741400000523,
+      "input_tokens": 801,
+      "output_tokens": 171,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "delivery-note-004",
+      "document_type": "delivery_note",
+      "layout": "delivery_note",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 3168.688999998267,
+      "input_tokens": 812,
+      "output_tokens": 210,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "delivery-note-005",
+      "document_type": "delivery_note",
+      "layout": "delivery_note",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 4075.4501999981585,
+      "input_tokens": 845,
+      "output_tokens": 281,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "delivery-note-006",
+      "document_type": "delivery_note",
+      "layout": "delivery_note",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 4585.459800000535,
+      "input_tokens": 836,
+      "output_tokens": 264,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "delivery-note-007",
+      "document_type": "delivery_note",
+      "layout": "delivery_note",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 2619.1414000059012,
+      "input_tokens": 779,
+      "output_tokens": 118,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "delivery-note-008",
+      "document_type": "delivery_note",
+      "layout": "delivery_note",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 3419.221699994523,
+      "input_tokens": 844,
+      "output_tokens": 278,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "delivery-note-009",
+      "document_type": "delivery_note",
+      "layout": "delivery_note",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 2901.468299998669,
+      "input_tokens": 821,
+      "output_tokens": 218,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "delivery-note-010",
+      "document_type": "delivery_note",
+      "layout": "delivery_note",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 2411.325699998997,
+      "input_tokens": 809,
+      "output_tokens": 191,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "order-001",
+      "document_type": "order",
+      "layout": "email",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 1640.0734999988344,
+      "input_tokens": 794,
+      "output_tokens": 116,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "order-002",
+      "document_type": "order",
+      "layout": "email",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 3571.531399997184,
+      "input_tokens": 875,
+      "output_tokens": 275,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "order-003",
+      "document_type": "order",
+      "layout": "email",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 3550.4905999987386,
+      "input_tokens": 846,
+      "output_tokens": 250,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "order-004",
+      "document_type": "order",
+      "layout": "email",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 2716.292400000384,
+      "input_tokens": 814,
+      "output_tokens": 181,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "order-005",
+      "document_type": "order",
+      "layout": "email",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 4422.434799998882,
+      "input_tokens": 845,
+      "output_tokens": 241,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "order-006",
+      "document_type": "order",
+      "layout": "email",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 1966.9797000024118,
+      "input_tokens": 797,
+      "output_tokens": 143,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "order-007",
+      "document_type": "order",
+      "layout": "email",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 3566.852200005087,
+      "input_tokens": 863,
+      "output_tokens": 253,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "order-008",
+      "document_type": "order",
+      "layout": "email",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": false,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "needs_review",
+      "latency_ms": 2044.8710999989999,
+      "input_tokens": 807,
+      "output_tokens": 148,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": [
+        "low_confidence"
+      ]
+    },
+    {
+      "doc_id": "order-009",
+      "document_type": "order",
+      "layout": "email",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 6618.600099995092,
+      "input_tokens": 853,
+      "output_tokens": 257,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "order-010",
+      "document_type": "order",
+      "layout": "email",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 3156.138699996518,
+      "input_tokens": 877,
+      "output_tokens": 266,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    }
+  ]
+}
