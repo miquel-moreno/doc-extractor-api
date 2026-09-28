@@ -7,13 +7,15 @@ cp .env.example .env   # elige proveedor de LLM y añade tu clave
 docker compose up --build
 ```
 
-La API queda en http://localhost:8000 (documentación interactiva en `/docs`). Al arrancar, el contenedor aplica las migraciones pendientes. Con `LLM_PROVIDER=ollama`, el contenedor usa el Ollama de la máquina anfitriona (`host.docker.internal`).
+La API queda en http://localhost:8000 (documentación interactiva en `/docs`). `docker compose` levanta cuatro servicios: la API, el **worker** que procesa la cola, PostgreSQL y Redis. Al arrancar, el contenedor de la API aplica las migraciones pendientes. Con `LLM_PROVIDER=ollama`, el contenedor usa el Ollama de la máquina anfitriona (`host.docker.internal`).
 
 ## Uso de la API
 
 | Método y ruta | Qué hace | Respuestas |
 |---|---|---|
 | `POST /extract` | Extrae y valida un documento: `file` (PDF con texto o texto UTF-8) **o** `text` (formulario) | `201` nuevo · `200` ya procesado (mismo contenido, sin llamar al LLM) · `413` > 10 MB · `415` ni PDF ni texto · `422` PDF ilegible o escaneado, o entrada vacía · `503` LLM caído o sin configurar |
+| `POST /jobs` | Igual que `/extract` pero **en cola**: responde al instante con un número de trabajo y el worker lo procesa | `202` + cabecera `Location: /jobs/{id}` · mismos errores de entrada · `503` si Redis no está disponible |
+| `GET /jobs/{id}` | Estado del trabajo (`queued`, `processing`, `done`, `failed`) y, cuando termina, el documento | `200` · `404` |
 | `GET /documents/{id}` | Un documento procesado | `200` · `404` |
 | `GET /reviews?limit=&offset=` | Bandeja de revisión humana (`needs_review`), más recientes primero | `200` |
 | `GET /health` | Comprobación de vida | `200` |
@@ -24,6 +26,10 @@ curl -F "file=@evals/dataset/invoice-002.pdf;type=application/pdf" http://localh
 
 # El cuerpo de un email
 curl --data-urlencode "text@evals/dataset/order-003.txt" http://localhost:8000/extract
+
+# En cola: responde al instante; el resultado se consulta después
+curl -F "file=@evals/dataset/invoice-005.pdf;type=application/pdf" http://localhost:8000/jobs
+curl http://localhost:8000/jobs/<id>
 
 # Lo que tiene que revisar una persona
 curl http://localhost:8000/reviews
@@ -48,7 +54,8 @@ src/doc_extractor_api/
 ├── api/        # rutas HTTP (FastAPI) y middleware
 ├── core/       # configuración, logging JSON, errores
 ├── services/   # lógica de negocio, sin red: se prueba con tests unitarios
-└── adapters/   # LLM, base de datos y APIs externas, detrás de interfaces
+├── adapters/   # LLM, base de datos, cola (Redis) y PDF, detrás de interfaces
+└── worker.py   # worker de arq: procesa los trabajos de la cola
 ```
 
 ## Decisiones técnicas
@@ -72,6 +79,10 @@ src/doc_extractor_api/
 | `asyncpg` para la aplicación, `psycopg` para las migraciones | psycopg en modo asíncrono no funciona con el bucle de eventos por defecto de Windows (`ProactorEventLoop`); se detectó probando contra un PostgreSQL real. asyncpg funciona igual en Windows y Linux. Las migraciones son un script síncrono y usan psycopg (`migrations/env.py` cambia el driver solo) |
 | `201` / `200` para distinguir nuevo y repetido | Quien llama (por ejemplo n8n) sabe si el documento es nuevo sin mirar el cuerpo, y reenviar el mismo archivo es seguro |
 | Errores de entrada antes de llamar al LLM | Un PDF roto, escaneado, vacío o demasiado grande se rechaza con un código claro y sin gastar tokens |
+| Cola con Redis + arq, y `/extract` se mantiene | Con muchos documentos a la vez, esperar la respuesta del LLM en cada petición bloquea conexiones y provoca timeouts. `POST /jobs` responde al instante (`202`) y un worker procesa en segundo plano. arq es asíncrono, como el resto del servicio (RQ es síncrono). `/extract` sigue disponible para un documento suelto |
+| El estado del trabajo vive en PostgreSQL, Redis solo lleva el id | Si Redis se reinicia no se pierde el historial. Un trabajo terminado que llegue dos veces no se reprocesa. Si no se puede encolar, el trabajo se marca `failed` en vez de quedarse `queued` para siempre |
+| Reintentos con espera creciente | Si el proveedor del LLM falla, el worker reintenta a los 10 s y a los 20 s (3 intentos en total) antes de marcar el trabajo como `failed` |
+| La API conecta con Redis al primer uso | La API arranca y `/extract` funciona aunque Redis no esté; solo `/jobs` responde `503` |
 | Tests con SQLite en memoria; producción con PostgreSQL | La CI no necesita un PostgreSQL. El modelo solo usa tipos portables (`JSON`, no `JSONB`), y un test aplica las migraciones y comprueba que el esquema resultante es idéntico al de los modelos |
 | Casi todos los campos del esquema son opcionales | Si el LLM no encuentra un campo, el documento no se rechaza: la regla de campos obligatorios lo marca para revisión y la persona ve exactamente qué falta. |
 
@@ -122,6 +133,7 @@ Extracción + reglas de negocio sobre los 50 documentos sintéticos, comparando 
 ## Limitaciones
 
 - Con un modelo pequeño local, algunos errores con datos coherentes (emisor confundido, día y mes intercambiados) pasan las reglas: ver la evaluación. Para producción se recomienda un modelo como `gpt-4.1-mini`.
+- Si el mismo documento llega **dos veces a la vez** por la cola, el worker puede procesarlos en paralelo y llamar al LLM dos veces; solo se guarda un resultado (restricción `UNIQUE`), pero se paga la segunda llamada. Si la segunda copia llega cuando la primera ya terminó, no se vuelve a llamar al LLM.
 - La confianza por campo la declara el propio modelo: es una señal útil pero no calibrada. Por eso nunca es la única defensa: las reglas de negocio se aplican siempre.
 - Proveedor Anthropic todavía no implementado (la configuración lo contempla).
 - PDFs escaneados (imagen sin texto) fuera del alcance actual: haría falta OCR.

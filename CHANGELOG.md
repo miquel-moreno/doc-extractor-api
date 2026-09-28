@@ -9,6 +9,9 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), versio
 - Evaluation on the 50-document dataset (`make eval`): per-field accuracy, perfect documents,
   safety metrics (wrong documents marked valid), time and cost. Results for gpt-4.1-mini
   and qwen2.5:3b in `evals/results/`.
+- Job queue: `POST /jobs` (202 + job id) and `GET /jobs/{id}`, with a Redis (arq) worker that
+  retries with backoff when the LLM provider fails. `docker compose` now runs API, worker,
+  PostgreSQL and Redis.
 
 ### Fixed
 - Invoice lines without unit price or amount now go to review (found by the evaluation).
