@@ -35,6 +35,7 @@ REQUIRED_FIELDS: dict[DocumentType, tuple[str, ...]] = {
 
 
 class IssueCode(StrEnum):
+    EXTRACTION_FAILED = "extraction_failed"
     MISSING_FIELD = "missing_field"
     NO_LINES = "no_lines"
     LINE_AMOUNT_MISMATCH = "line_amount_mismatch"
