@@ -25,8 +25,10 @@ purchase orders received by email. Answer with JSON that matches the schema.
 Rules:
 - Only use data that appears in the document. If a field is not there, use null. \
 Never invent, guess or calculate missing values.
-- The issuer is who issues or sends the document (in an order email, the company \
-placing the order). Never confuse the issuer with the customer or the recipient.
+- The issuer is who issues or sends the document. Never confuse the issuer with \
+the customer or the recipient.
+- In an order email, issuer_name is the company (or self-employed person) placing \
+the order, usually in the signature, not the first name of whoever writes the email.
 - issuer_tax_id: the issuer's Spanish NIF, NIE or CIF, without spaces, dots, dashes \
 or the "ES" prefix.
 - issue_date: format YYYY-MM-DD.
