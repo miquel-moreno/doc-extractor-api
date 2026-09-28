@@ -177,6 +177,9 @@ def _check_date(doc: ExtractedDocument, today: date) -> list[ValidationIssue]:
 
 
 def _check_confidence(doc: ExtractedDocument, threshold: float) -> list[ValidationIssue]:
+    # Only values the extractor actually filled in: an empty field that is required
+    # is already reported as missing, and an empty optional one (no totals on a
+    # delivery note) is correct.
     return [
         ValidationIssue(
             code=IssueCode.LOW_CONFIDENCE,
@@ -184,5 +187,5 @@ def _check_confidence(doc: ExtractedDocument, threshold: float) -> list[Validati
             message=f"confidence {score:.2f} is below {threshold:.2f}",
         )
         for name, score in sorted(doc.confidence.items())
-        if score < threshold
+        if score < threshold and getattr(doc, name, None) not in (None, "")
     ]

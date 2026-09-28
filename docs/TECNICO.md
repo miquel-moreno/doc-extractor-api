@@ -36,6 +36,12 @@ src/doc_extractor_api/
 | El LLM propone, las reglas deciden (`services/validation.py`) | El modelo puede equivocarse con un número. Reglas deterministas comprueban importes de línea, subtotal, total, NIF/NIE/CIF (dígito de control), fechas, campos obligatorios y confianza. Cualquier incidencia marca el documento como `needs_review`: nunca se acepta un dato dudoso en silencio. |
 | Importes con `Decimal`, no `float` | `0.1 + 0.2 != 0.3` en coma flotante. En facturas los importes tienen que ser exactos. |
 | Tolerancia de 1 céntimo por línea y 2 en totales | Las facturas redondean línea a línea; exigir igualdad exacta mandaría a revisión documentos correctos. |
+| Un único cliente HTTP compatible con Chat Completions (`adapters/llm.py`) | OpenAI y Ollama exponen la misma API, así que un cliente sirve para los dos: solo cambian URL, clave y modelo. Sin SDK del proveedor: menos dependencias y el mismo código para modelo local y de pago |
+| Salida estructurada estricta (JSON schema, `strict: true`) | El modelo está obligado a devolver exactamente los campos del esquema. `strict_json_schema()` adapta el esquema de Pydantic a lo que exige el modo estricto (todo `required`, opcionales como `null`, sin `additionalProperties` ni `default`) |
+| El LLM rellena un esquema intermedio sencillo (`LLMExtraction`) | Números normales, fecha como texto ISO y confianza con campos fijos: fácil de rellenar incluso para modelos pequeños. Nuestro código lo convierte al modelo de dominio con `Decimal` (vía `str`, para no arrastrar el error del `float`) |
+| Un reintento con los errores | Si la respuesta no es JSON válido o no cumple el esquema o el modelo de dominio, se reenvía al modelo su respuesta y la lista de errores, y tiene una segunda oportunidad. Si vuelve a fallar, no se insiste: el documento irá a revisión |
+| `temperature: 0` | Para extracción queremos la respuesta más probable y repetible, no creatividad |
+| La confianza baja solo cuenta en campos con valor | Detectado en una prueba real: un albarán sin totales iba a revisión porque el modelo (correctamente) no estaba seguro de unos totales que no existen |
 | Casi todos los campos del esquema son opcionales | Si el LLM no encuentra un campo, el documento no se rechaza: la regla de campos obligatorios lo marca para revisión y la persona ve exactamente qué falta. |
 
 ## Datos de prueba
@@ -62,4 +68,6 @@ _Pendiente._ Resultados en `evals/results/`, con fecha y modelo.
 
 ## Limitaciones
 
-_Pendiente._
+- La confianza por campo la declara el propio modelo: es una señal útil pero no calibrada. Por eso nunca es la única defensa: las reglas de negocio se aplican siempre.
+- Proveedor Anthropic todavía no implementado (la configuración lo contempla).
+- PDFs escaneados (imagen sin texto) fuera del alcance actual: haría falta OCR.
