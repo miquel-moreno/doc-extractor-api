@@ -9,6 +9,10 @@ docker compose up --build
 
 La API queda en http://localhost:8000 (documentación interactiva en `/docs`). `docker compose` levanta cuatro servicios: la API, el **worker** que procesa la cola, PostgreSQL y Redis. Al arrancar, el contenedor de la API aplica las migraciones pendientes. Con `LLM_PROVIDER=ollama`, el contenedor usa el Ollama de la máquina anfitriona (`host.docker.internal`).
 
+## Página de demo
+
+`http://localhost:8000/` sirve una página mínima (un solo HTML sin dependencias, `src/doc_extractor_api/static/index.html`) que llama a `POST /extract` y muestra la ficha con su estado. Es la del GIF del README, que se regenera con `uv run python -m scripts.record_demo` (Playwright con el Edge instalado; necesita el servicio en marcha y un LLM configurado).
+
 ## Uso de la API
 
 | Método y ruta | Qué hace | Respuestas |

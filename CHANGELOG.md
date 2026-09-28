@@ -14,6 +14,7 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), versio
   PostgreSQL and Redis.
 - Signed webhook (HMAC-SHA256) when a queued job finishes, sent as a separate task retried
   with backoff. `WEBHOOK_URL` comes from the configuration only.
+- Demo page at `/` and the README GIF, recorded with `scripts/record_demo.py`.
 
 ### Fixed
 - Invoice lines without unit price or amount now go to review (found by the evaluation).
