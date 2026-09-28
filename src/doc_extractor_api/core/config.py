@@ -24,6 +24,10 @@ class Settings(BaseSettings):
     database_url: str = "postgresql+asyncpg://app:app@localhost:5432/app"
     redis_url: str = "redis://localhost:6379/0"
 
+    # Called when a queued job finishes. Fixed here, never taken from a request (SSRF).
+    webhook_url: str | None = None
+    webhook_secret: SecretStr | None = None
+
 
 @lru_cache
 def get_settings() -> Settings:

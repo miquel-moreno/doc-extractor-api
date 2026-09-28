@@ -9,6 +9,7 @@ from sqlalchemy.pool import StaticPool
 from doc_extractor_api import worker
 from doc_extractor_api.adapters.db import Base, DocumentRecord, JobRecord, make_session_factory
 from doc_extractor_api.adapters.llm import FakeLLMClient, LLMError
+from doc_extractor_api.core.config import Settings
 from doc_extractor_api.services.jobs import JobStatus, RetryLater, create_job, run_job
 from doc_extractor_api.services.processing import fingerprint
 from tests.factories import llm_answer
@@ -113,7 +114,11 @@ async def test_worker_function_processes_the_job(
 ) -> None:
     async with session_factory() as session:
         job_id = (await new_job(session)).id
-    ctx: dict[str, Any] = {"session_factory": session_factory, "llm": FakeLLMClient([llm_answer()])}
+    ctx: dict[str, Any] = {
+        "session_factory": session_factory,
+        "llm": FakeLLMClient([llm_answer()]),
+        "settings": Settings(_env_file=None),  # type: ignore[call-arg]
+    }
 
     assert await worker.process_job(ctx, job_id) == "done"
 
@@ -123,7 +128,11 @@ async def test_worker_turns_retry_later_into_an_arq_retry_with_backoff(
 ) -> None:
     async with session_factory() as session:
         job_id = (await new_job(session)).id
-    ctx: dict[str, Any] = {"session_factory": session_factory, "llm": DownLLM()}
+    ctx: dict[str, Any] = {
+        "session_factory": session_factory,
+        "llm": DownLLM(),
+        "settings": Settings(_env_file=None),  # type: ignore[call-arg]
+    }
 
     with pytest.raises(Retry) as raised:
         await worker.process_job(ctx, job_id)
@@ -132,5 +141,8 @@ async def test_worker_turns_retry_later_into_an_arq_retry_with_backoff(
 
 
 def test_worker_settings_point_to_the_job_function() -> None:
-    assert [f.__name__ for f in worker.WorkerSettings.functions] == ["process_job"]
+    assert [f.__name__ for f in worker.WorkerSettings.functions] == [
+        "process_job",
+        "send_webhook",
+    ]
     assert worker.WorkerSettings.max_tries == 3

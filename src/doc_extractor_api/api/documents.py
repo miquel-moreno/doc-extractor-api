@@ -1,14 +1,12 @@
 """Document endpoints: submit a document, read one, list the review queue."""
 
 from dataclasses import dataclass
-from datetime import UTC, datetime
-from typing import Annotated, Any
+from typing import Annotated
 
 from fastapi import APIRouter, Depends, File, Form, Query, Response, UploadFile, status
-from pydantic import BaseModel, field_validator
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from doc_extractor_api.adapters.db import DocumentRecord, get_by_id, list_by_status
+from doc_extractor_api.adapters.db import get_by_id, list_by_status
 from doc_extractor_api.adapters.llm import LLMClient, LLMError
 from doc_extractor_api.adapters.pdf import PdfError, is_pdf, pdf_to_text
 from doc_extractor_api.api.dependencies import get_llm, get_session
@@ -19,6 +17,7 @@ from doc_extractor_api.core.errors import (
     UnprocessableDocumentError,
     UnsupportedMediaTypeError,
 )
+from doc_extractor_api.schemas import DocumentOut
 from doc_extractor_api.services.processing import fingerprint, process_document
 from doc_extractor_api.services.validation import ReviewStatus
 
@@ -30,31 +29,6 @@ MIN_TEXT_CHARS = 20
 
 SessionDep = Annotated[AsyncSession, Depends(get_session)]
 LLMDep = Annotated[LLMClient, Depends(get_llm)]
-
-
-class DocumentOut(BaseModel):
-    id: str
-    status: str
-    filename: str | None
-    media_type: str
-    data: dict[str, Any] | None
-    issues: list[dict[str, Any]]
-    model: str
-    attempts: int
-    input_tokens: int
-    output_tokens: int
-    latency_ms: float
-    created_at: datetime
-
-    @field_validator("created_at")
-    @classmethod
-    def _as_utc(cls, value: datetime) -> datetime:
-        # Stored in UTC; SQLite (tests) drops the timezone, PostgreSQL keeps it.
-        return value if value.tzinfo else value.replace(tzinfo=UTC)
-
-    @classmethod
-    def from_record(cls, record: DocumentRecord) -> "DocumentOut":
-        return cls.model_validate(record, from_attributes=True)
 
 
 @dataclass(frozen=True)
