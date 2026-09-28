@@ -7,7 +7,7 @@ services:
       - path: .env
         required: false
     environment:
-      DATABASE_URL: postgresql+psycopg://app:app@db:5432/app
+      DATABASE_URL: postgresql+asyncpg://app:app@db:5432/app
     depends_on:
       db:
         condition: service_healthy

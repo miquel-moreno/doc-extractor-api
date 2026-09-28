@@ -21,7 +21,7 @@ class Settings(BaseSettings):
     anthropic_api_key: SecretStr | None = None
     ollama_base_url: str = "http://localhost:11434"
 
-    database_url: str = "postgresql+psycopg://app:app@localhost:5432/app"
+    database_url: str = "postgresql+asyncpg://app:app@localhost:5432/app"
 
 
 @lru_cache
