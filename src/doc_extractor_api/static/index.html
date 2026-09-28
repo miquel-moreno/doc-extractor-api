@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Extractor de facturas · demo</title>
+<style>
+  :root {
+    --bg: #f5f7fb; --card: #ffffff; --text: #1f2933; --muted: #616e7c; --line: #e4e7eb;
+    --accent: #2563eb; --ok: #15803d; --ok-bg: #dcfce7; --warn: #b45309; --warn-bg: #fef3c7;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 15px/1.5 "Segoe UI", system-ui, sans-serif; background: var(--bg); color: var(--text); }
+  main { max-width: 880px; margin: 0 auto; padding: 28px 16px 40px; }
+  h1 { font-size: 24px; margin: 0 0 4px; }
+  .sub { color: var(--muted); margin: 0 0 20px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px; margin-bottom: 16px; }
+  .inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 640px) { .inputs { grid-template-columns: 1fr; } }
+  .drop { border: 2px dashed #c3cad5; border-radius: 10px; padding: 18px; text-align: center; color: var(--muted);
+          cursor: pointer; min-height: 120px; display: flex; flex-direction: column; justify-content: center; }
+  .drop.over { border-color: var(--accent); background: #eff6ff; }
+  .drop strong { color: var(--text); }
+  textarea { width: 100%; min-height: 120px; border: 1px solid #c3cad5; border-radius: 10px; padding: 10px; font: inherit; resize: vertical; }
+  button { margin-top: 14px; background: var(--accent); color: #fff; border: 0; border-radius: 8px; padding: 10px 18px;
+           font: inherit; font-weight: 600; cursor: pointer; }
+  button:disabled { opacity: .6; cursor: default; }
+  .status { display: inline-block; font-weight: 700; border-radius: 999px; padding: 4px 14px; }
+  .status.valid { background: var(--ok-bg); color: var(--ok); }
+  .status.needs_review { background: var(--warn-bg); color: var(--warn); }
+  .head { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin-bottom: 14px; }
+  .meta { color: var(--muted); font-size: 13px; }
+  .fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px 18px; margin-bottom: 14px; }
+  .fields div span { display: block; color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .03em; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 10px; }
+  th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); }
+  th { color: var(--muted); font-size: 12px; text-transform: uppercase; font-weight: 600; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .totals { margin-left: auto; width: max-content; min-width: 240px; }
+  .totals div { display: flex; justify-content: space-between; gap: 24px; }
+  .totals .grand { font-weight: 700; font-size: 17px; border-top: 1px solid var(--line); margin-top: 4px; padding-top: 4px; }
+  .issues { background: var(--warn-bg); color: #78350f; border-radius: 10px; padding: 10px 14px; margin-bottom: 14px; }
+  .issues ul { margin: 4px 0 0; padding-left: 20px; }
+  .error { color: #b91c1c; font-weight: 600; }
+  .hidden { display: none; }
+  footer { color: var(--muted); font-size: 13px; text-align: center; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Facturas y pedidos convertidos en datos</h1>
+  <p class="sub">Demo con documentos inventados. La IA extrae los datos y unas reglas comprueban las cuentas: lo que no cuadra va a revisión humana.</p>
+
+  <section class="card">
+    <div class="inputs">
+      <label class="drop" id="drop">
+        <strong>Suelta aquí un PDF</strong>
+        <span id="file-name">o haz clic para elegirlo</span>
+        <input id="file" type="file" accept="application/pdf,text/plain" hidden>
+      </label>
+      <textarea id="text" placeholder="…o pega aquí el texto de un email con un pedido o una factura"></textarea>
+    </div>
+    <button id="send" type="button">Leer documento</button>
+  </section>
+
+  <section class="card hidden" id="result"></section>
+  <footer>API: <a href="/docs">/docs</a> · Datos 100 % sintéticos</footer>
+</main>
+<script>
+const $ = (id) => document.getElementById(id);
+const TYPES = { invoice: "Factura", delivery_note: "Albarán", order: "Pedido" };
+const ISSUES = {
+  extraction_failed: "La IA no pudo leer el documento",
+  missing_field: "Falta un dato obligatorio",
+  no_lines: "El documento no tiene líneas",
+  missing_line_price: "Una línea de la factura no tiene precio",
+  line_amount_mismatch: "Cantidad × precio no coincide con el importe de una línea",
+  subtotal_mismatch: "Las líneas no suman la base imponible",
+  total_mismatch: "Base + IVA no coincide con el total",
+  invalid_tax_id: "El NIF/CIF no es válido",
+  date_in_future: "La fecha es futura",
+  date_too_old: "La fecha es demasiado antigua",
+  low_confidence: "La IA no está segura de un dato",
+};
+const FIELDS = { issuer_name: "Emisor", issuer_tax_id: "NIF / CIF", issue_date: "Fecha",
+                 document_number: "Número", subtotal: "Base", vat_amount: "IVA", total: "Total" };
+const money = (v) => v == null ? "—" : Number(v).toLocaleString("es-ES", { style: "currency", currency: "EUR" });
+const esc = (v) => String(v ?? "—").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const date = (v) => v ? new Date(v + "T00:00:00").toLocaleDateString("es-ES") : "—";
+
+let file = null;
+$("drop").addEventListener("click", () => $("file").click());
+$("file").addEventListener("change", (e) => pick(e.target.files[0]));
+["dragover", "dragenter"].forEach((ev) => $("drop").addEventListener(ev, (e) => { e.preventDefault(); $("drop").classList.add("over"); }));
+["dragleave", "drop"].forEach((ev) => $("drop").addEventListener(ev, () => $("drop").classList.remove("over")));
+$("drop").addEventListener("drop", (e) => { e.preventDefault(); pick(e.dataTransfer.files[0]); });
+function pick(f) { file = f || null; $("file-name").textContent = file ? file.name : "o haz clic para elegirlo"; if (file) $("text").value = ""; }
+
+$("send").addEventListener("click", async () => {
+  const form = new FormData();
+  if (file) form.append("file", file);
+  else if ($("text").value.trim()) form.append("text", $("text").value);
+  else return;
+  $("send").disabled = true; $("send").textContent = "Leyendo…";
+  try {
+    const res = await fetch("/extract", { method: "POST", body: form });
+    const body = await res.json();
+    if (!res.ok) throw new Error(body.error?.message || res.statusText);
+    render(body, res.status === 200);
+  } catch (err) {
+    $("result").innerHTML = `<p class="error">No se pudo procesar: ${esc(err.message)}</p>`;
+    $("result").classList.remove("hidden");
+  } finally {
+    $("send").disabled = false; $("send").textContent = "Leer documento";
+  }
+});
+
+function render(doc, repeated) {
+  const d = doc.data || {};
+  const ok = doc.status === "valid";
+  const issues = doc.issues.map((i) => `<li>${esc(ISSUES[i.code] || i.code)}${i.field && i.code !== "extraction_failed" ? ` <small>(${esc(FIELDS[i.field] || i.field)})</small>` : ""}</li>`).join("");
+  const lines = (d.lines || []).map((l) => `<tr><td>${esc(l.description)}</td><td class="num">${esc(Number(l.quantity))}</td>
+      <td class="num">${money(l.unit_price)}</td><td class="num">${money(l.amount)}</td></tr>`).join("");
+  $("result").innerHTML = `
+    <div class="head">
+      <span class="status ${esc(doc.status)}">${ok ? "✔ Válida" : "⚠ A revisar"}</span>
+      <strong>${esc(TYPES[d.document_type] || "Documento")} ${esc(d.document_number || "")}</strong>
+      <span class="meta">${(doc.latency_ms / 1000).toFixed(1)} s · ${esc(doc.model)}${repeated ? " · ya procesado: sin nueva llamada a la IA" : ""}</span>
+    </div>
+    ${issues ? `<div class="issues"><strong>Motivos de revisión</strong><ul>${issues}</ul></div>` : ""}
+    <div class="fields">
+      <div><span>Emisor</span>${esc(d.issuer_name)}</div>
+      <div><span>NIF / CIF</span>${esc(d.issuer_tax_id)}</div>
+      <div><span>Fecha</span>${date(d.issue_date)}</div>
+    </div>
+    ${lines ? `<table><thead><tr><th>Concepto</th><th class="num">Cant.</th><th class="num">Precio</th><th class="num">Importe</th></tr></thead><tbody>${lines}</tbody></table>` : ""}
+    ${d.total != null ? `<div class="totals"><div><span>Base</span><span>${money(d.subtotal)}</span></div>
+      <div><span>IVA</span><span>${money(d.vat_amount)}</span></div>
+      <div class="grand"><span>Total</span><span>${money(d.total)}</span></div></div>` : ""}`;
+  $("result").classList.remove("hidden");
+}
+</script>
+</body>
+</html>
