@@ -64,6 +64,7 @@ src/doc_extractor_api/
 | El LLM rellena un esquema intermedio sencillo (`LLMExtraction`) | Números normales, fecha como texto ISO y confianza con campos fijos: fácil de rellenar incluso para modelos pequeños. Nuestro código lo convierte al modelo de dominio con `Decimal` (vía `str`, para no arrastrar el error del `float`) |
 | Un reintento con los errores | Si la respuesta no es JSON válido o no cumple el esquema o el modelo de dominio, se reenvía al modelo su respuesta y la lista de errores, y tiene una segunda oportunidad. Si vuelve a fallar, no se insiste: el documento irá a revisión |
 | `temperature: 0` | Para extracción queremos la respuesta más probable y repetible, no creatividad |
+| Toda línea de factura debe tener precio unitario e importe | Detectado por la evaluación: el modelo local omitía el precio unitario y esas facturas pasaban como válidas porque la regla de línea solo se aplicaba con los dos valores presentes |
 | La confianza baja solo cuenta en campos con valor | Detectado en una prueba real: un albarán sin totales iba a revisión porque el modelo (correctamente) no estaba seguro de unos totales que no existen |
 | Idempotencia por huella SHA-256 del contenido (`services/processing.py`) | El mismo documento devuelve siempre el mismo registro y el LLM solo se paga la primera vez. La columna `sha256` es `UNIQUE`: si dos copias llegan a la vez, la base de datos rechaza la segunda y se devuelve la primera |
 | Nada se pierde | Si la extracción falla tras el reintento, el documento se guarda igualmente como `needs_review` con el motivo `extraction_failed`. Si el proveedor del LLM está caído, no se guarda nada, para poder reintentar después |
@@ -94,10 +95,33 @@ Cada documento tiene su JSON esperado (`<id>.json`) y `manifest.json` los lista.
 
 ## Evaluación
 
-_Pendiente._ Resultados en `evals/results/`, con fecha y modelo.
+```bash
+make eval ARGS="--provider openai --model gpt-4.1-mini"
+make eval ARGS="--provider ollama --model qwen2.5:3b"
+```
+
+Extracción + reglas de negocio sobre los 50 documentos sintéticos, comparando campo a campo con el JSON esperado (importes numéricos, NIF normalizado, textos sin distinguir mayúsculas ni espacios). Un documento es **perfecto** si todos los campos y todas las líneas coinciden. La métrica de **seguridad** es cuántos documentos con algún error se marcan como `valid` ("colados"): deberían ir todos a revisión. Resultados completos, documento a documento, en `evals/results/`.
+
+**28/09/2026, dataset semilla 1:**
+
+| | `gpt-4.1-mini` | `qwen2.5:3b` (Ollama, local, CPU) |
+|---|---|---|
+| Documentos perfectos | **49 / 50 (98 %)** | 9 / 50 (18 %) |
+| Documentos con errores enviados a revisión | 1 de 1 | 37 de 41 |
+| **Errores colados como `valid`** | **0** | 4 |
+| Correctos enviados a revisión (falsas alarmas) | 0 | 1 |
+| Acierto por campo (emisor · NIF · fecha · total · líneas) | 98 · 100 · 100 · 100 · 100 % | 78 · 78 · 96 · 92 · 36 % |
+| Tiempo por documento (media) | 2,9 s | 24,2 s (Ryzen 7 5700U, sin GPU) |
+| Coste de los 50 documentos | $0,036 (≈ $0,0007 por documento) | 0 |
+
+- **El único error de `gpt-4.1-mini`** es un pedido de una persona autónoma sin CIF, firmado por otra persona: ambiguo incluso para un humano. El modelo declaró confianza baja y fue a revisión. No se ajustaron las instrucciones a ese caso para no sobreajustar al dataset.
+- **La evaluación mejoró las reglas.** La primera ejecución con `qwen2.5:3b` dejaba pasar **24** documentos erróneos como `valid`: sobre todo facturas con líneas sin precio unitario (la regla solo comprobaba cantidad × precio cuando había precio) y números de documento con la etiqueta ("Factura nº …"). Se añadió la regla "toda línea de factura tiene precio e importe" y se aclaró el prompt; con eso los colados bajaron a **4** y los perfectos subieron de 3 a 9. `gpt-4.1-mini` quedó igual (49/50, 0 colados, 0 falsas alarmas). Ambas ejecuciones, antes y después, están en `evals/results/`.
+- **Lo que las reglas no pueden detectar** (los 4 colados de `qwen2.5:3b`): fecha con día y mes intercambiados (las dos son fechas válidas), emisor confundido con otra empresa del documento, una línea mal leída en un pedido sin precios, y el caso ambiguo anterior. Son errores con datos coherentes entre sí: solo un modelo mejor (o la revisión humana por muestreo) los evita.
+- Los modelos locales no son totalmente deterministas ni con `temperature: 0`; parte de la diferencia entre ejecuciones puede ser variación.
 
 ## Limitaciones
 
+- Con un modelo pequeño local, algunos errores con datos coherentes (emisor confundido, día y mes intercambiados) pasan las reglas: ver la evaluación. Para producción se recomienda un modelo como `gpt-4.1-mini`.
 - La confianza por campo la declara el propio modelo: es una señal útil pero no calibrada. Por eso nunca es la única defensa: las reglas de negocio se aplican siempre.
 - Proveedor Anthropic todavía no implementado (la configuración lo contempla).
 - PDFs escaneados (imagen sin texto) fuera del alcance actual: haría falta OCR.
