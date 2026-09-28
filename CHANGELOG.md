@@ -16,6 +16,9 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), versio
 - LLM client for OpenAI and Ollama (OpenAI-compatible Chat Completions) with strict
   structured output, token usage and latency.
 - LLM extraction service with one retry on invalid output.
+- `documents` table (SQLAlchemy 2 async + Alembic migration) with a unique SHA-256 fingerprint.
+- Idempotent processing: fingerprint, deduplicate, extract, validate and store; failed
+  extractions are kept for human review.
 
 ### Fixed
 - Low confidence on empty fields no longer sends correct documents to review.
