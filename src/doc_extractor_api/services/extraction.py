@@ -7,7 +7,7 @@ services.validation: the LLM proposes, the rules decide.
 """
 
 from dataclasses import dataclass
-from decimal import Decimal
+from decimal import ROUND_HALF_UP, Decimal
 from typing import Any
 
 from pydantic import BaseModel, ConfigDict, ValidationError
@@ -16,6 +16,7 @@ from doc_extractor_api.adapters.llm import ChatMessage, LLMClient, strict_json_s
 from doc_extractor_api.services.document import DocumentType, ExtractedDocument
 
 DEFAULT_MAX_ATTEMPTS = 2
+CENT = Decimal("0.01")
 MAX_ERRORS_IN_RETRY = 10
 
 SYSTEM_PROMPT = """\
@@ -97,13 +98,13 @@ class LLMExtraction(_Strict):
                         "description": line.description,
                         "quantity": _decimal(line.quantity),
                         "unit_price": _decimal(line.unit_price),
-                        "amount": _decimal(line.amount),
+                        "amount": _money(line.amount),
                     }
                     for line in self.lines
                 ],
-                "subtotal": _decimal(self.subtotal),
-                "vat_amount": _decimal(self.vat_amount),
-                "total": _decimal(self.total),
+                "subtotal": _money(self.subtotal),
+                "vat_amount": _money(self.vat_amount),
+                "total": _money(self.total),
                 "confidence": self.confidence.model_dump(),
             }
         )
@@ -115,6 +116,12 @@ EXTRACTION_SCHEMA: dict[str, Any] = strict_json_schema(LLMExtraction)
 def _decimal(value: float | None) -> Decimal | None:
     # str() first: Decimal(0.1) would keep the binary float error, Decimal("0.1") does not.
     return None if value is None else Decimal(str(value))
+
+
+def _money(value: float | None) -> Decimal | None:
+    """Amounts always in cents (57.0 -> 57.00). Unit prices keep their decimals (0.333)."""
+    amount = _decimal(value)
+    return None if amount is None else amount.quantize(CENT, rounding=ROUND_HALF_UP)
 
 
 @dataclass(frozen=True)

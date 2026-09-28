@@ -32,6 +32,18 @@ async def test_valid_answer_is_converted_to_the_domain_model() -> None:
     assert doc.confidence["issuer_tax_id"] == 0.9
 
 
+async def test_amounts_are_normalized_to_cents_but_unit_prices_are_not() -> None:
+    lines = [{"description": "Tornillo", "quantity": 3, "unit_price": 0.333, "amount": 1}]
+    answer = llm_answer(lines=lines, subtotal=1, vat_amount=0.21, total=1.2)
+
+    doc = (await extract_document(INVOICE_TEXT, FakeLLMClient([answer]))).document
+
+    assert doc is not None
+    assert (str(doc.subtotal), str(doc.vat_amount), str(doc.total)) == ("1.00", "0.21", "1.20")
+    assert str(doc.lines[0].amount) == "1.00"
+    assert str(doc.lines[0].unit_price) == "0.333"
+
+
 async def test_prompt_contains_rules_and_document_text() -> None:
     llm = FakeLLMClient([llm_answer()])
 

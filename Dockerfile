@@ -24,6 +24,8 @@ RUN useradd --create-home --uid 1000 app
 
 WORKDIR /app
 COPY --from=builder --chown=app:app /app/.venv /app/.venv
+COPY --chown=app:app alembic.ini ./
+COPY --chown=app:app migrations ./migrations
 
 ENV PATH="/app/.venv/bin:$PATH" \
     PYTHONUNBUFFERED=1
@@ -34,4 +36,5 @@ EXPOSE 8000
 HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
     CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"
 
-CMD ["uvicorn", "doc_extractor_api.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Apply pending migrations, then start the API (exec: uvicorn gets the stop signals).
+CMD ["sh", "-c", "alembic upgrade head && exec uvicorn doc_extractor_api.main:app --host 0.0.0.0 --port 8000"]

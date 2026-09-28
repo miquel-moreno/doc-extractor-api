@@ -19,6 +19,10 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), versio
 - `documents` table (SQLAlchemy 2 async + Alembic migration) with a unique SHA-256 fingerprint.
 - Idempotent processing: fingerprint, deduplicate, extract, validate and store; failed
   extractions are kept for human review.
+- REST API: `POST /extract` (PDF or text; 201 new, 200 already processed), `GET /documents/{id}`
+  and `GET /reviews` (human review queue), with clear 413/415/422/503 errors.
+- Docker image applies database migrations on start; `docker compose up` runs API + PostgreSQL.
 
 ### Fixed
 - Low confidence on empty fields no longer sends correct documents to review.
+- Amounts are always returned with two decimals (cents).
