@@ -148,6 +148,27 @@ def test_low_confidence_fields_need_review() -> None:
     ]
 
 
+def test_low_confidence_on_an_empty_field_is_ignored() -> None:
+    # A delivery note has no totals: the extractor is "unsure" about them, correctly.
+    doc = ExtractedDocument(
+        document_type=DocumentType.DELIVERY_NOTE,
+        issuer_name="Suministros Ejemplo S.L.",
+        issue_date=date(2026, 9, 1),
+        lines=[LineItem(description="Neumático 205/55 R16", quantity=Decimal(4))],
+        confidence={"issuer_name": 0.95, "total": 0.0, "subtotal": 0.0},
+    )
+
+    assert validate_document(doc, today=TODAY).status == ReviewStatus.VALID
+
+
+def test_missing_required_field_is_reported_once_even_with_low_confidence() -> None:
+    doc = make_invoice(total=None, confidence={"total": 0.0})
+
+    report = validate_document(doc, today=TODAY)
+
+    assert [(i.code, i.field) for i in report.issues] == [(IssueCode.MISSING_FIELD, "total")]
+
+
 def test_delivery_note_without_prices_is_valid() -> None:
     doc = ExtractedDocument(
         document_type=DocumentType.DELIVERY_NOTE,
