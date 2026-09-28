@@ -1,0 +1,4243 @@
+{
+  "run_at": "2026-09-28T14:01:56+00:00",
+  "provider": "ollama",
+  "model": "qwen2.5:3b",
+  "dataset_seed": 1,
+  "limit": null,
+  "summary": {
+    "documents": 50,
+    "perfect": 9,
+    "perfect_pct": 18.0,
+    "field_accuracy_pct": {
+      "document_type": 100.0,
+      "document_number": 98.0,
+      "issuer_name": 78.0,
+      "issuer_tax_id": 78.0,
+      "issue_date": 96.0,
+      "subtotal": 86.0,
+      "vat_amount": 96.0,
+      "total": 92.0,
+      "lines": 36.0
+    },
+    "by_type": {
+      "delivery_note": {
+        "documents": 10,
+        "perfect": 7
+      },
+      "invoice": {
+        "documents": 30,
+        "perfect": 0
+      },
+      "order": {
+        "documents": 10,
+        "perfect": 2
+      }
+    },
+    "wrong_documents": 41,
+    "wrong_sent_to_review": 37,
+    "wrong_marked_valid": 4,
+    "correct_sent_to_review": 1,
+    "extraction_failures": 0,
+    "retried": 1,
+    "seconds_per_document_mean": 24.15,
+    "seconds_per_document_median": 23.51,
+    "input_tokens": 33199,
+    "output_tokens": 18627,
+    "cost_usd": 0.0
+  },
+  "documents": [
+    {
+      "id": "invoice-001",
+      "perfect": false,
+      "status": "needs_review",
+      "issues": [
+        "missing_line_price"
+      ],
+      "wrong_fields": {
+        "lines": {
+          "expected": [
+            {
+              "description": "Lámpara H7",
+              "quantity": "7",
+              "unit_price": "11.86",
+              "amount": "83.02"
+            },
+            {
+              "description": "Filtro de aceite",
+              "quantity": "10",
+              "unit_price": "21.61",
+              "amount": "216.10"
+            }
+          ],
+          "got": [
+            {
+              "description": "Lámpara H7",
+              "quantity": "7.0",
+              "unit_price": null,
+              "amount": "83.02"
+            },
+            {
+              "description": "Filtro de aceite",
+              "quantity": "10.0",
+              "unit_price": "21.61",
+              "amount": "216.10"
+            }
+          ]
+        }
+      },
+      "seconds": 24.23,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-002",
+      "perfect": false,
+      "status": "needs_review",
+      "issues": [
+        "missing_line_price"
+      ],
+      "wrong_fields": {
+        "lines": {
+          "expected": [
+            {
+              "description": "Guantes de nitrilo (caja 100)",
+              "quantity": "9",
+              "unit_price": "6.09",
+              "amount": "54.81"
+            }
+          ],
+          "got": [
+            {
+              "description": "Guantes de nitrilo (caja 100)",
+              "quantity": "9.0",
+              "unit_price": null,
+              "amount": "54.81"
+            }
+          ]
+        }
+      },
+      "seconds": 15.54,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-003",
+      "perfect": false,
+      "status": "needs_review",
+      "issues": [
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "subtotal_mismatch"
+      ],
+      "wrong_fields": {
+        "issuer_name": {
+          "expected": "Domínguez y Domingo S.Coop.",
+          "got": "Fábrica Rojas S.L.N.E"
+        },
+        "issuer_tax_id": {
+          "expected": "B04872230",
+          "got": "B83183491"
+        },
+        "lines": {
+          "expected": [
+            {
+              "description": "Neumático 205/55 R16",
+              "quantity": "7",
+              "unit_price": "123.61",
+              "amount": "865.27"
+            },
+            {
+              "description": "Papel de taller (rollo)",
+              "quantity": "9",
+              "unit_price": "23.15",
+              "amount": "208.35"
+            },
+            {
+              "description": "Mano de obra (hora)",
+              "quantity": "2",
+              "unit_price": "42.61",
+              "amount": "85.22"
+            },
+            {
+              "description": "Escobillas limpiaparabrisas",
+              "quantity": "11",
+              "unit_price": "20.14",
+              "amount": "221.54"
+            },
+            {
+              "description": "Líquido de frenos DOT4 (1 L)",
+              "quantity": "2",
+              "unit_price": "13.60",
+              "amount": "27.20"
+            },
+            {
+              "description": "Filtro de aceite",
+              "quantity": "6",
+              "unit_price": "24.34",
+              "amount": "146.04"
+            }
+          ],
+          "got": [
+            {
+              "description": "Neumático 205/55 R16",
+              "quantity": "1.0",
+              "unit_price": null,
+              "amount": "123.61"
+            },
+            {
+              "description": "Papel de taller (rollo)",
+              "quantity": "9.0",
+              "unit_price": null,
+              "amount": "208.35"
+            },
+            {
+              "description": "Mano de obra (hora)",
+              "quantity": "2.0",
+              "unit_price": null,
+              "amount": "85.22"
+            },
+            {
+              "description": "Escobillas limpiaparabrisas",
+              "quantity": "11.0",
+              "unit_price": null,
+              "amount": "221.54"
+            },
+            {
+              "description": "Líquido de frenos DOT4 (1 L)",
+              "quantity": "2.0",
+              "unit_price": null,
+              "amount": "27.20"
+            },
+            {
+              "description": "Filtro de aceite",
+              "quantity": "6.0",
+              "unit_price": null,
+              "amount": "146.04"
+            }
+          ]
+        }
+      },
+      "seconds": 29.48,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-004",
+      "perfect": false,
+      "status": "needs_review",
+      "issues": [
+        "missing_line_price"
+      ],
+      "wrong_fields": {
+        "lines": {
+          "expected": [
+            {
+              "description": "Kit de embrague",
+              "quantity": "11",
+              "unit_price": "176.69",
+              "amount": "1943.59"
+            },
+            {
+              "description": "Bomba de agua",
+              "quantity": "6",
+              "unit_price": "124.91",
+              "amount": "749.46"
+            },
+            {
+              "description": "Rodamiento de rueda",
+              "quantity": "12",
+              "unit_price": "50.69",
+              "amount": "608.28"
+            },
+            {
+              "description": "Filtro de aire",
+              "quantity": "2",
+              "unit_price": "25.97",
+              "amount": "51.94"
+            },
+            {
+              "description": "Lámpara H7",
+              "quantity": "11",
+              "unit_price": "13.41",
+              "amount": "147.51"
+            },
+            {
+              "description": "Neumático 205/55 R16",
+              "quantity": "2",
+              "unit_price": "118.77",
+              "amount": "237.54"
+            },
+            {
+              "description": "Desengrasante (5 L)",
+              "quantity": "3",
+              "unit_price": "33.33",
+              "amount": "99.99"
+            },
+            {
+              "description": "Amortiguador trasero",
+              "quantity": "7",
+              "unit_price": "70.35",
+              "amount": "492.45"
+            }
+          ],
+          "got": [
+            {
+              "description": "Kit de embrague",
+              "quantity": "11.0",
+              "unit_price": null,
+              "amount": "1943.59"
+            },
+            {
+              "description": "Bomba de agua",
+              "quantity": "6.0",
+              "unit_price": "124.91",
+              "amount": "749.46"
+            },
+            {
+              "description": "Rodamiento de rueda",
+              "quantity": "12.0",
+              "unit_price": "50.69",
+              "amount": "608.28"
+            },
+            {
+              "description": "Filtro de aire",
+              "quantity": "2.0",
+              "unit_price": "25.97",
+              "amount": "51.94"
+            },
+            {
+              "description": "Lámpara H7",
+              "quantity": "11.0",
+              "unit_price": "13.41",
+              "amount": "147.51"
+            },
+            {
+              "description": "Neumático 205/55 R16",
+              "quantity": "2.0",
+              "unit_price": "118.77",
+              "amount": "237.54"
+            },
+            {
+              "description": "Desengrasante (5 L)",
+              "quantity": "3.0",
+              "unit_price": "33.33",
+              "amount": "99.99"
+            },
+            {
+              "description": "Amortiguador trasero",
+              "quantity": "7.0",
+              "unit_price": "70.35",
+              "amount": "492.45"
+            }
+          ]
+        }
+      },
+      "seconds": 36.59,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-005",
+      "perfect": false,
+      "status": "needs_review",
+      "issues": [
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price"
+      ],
+      "wrong_fields": {
+        "lines": {
+          "expected": [
+            {
+              "description": "Filtro de aceite",
+              "quantity": "7",
+              "unit_price": "16.52",
+              "amount": "115.64"
+            },
+            {
+              "description": "Batería 12V 70Ah",
+              "quantity": "6",
+              "unit_price": "158.02",
+              "amount": "948.12"
+            },
+            {
+              "description": "Juego de juntas",
+              "quantity": "10",
+              "unit_price": "24.47",
+              "amount": "244.70"
+            },
+            {
+              "description": "Neumático 205/55 R16",
+              "quantity": "8",
+              "unit_price": "129.52",
+              "amount": "1036.16"
+            }
+          ],
+          "got": [
+            {
+              "description": "Filtro de aceite",
+              "quantity": "7.0",
+              "unit_price": null,
+              "amount": "115.64"
+            },
+            {
+              "description": "Batería 12V 70Ah",
+              "quantity": "6.0",
+              "unit_price": null,
+              "amount": "948.12"
+            },
+            {
+              "description": "Juego de juntas",
+              "quantity": "10.0",
+              "unit_price": null,
+              "amount": "244.70"
+            },
+            {
+              "description": "Neumático 205/55 R16",
+              "quantity": "8.0",
+              "unit_price": null,
+              "amount": "1036.16"
+            }
+          ]
+        }
+      },
+      "seconds": 23.35,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-006",
+      "perfect": false,
+      "status": "needs_review",
+      "issues": [
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price"
+      ],
+      "wrong_fields": {
+        "issuer_name": {
+          "expected": "Hnos Montesinos S.L.",
+          "got": "Soluciones Iniesta S.A."
+        },
+        "issuer_tax_id": {
+          "expected": "G00957837",
+          "got": "G-85983229"
+        },
+        "lines": {
+          "expected": [
+            {
+              "description": "Amortiguador trasero",
+              "quantity": "10",
+              "unit_price": "85.41",
+              "amount": "854.10"
+            },
+            {
+              "description": "Filtro de aire",
+              "quantity": "4",
+              "unit_price": "28.67",
+              "amount": "114.68"
+            },
+            {
+              "description": "Lámpara H7",
+              "quantity": "7",
+              "unit_price": "12.93",
+              "amount": "90.51"
+            },
+            {
+              "description": "Correa de distribución",
+              "quantity": "6",
+              "unit_price": "97.89",
+              "amount": "587.34"
+            }
+          ],
+          "got": [
+            {
+              "description": "Amortiguador trasero",
+              "quantity": "1.0",
+              "unit_price": null,
+              "amount": "854.10"
+            },
+            {
+              "description": "Filtro de aire",
+              "quantity": "4.0",
+              "unit_price": null,
+              "amount": "114.68"
+            },
+            {
+              "description": "Lámpara H7",
+              "quantity": "7.0",
+              "unit_price": null,
+              "amount": "90.51"
+            },
+            {
+              "description": "Correa de distribución",
+              "quantity": "6.0",
+              "unit_price": null,
+              "amount": "587.34"
+            }
+          ]
+        }
+      },
+      "seconds": 22.13,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-007",
+      "perfect": false,
+      "status": "needs_review",
+      "issues": [
+        "missing_line_price"
+      ],
+      "wrong_fields": {
+        "lines": {
+          "expected": [
+            {
+              "description": "Filtro de habitáculo",
+              "quantity": "1",
+              "unit_price": "26.23",
+              "amount": "26.23"
+            },
+            {
+              "description": "Juego de juntas",
+              "quantity": "11",
+              "unit_price": "12.88",
+              "amount": "141.68"
+            },
+            {
+              "description": "Aceite motor 5W30 (5 L)",
+              "quantity": "2",
+              "unit_price": "25.68",
+              "amount": "51.36"
+            }
+          ],
+          "got": [
+            {
+              "description": "Filtro de habitáculo",
+              "quantity": "1.0",
+              "unit_price": null,
+              "amount": "26.23"
+            },
+            {
+              "description": "Juego de juntas",
+              "quantity": "11.0",
+              "unit_price": "12.88",
+              "amount": "141.68"
+            },
+            {
+              "description": "Aceite motor 5W30 (5 L)",
+              "quantity": "2.0",
+              "unit_price": "25.68",
+              "amount": "51.36"
+            }
+          ]
+        }
+      },
+      "seconds": 20.39,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-008",
+      "perfect": false,
+      "status": "needs_review",
+      "issues": [
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price"
+      ],
+      "wrong_fields": {
+        "lines": {
+          "expected": [
+            {
+              "description": "Papel de taller (rollo)",
+              "quantity": "12",
+              "unit_price": "16.03",
+              "amount": "192.36"
+            },
+            {
+              "description": "Aceite motor 5W30 (5 L)",
+              "quantity": "8",
+              "unit_price": "53.77",
+              "amount": "430.16"
+            },
+            {
+              "description": "Guantes de nitrilo (caja 100)",
+              "quantity": "6",
+              "unit_price": "11.08",
+              "amount": "66.48"
+            }
+          ],
+          "got": [
+            {
+              "description": "Papel de taller (rollo)",
+              "quantity": "12.0",
+              "unit_price": null,
+              "amount": "192.36"
+            },
+            {
+              "description": "Aceite motor 5W30 (5 L)",
+              "quantity": "8.0",
+              "unit_price": null,
+              "amount": "430.16"
+            },
+            {
+              "description": "Guantes de nitrilo (caja 100)",
+              "quantity": "6.0",
+              "unit_price": null,
+              "amount": "66.48"
+            }
+          ]
+        }
+      },
+      "seconds": 21.38,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-009",
+      "perfect": false,
+      "status": "needs_review",
+      "issues": [
+        "missing_line_price"
+      ],
+      "wrong_fields": {
+        "issuer_name": {
+          "expected": "Promociones Marqués & Asociados S.Coop.",
+          "got": "Industrias del Noroeste S.A."
+        },
+        "issuer_tax_id": {
+          "expected": "B70618434",
+          "got": "B18247189"
+        },
+        "lines": {
+          "expected": [
+            {
+              "description": "Silentblock",
+              "quantity": "1",
+              "unit_price": "24.27",
+              "amount": "24.27"
+            },
+            {
+              "description": "Amortiguador trasero",
+              "quantity": "3",
+              "unit_price": "42.89",
+              "amount": "128.67"
+            },
+            {
+              "description": "Filtro de aceite",
+              "quantity": "12",
+              "unit_price": "9.28",
+              "amount": "111.36"
+            },
+            {
+              "description": "Neumático 205/55 R16",
+              "quantity": "8",
+              "unit_price": "112.72",
+              "amount": "901.76"
+            }
+          ],
+          "got": [
+            {
+              "description": "Silentblock",
+              "quantity": "1.0",
+              "unit_price": null,
+              "amount": "24.27"
+            },
+            {
+              "description": "Amortiguador trasero",
+              "quantity": "3.0",
+              "unit_price": "42.89",
+              "amount": "128.67"
+            },
+            {
+              "description": "Filtro de aceite",
+              "quantity": "12.0",
+              "unit_price": "9.28",
+              "amount": "111.36"
+            },
+            {
+              "description": "Neumático 205/55 R16",
+              "quantity": "8.0",
+              "unit_price": "112.72",
+              "amount": "901.76"
+            }
+          ]
+        }
+      },
+      "seconds": 23.68,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-010",
+      "perfect": false,
+      "status": "needs_review",
+      "issues": [
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price"
+      ],
+      "wrong_fields": {
+        "lines": {
+          "expected": [
+            {
+              "description": "Papel de taller (rollo)",
+              "quantity": "4",
+              "unit_price": "10.97",
+              "amount": "43.88"
+            },
+            {
+              "description": "Guantes de nitrilo (caja 100)",
+              "quantity": "5",
+              "unit_price": "6.72",
+              "amount": "33.60"
+            },
+            {
+              "description": "Amortiguador trasero",
+              "quantity": "2",
+              "unit_price": "65.42",
+              "amount": "130.84"
+            },
+            {
+              "description": "Filtro de aire",
+              "quantity": "5",
+              "unit_price": "14.48",
+              "amount": "72.40"
+            },
+            {
+              "description": "Líquido de frenos DOT4 (1 L)",
+              "quantity": "7",
+              "unit_price": "11.78",
+              "amount": "82.46"
+            },
+            {
+              "description": "Discos de freno (par)",
+              "quantity": "5",
+              "unit_price": "66.36",
+              "amount": "331.80"
+            }
+          ],
+          "got": [
+            {
+              "description": "Papel de taller (rollo)",
+              "quantity": "4.0",
+              "unit_price": null,
+              "amount": "43.88"
+            },
+            {
+              "description": "Guantes de nitrilo (caja 100)",
+              "quantity": "5.0",
+              "unit_price": null,
+              "amount": "33.60"
+            },
+            {
+              "description": "Amortiguador trasero",
+              "quantity": "2.0",
+              "unit_price": null,
+              "amount": "130.84"
+            },
+            {
+              "description": "Filtro de aire",
+              "quantity": "5.0",
+              "unit_price": null,
+              "amount": "72.40"
+            },
+            {
+              "description": "Líquido de frenos DOT4 (1 L)",
+              "quantity": "7.0",
+              "unit_price": null,
+              "amount": "82.46"
+            },
+            {
+              "description": "Discos de freno (par)",
+              "quantity": "5.0",
+              "unit_price": null,
+              "amount": "331.80"
+            }
+          ]
+        }
+      },
+      "seconds": 26.52,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-011",
+      "perfect": false,
+      "status": "needs_review",
+      "issues": [
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price"
+      ],
+      "wrong_fields": {
+        "lines": {
+          "expected": [
+            {
+              "description": "Correa de distribución",
+              "quantity": "11",
+              "unit_price": "100.93",
+              "amount": "1110.23"
+            },
+            {
+              "description": "Pastillas de freno delanteras",
+              "quantity": "10",
+              "unit_price": "40.90",
+              "amount": "409.00"
+            },
+            {
+              "description": "Batería 12V 70Ah",
+              "quantity": "8",
+              "unit_price": "88.55",
+              "amount": "708.40"
+            },
+            {
+              "description": "Rodamiento de rueda",
+              "quantity": "11",
+              "unit_price": "51.95",
+              "amount": "571.45"
+            }
+          ],
+          "got": [
+            {
+              "description": "Correa de distribución",
+              "quantity": "11.0",
+              "unit_price": null,
+              "amount": "1110.23"
+            },
+            {
+              "description": "Pastillas de freno delanteras",
+              "quantity": "10.0",
+              "unit_price": null,
+              "amount": "409.00"
+            },
+            {
+              "description": "Batería 12V 70Ah",
+              "quantity": "8.0",
+              "unit_price": null,
+              "amount": "708.40"
+            },
+            {
+              "description": "Rodamiento de rueda",
+              "quantity": "11.0",
+              "unit_price": null,
+              "amount": "571.45"
+            }
+          ]
+        }
+      },
+      "seconds": 23.14,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-012",
+      "perfect": false,
+      "status": "needs_review",
+      "issues": [
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "subtotal_mismatch"
+      ],
+      "wrong_fields": {
+        "lines": {
+          "expected": [
+            {
+              "description": "Rodamiento de rueda",
+              "quantity": "11",
+              "unit_price": "27.89",
+              "amount": "306.79"
+            },
+            {
+              "description": "Discos de freno (par)",
+              "quantity": "7",
+              "unit_price": "134.72",
+              "amount": "943.04"
+            },
+            {
+              "description": "Anticongelante (5 L)",
+              "quantity": "6",
+              "unit_price": "29.15",
+              "amount": "174.90"
+            },
+            {
+              "description": "Amortiguador trasero",
+              "quantity": "11",
+              "unit_price": "83.77",
+              "amount": "921.47"
+            },
+            {
+              "description": "Batería 12V 70Ah",
+              "quantity": "8",
+              "unit_price": "142.91",
+              "amount": "1143.28"
+            },
+            {
+              "description": "Aceite motor 5W30 (5 L)",
+              "quantity": "9",
+              "unit_price": "34.61",
+              "amount": "311.49"
+            }
+          ],
+          "got": [
+            {
+              "description": "Rodamiento de rueda",
+              "quantity": "1.0",
+              "unit_price": null,
+              "amount": "27.89"
+            },
+            {
+              "description": "Discos de freno (par)",
+              "quantity": "7.0",
+              "unit_price": null,
+              "amount": "134.72"
+            },
+            {
+              "description": "Anticongelante (5 L)",
+              "quantity": "6.0",
+              "unit_price": null,
+              "amount": "29.15"
+            },
+            {
+              "description": "Amortiguador trasero",
+              "quantity": "11.0",
+              "unit_price": null,
+              "amount": "83.77"
+            },
+            {
+              "description": "Batería 12V 70Ah",
+              "quantity": "8.0",
+              "unit_price": null,
+              "amount": "142.91"
+            },
+            {
+              "description": "Aceite motor 5W30 (5 L)",
+              "quantity": "9.0",
+              "unit_price": null,
+              "amount": "34.61"
+            }
+          ]
+        }
+      },
+      "seconds": 29.02,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-013",
+      "perfect": false,
+      "status": "needs_review",
+      "issues": [
+        "missing_line_price"
+      ],
+      "wrong_fields": {
+        "lines": {
+          "expected": [
+            {
+              "description": "Correa de distribución",
+              "quantity": "10",
+              "unit_price": "110.08",
+              "amount": "1100.80"
+            },
+            {
+              "description": "Anticongelante (5 L)",
+              "quantity": "3",
+              "unit_price": "23.87",
+              "amount": "71.61"
+            },
+            {
+              "description": "Pastillas de freno delanteras",
+              "quantity": "9",
+              "unit_price": "88.09",
+              "amount": "792.81"
+            },
+            {
+              "description": "Líquido de frenos DOT4 (1 L)",
+              "quantity": "2",
+              "unit_price": "9.28",
+              "amount": "18.56"
+            },
+            {
+              "description": "Neumático 205/55 R16",
+              "quantity": "1",
+              "unit_price": "88.30",
+              "amount": "88.30"
+            }
+          ],
+          "got": [
+            {
+              "description": "Correa de distribución",
+              "quantity": "10.0",
+              "unit_price": null,
+              "amount": "1100.80"
+            },
+            {
+              "description": "Anticongelante (5 L)",
+              "quantity": "3.0",
+              "unit_price": "23.87",
+              "amount": "71.61"
+            },
+            {
+              "description": "Pastillas de freno delanteras",
+              "quantity": "9.0",
+              "unit_price": "88.09",
+              "amount": "792.81"
+            },
+            {
+              "description": "Líquido de frenos DOT4 (1 L)",
+              "quantity": "2.0",
+              "unit_price": "9.28",
+              "amount": "18.56"
+            },
+            {
+              "description": "Neumático 205/55 R16",
+              "quantity": "1.0",
+              "unit_price": "88.3",
+              "amount": "88.30"
+            }
+          ]
+        }
+      },
+      "seconds": 27.31,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-014",
+      "perfect": false,
+      "status": "needs_review",
+      "issues": [
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price"
+      ],
+      "wrong_fields": {
+        "lines": {
+          "expected": [
+            {
+              "description": "Rodamiento de rueda",
+              "quantity": "5",
+              "unit_price": "66.23",
+              "amount": "331.15"
+            },
+            {
+              "description": "Filtro de habitáculo",
+              "quantity": "9",
+              "unit_price": "27.94",
+              "amount": "251.46"
+            },
+            {
+              "description": "Aceite motor 5W30 (5 L)",
+              "quantity": "2",
+              "unit_price": "43.75",
+              "amount": "87.50"
+            },
+            {
+              "description": "Correa de distribución",
+              "quantity": "5",
+              "unit_price": "47.65",
+              "amount": "238.25"
+            }
+          ],
+          "got": [
+            {
+              "description": "Rodamiento de rueda",
+              "quantity": "5.0",
+              "unit_price": null,
+              "amount": "331.15"
+            },
+            {
+              "description": "Filtro de habitáculo",
+              "quantity": "9.0",
+              "unit_price": null,
+              "amount": "251.46"
+            },
+            {
+              "description": "Aceite motor 5W30 (5 L)",
+              "quantity": "2.0",
+              "unit_price": null,
+              "amount": "87.50"
+            },
+            {
+              "description": "Correa de distribución",
+              "quantity": "5.0",
+              "unit_price": null,
+              "amount": "238.25"
+            }
+          ]
+        }
+      },
+      "seconds": 22.77,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-015",
+      "perfect": false,
+      "status": "needs_review",
+      "issues": [
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price"
+      ],
+      "wrong_fields": {
+        "issuer_name": {
+          "expected": "Gelabert y Azorin S.Coop.",
+          "got": "Compañía Salgado S.L.L."
+        },
+        "issuer_tax_id": {
+          "expected": "G02440774",
+          "got": "A06714836"
+        },
+        "lines": {
+          "expected": [
+            {
+              "description": "Bujía de encendido",
+              "quantity": "7",
+              "unit_price": "11.74",
+              "amount": "82.18"
+            },
+            {
+              "description": "Pastillas de freno delanteras",
+              "quantity": "9",
+              "unit_price": "49.08",
+              "amount": "441.72"
+            },
+            {
+              "description": "Escobillas limpiaparabrisas",
+              "quantity": "9",
+              "unit_price": "18.37",
+              "amount": "165.33"
+            },
+            {
+              "description": "Mano de obra (hora)",
+              "quantity": "12",
+              "unit_price": "54.53",
+              "amount": "654.36"
+            },
+            {
+              "description": "Neumático 205/55 R16",
+              "quantity": "6",
+              "unit_price": "63.20",
+              "amount": "379.20"
+            },
+            {
+              "description": "Guantes de nitrilo (caja 100)",
+              "quantity": "4",
+              "unit_price": "12.67",
+              "amount": "50.68"
+            },
+            {
+              "description": "Desengrasante (5 L)",
+              "quantity": "6",
+              "unit_price": "13.62",
+              "amount": "81.72"
+            }
+          ],
+          "got": [
+            {
+              "description": "Bujía de encendido",
+              "quantity": "1.0",
+              "unit_price": null,
+              "amount": "82.18"
+            },
+            {
+              "description": "Pastillas de freno delanteras",
+              "quantity": "9.0",
+              "unit_price": null,
+              "amount": "441.72"
+            },
+            {
+              "description": "Escobillas limpiaparabrisas",
+              "quantity": "9.0",
+              "unit_price": null,
+              "amount": "165.33"
+            },
+            {
+              "description": "Mano de obra (hora)",
+              "quantity": "12.0",
+              "unit_price": null,
+              "amount": "654.36"
+            },
+            {
+              "description": "Neumático 205/55 R16",
+              "quantity": "6.0",
+              "unit_price": null,
+              "amount": "379.20"
+            },
+            {
+              "description": "Guantes de nitrilo (caja 100)",
+              "quantity": "4.0",
+              "unit_price": null,
+              "amount": "50.68"
+            },
+            {
+              "description": "Desengrasante (5 L)",
+              "quantity": "6.0",
+              "unit_price": null,
+              "amount": "81.72"
+            }
+          ]
+        }
+      },
+      "seconds": 33.2,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-016",
+      "perfect": false,
+      "status": "needs_review",
+      "issues": [
+        "missing_line_price"
+      ],
+      "wrong_fields": {
+        "lines": {
+          "expected": [
+            {
+              "description": "Pastillas de freno delanteras",
+              "quantity": "3",
+              "unit_price": "69.36",
+              "amount": "208.08"
+            },
+            {
+              "description": "Aceite motor 5W30 (5 L)",
+              "quantity": "4",
+              "unit_price": "37.58",
+              "amount": "150.32"
+            },
+            {
+              "description": "Batería 12V 70Ah",
+              "quantity": "4",
+              "unit_price": "100.18",
+              "amount": "400.72"
+            },
+            {
+              "description": "Silentblock",
+              "quantity": "6",
+              "unit_price": "11.33",
+              "amount": "67.98"
+            },
+            {
+              "description": "Juego de juntas",
+              "quantity": "5",
+              "unit_price": "13.66",
+              "amount": "68.30"
+            },
+            {
+              "description": "Lámpara H7",
+              "quantity": "8",
+              "unit_price": "4.85",
+              "amount": "38.80"
+            },
+            {
+              "description": "Correa de distribución",
+              "quantity": "11",
+              "unit_price": "85.52",
+              "amount": "940.72"
+            },
+            {
+              "description": "Desengrasante (5 L)",
+              "quantity": "4",
+              "unit_price": "27.99",
+              "amount": "111.96"
+            }
+          ],
+          "got": [
+            {
+              "description": "Pastillas de freno delanteras",
+              "quantity": "3.0",
+              "unit_price": null,
+              "amount": "208.08"
+            },
+            {
+              "description": "Aceite motor 5W30 (5 L)",
+              "quantity": "4.0",
+              "unit_price": "37.58",
+              "amount": "150.32"
+            },
+            {
+              "description": "Batería 12V 70Ah",
+              "quantity": "4.0",
+              "unit_price": "100.18",
+              "amount": "400.72"
+            },
+            {
+              "description": "Silentblock",
+              "quantity": "6.0",
+              "unit_price": "11.33",
+              "amount": "67.98"
+            },
+            {
+              "description": "Juego de juntas",
+              "quantity": "5.0",
+              "unit_price": "13.66",
+              "amount": "68.30"
+            },
+            {
+              "description": "Lámpara H7",
+              "quantity": "8.0",
+              "unit_price": "4.85",
+              "amount": "38.80"
+            },
+            {
+              "description": "Correa de distribución",
+              "quantity": "11.0",
+              "unit_price": "85.52",
+              "amount": "940.72"
+            },
+            {
+              "description": "Desengrasante (5 L)",
+              "quantity": "4.0",
+              "unit_price": "27.99",
+              "amount": "111.96"
+            }
+          ]
+        }
+      },
+      "seconds": 35.83,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-017",
+      "perfect": false,
+      "status": "needs_review",
+      "issues": [
+        "missing_line_price",
+        "missing_line_price"
+      ],
+      "wrong_fields": {
+        "lines": {
+          "expected": [
+            {
+              "description": "Juego de juntas",
+              "quantity": "10",
+              "unit_price": "43.07",
+              "amount": "430.70"
+            },
+            {
+              "description": "Silentblock",
+              "quantity": "10",
+              "unit_price": "11.77",
+              "amount": "117.70"
+            }
+          ],
+          "got": [
+            {
+              "description": "Juego de juntas",
+              "quantity": "10.0",
+              "unit_price": null,
+              "amount": "430.70"
+            },
+            {
+              "description": "Silentblock",
+              "quantity": "10.0",
+              "unit_price": null,
+              "amount": "117.70"
+            }
+          ]
+        }
+      },
+      "seconds": 17.56,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-018",
+      "perfect": false,
+      "status": "needs_review",
+      "issues": [
+        "line_amount_mismatch",
+        "subtotal_mismatch"
+      ],
+      "wrong_fields": {
+        "issuer_name": {
+          "expected": "Chita Serrano",
+          "got": "Transportes MYPB S.L."
+        },
+        "issuer_tax_id": {
+          "expected": "63925147M",
+          "got": "B-11897790"
+        },
+        "lines": {
+          "expected": [
+            {
+              "description": "Líquido de frenos DOT4 (1 L)",
+              "quantity": "6",
+              "unit_price": "11.05",
+              "amount": "66.30"
+            }
+          ],
+          "got": [
+            {
+              "description": "Líquido de frenos DOT4 (1 L)",
+              "quantity": "1.0",
+              "unit_price": "6.0",
+              "amount": "11.05"
+            }
+          ]
+        }
+      },
+      "seconds": 15.21,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-019",
+      "perfect": false,
+      "status": "needs_review",
+      "issues": [
+        "missing_line_price"
+      ],
+      "wrong_fields": {
+        "lines": {
+          "expected": [
+            {
+              "description": "Anticongelante (5 L)",
+              "quantity": "12",
+              "unit_price": "22.53",
+              "amount": "270.36"
+            },
+            {
+              "description": "Líquido de frenos DOT4 (1 L)",
+              "quantity": "10",
+              "unit_price": "9.00",
+              "amount": "90.00"
+            },
+            {
+              "description": "Pastillas de freno delanteras",
+              "quantity": "3",
+              "unit_price": "41.93",
+              "amount": "125.79"
+            }
+          ],
+          "got": [
+            {
+              "description": "Anticongelante (5 L)",
+              "quantity": "12.0",
+              "unit_price": null,
+              "amount": "270.36"
+            },
+            {
+              "description": "Líquido de frenos DOT4 (1 L)",
+              "quantity": "10.0",
+              "unit_price": "9.0",
+              "amount": "90.00"
+            },
+            {
+              "description": "Pastillas de freno delanteras",
+              "quantity": "3.0",
+              "unit_price": "41.93",
+              "amount": "125.79"
+            }
+          ]
+        }
+      },
+      "seconds": 21.31,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-020",
+      "perfect": false,
+      "status": "needs_review",
+      "issues": [
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price"
+      ],
+      "wrong_fields": {
+        "lines": {
+          "expected": [
+            {
+              "description": "Juego de juntas",
+              "quantity": "7",
+              "unit_price": "32.49",
+              "amount": "227.43"
+            },
+            {
+              "description": "Bujía de encendido",
+              "quantity": "5",
+              "unit_price": "15.08",
+              "amount": "75.40"
+            },
+            {
+              "description": "Filtro de aire",
+              "quantity": "8",
+              "unit_price": "26.56",
+              "amount": "212.48"
+            },
+            {
+              "description": "Neumático 205/55 R16",
+              "quantity": "1",
+              "unit_price": "87.41",
+              "amount": "87.41"
+            },
+            {
+              "description": "Aceite motor 5W30 (5 L)",
+              "quantity": "6",
+              "unit_price": "32.02",
+              "amount": "192.12"
+            },
+            {
+              "description": "Filtro de habitáculo",
+              "quantity": "5",
+              "unit_price": "18.94",
+              "amount": "94.70"
+            },
+            {
+              "description": "Escobillas limpiaparabrisas",
+              "quantity": "1",
+              "unit_price": "25.06",
+              "amount": "25.06"
+            }
+          ],
+          "got": [
+            {
+              "description": "Juego de juntas",
+              "quantity": "7.0",
+              "unit_price": null,
+              "amount": "227.43"
+            },
+            {
+              "description": "Bujía de encendido",
+              "quantity": "5.0",
+              "unit_price": null,
+              "amount": "75.40"
+            },
+            {
+              "description": "Filtro de aire",
+              "quantity": "8.0",
+              "unit_price": null,
+              "amount": "212.48"
+            },
+            {
+              "description": "Neumático 205/55 R16",
+              "quantity": "1.0",
+              "unit_price": null,
+              "amount": "87.41"
+            },
+            {
+              "description": "Aceite motor 5W30 (5 L)",
+              "quantity": "6.0",
+              "unit_price": null,
+              "amount": "192.12"
+            },
+            {
+              "description": "Filtro de habitáculo",
+              "quantity": "5.0",
+              "unit_price": null,
+              "amount": "94.70"
+            },
+            {
+              "description": "Escobillas limpiaparabrisas",
+              "quantity": "1.0",
+              "unit_price": null,
+              "amount": "25.06"
+            }
+          ]
+        }
+      },
+      "seconds": 31.59,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-021",
+      "perfect": false,
+      "status": "needs_review",
+      "issues": [
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price"
+      ],
+      "wrong_fields": {
+        "document_number": {
+          "expected": "2025/06755",
+          "got": "2025-06755"
+        },
+        "issuer_name": {
+          "expected": "Supermercados Paniagua S.Com.",
+          "got": "Íngrid Cabo Estévez S.A."
+        },
+        "issuer_tax_id": {
+          "expected": "B97319693",
+          "got": "B-23235732"
+        },
+        "lines": {
+          "expected": [
+            {
+              "description": "Rodamiento de rueda",
+              "quantity": "1",
+              "unit_price": "34.54",
+              "amount": "34.54"
+            },
+            {
+              "description": "Bomba de agua",
+              "quantity": "9",
+              "unit_price": "86.97",
+              "amount": "782.73"
+            },
+            {
+              "description": "Bujía de encendido",
+              "quantity": "9",
+              "unit_price": "17.28",
+              "amount": "155.52"
+            },
+            {
+              "description": "Silentblock",
+              "quantity": "8",
+              "unit_price": "34.17",
+              "amount": "273.36"
+            },
+            {
+              "description": "Filtro de habitáculo",
+              "quantity": "12",
+              "unit_price": "13.62",
+              "amount": "163.44"
+            },
+            {
+              "description": "Neumático 205/55 R16",
+              "quantity": "4",
+              "unit_price": "80.63",
+              "amount": "322.52"
+            },
+            {
+              "description": "Lámpara H7",
+              "quantity": "8",
+              "unit_price": "12.80",
+              "amount": "102.40"
+            }
+          ],
+          "got": [
+            {
+              "description": "Rodamiento de rueda",
+              "quantity": "1.0",
+              "unit_price": null,
+              "amount": "34.54"
+            },
+            {
+              "description": "Bomba de agua",
+              "quantity": "9.0",
+              "unit_price": null,
+              "amount": "782.73"
+            },
+            {
+              "description": "Bujía de encendido",
+              "quantity": "9.0",
+              "unit_price": null,
+              "amount": "155.52"
+            },
+            {
+              "description": "Silentblock",
+              "quantity": "8.0",
+              "unit_price": null,
+              "amount": "273.36"
+            },
+            {
+              "description": "Filtro de habitáculo",
+              "quantity": "12.0",
+              "unit_price": null,
+              "amount": "163.44"
+            },
+            {
+              "description": "Neumático 205/55 R16",
+              "quantity": "4.0",
+              "unit_price": null,
+              "amount": "322.52"
+            },
+            {
+              "description": "Lámpara H7",
+              "quantity": "8.0",
+              "unit_price": null,
+              "amount": "102.40"
+            }
+          ]
+        }
+      },
+      "seconds": 27.92,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-022",
+      "perfect": false,
+      "status": "needs_review",
+      "issues": [
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price"
+      ],
+      "wrong_fields": {
+        "lines": {
+          "expected": [
+            {
+              "description": "Bujía de encendido",
+              "quantity": "9",
+              "unit_price": "11.61",
+              "amount": "104.49"
+            },
+            {
+              "description": "Kit de embrague",
+              "quantity": "3",
+              "unit_price": "349.79",
+              "amount": "1049.37"
+            },
+            {
+              "description": "Batería 12V 70Ah",
+              "quantity": "12",
+              "unit_price": "140.32",
+              "amount": "1683.84"
+            },
+            {
+              "description": "Líquido de frenos DOT4 (1 L)",
+              "quantity": "8",
+              "unit_price": "12.08",
+              "amount": "96.64"
+            },
+            {
+              "description": "Guantes de nitrilo (caja 100)",
+              "quantity": "2",
+              "unit_price": "7.26",
+              "amount": "14.52"
+            },
+            {
+              "description": "Silentblock",
+              "quantity": "10",
+              "unit_price": "29.05",
+              "amount": "290.50"
+            }
+          ],
+          "got": [
+            {
+              "description": "Bujía de encendido",
+              "quantity": "9.0",
+              "unit_price": null,
+              "amount": "104.49"
+            },
+            {
+              "description": "Kit de embrague",
+              "quantity": "3.0",
+              "unit_price": null,
+              "amount": "1049.37"
+            },
+            {
+              "description": "Batería 12V 70Ah",
+              "quantity": "12.0",
+              "unit_price": null,
+              "amount": "1683.84"
+            },
+            {
+              "description": "Líquido de frenos DOT4 (1 L)",
+              "quantity": "8.0",
+              "unit_price": null,
+              "amount": "96.64"
+            },
+            {
+              "description": "Guantes de nitrilo (caja 100)",
+              "quantity": "2.0",
+              "unit_price": null,
+              "amount": "14.52"
+            },
+            {
+              "description": "Silentblock",
+              "quantity": "10.0",
+              "unit_price": null,
+              "amount": "290.50"
+            }
+          ]
+        }
+      },
+      "seconds": 29.33,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-023",
+      "perfect": false,
+      "status": "needs_review",
+      "issues": [
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price"
+      ],
+      "wrong_fields": {
+        "lines": {
+          "expected": [
+            {
+              "description": "Desengrasante (5 L)",
+              "quantity": "12",
+              "unit_price": "13.66",
+              "amount": "163.92"
+            },
+            {
+              "description": "Guantes de nitrilo (caja 100)",
+              "quantity": "9",
+              "unit_price": "6.92",
+              "amount": "62.28"
+            },
+            {
+              "description": "Correa de distribución",
+              "quantity": "5",
+              "unit_price": "46.55",
+              "amount": "232.75"
+            },
+            {
+              "description": "Bomba de agua",
+              "quantity": "5",
+              "unit_price": "48.71",
+              "amount": "243.55"
+            },
+            {
+              "description": "Kit de embrague",
+              "quantity": "3",
+              "unit_price": "322.14",
+              "amount": "966.42"
+            },
+            {
+              "description": "Bujía de encendido",
+              "quantity": "11",
+              "unit_price": "5.67",
+              "amount": "62.37"
+            },
+            {
+              "description": "Juego de juntas",
+              "quantity": "8",
+              "unit_price": "44.85",
+              "amount": "358.80"
+            }
+          ],
+          "got": [
+            {
+              "description": "Desengrasante (5 L)",
+              "quantity": "12.0",
+              "unit_price": null,
+              "amount": "163.92"
+            },
+            {
+              "description": "Guantes de nitrilo (caja 100)",
+              "quantity": "9.0",
+              "unit_price": null,
+              "amount": "62.28"
+            },
+            {
+              "description": "Correa de distribución",
+              "quantity": "5.0",
+              "unit_price": null,
+              "amount": "232.75"
+            },
+            {
+              "description": "Bomba de agua",
+              "quantity": "5.0",
+              "unit_price": null,
+              "amount": "243.55"
+            },
+            {
+              "description": "Kit de embrague",
+              "quantity": "3.0",
+              "unit_price": null,
+              "amount": "966.42"
+            },
+            {
+              "description": "Bujía de encendido",
+              "quantity": "11.0",
+              "unit_price": null,
+              "amount": "62.37"
+            },
+            {
+              "description": "Juego de juntas",
+              "quantity": "8.0",
+              "unit_price": null,
+              "amount": "358.80"
+            }
+          ]
+        }
+      },
+      "seconds": 30.25,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-024",
+      "perfect": false,
+      "status": "needs_review",
+      "issues": [
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "subtotal_mismatch"
+      ],
+      "wrong_fields": {
+        "issuer_name": {
+          "expected": "Gema Murcia Leal",
+          "got": "Flores y Rodrigo S.L.N.E"
+        },
+        "issuer_tax_id": {
+          "expected": "68105752S",
+          "got": "B-73505844"
+        },
+        "subtotal": {
+          "expected": "2149.87",
+          "got": "1834.37"
+        },
+        "total": {
+          "expected": "2601.34",
+          "got": "2285.84"
+        },
+        "lines": {
+          "expected": [
+            {
+              "description": "Batería 12V 70Ah",
+              "quantity": "5",
+              "unit_price": "100.33",
+              "amount": "501.65"
+            },
+            {
+              "description": "Pastillas de freno delanteras",
+              "quantity": "7",
+              "unit_price": "86.40",
+              "amount": "604.80"
+            },
+            {
+              "description": "Amortiguador trasero",
+              "quantity": "9",
+              "unit_price": "40.32",
+              "amount": "362.88"
+            },
+            {
+              "description": "Silentblock",
+              "quantity": "4",
+              "unit_price": "29.64",
+              "amount": "118.56"
+            },
+            {
+              "description": "Juego de juntas",
+              "quantity": "8",
+              "unit_price": "33.71",
+              "amount": "269.68"
+            },
+            {
+              "description": "Papel de taller (rollo)",
+              "quantity": "1",
+              "unit_price": "10.63",
+              "amount": "10.63"
+            },
+            {
+              "description": "Desengrasante (5 L)",
+              "quantity": "11",
+              "unit_price": "21.92",
+              "amount": "241.12"
+            },
+            {
+              "description": "Líquido de frenos DOT4 (1 L)",
+              "quantity": "5",
+              "unit_price": "8.11",
+              "amount": "40.55"
+            }
+          ],
+          "got": [
+            {
+              "description": "Batería 12V 70Ah",
+              "quantity": "1.0",
+              "unit_price": null,
+              "amount": "501.65"
+            },
+            {
+              "description": "Pastillas de freno delanteras",
+              "quantity": "7.0",
+              "unit_price": null,
+              "amount": "604.80"
+            },
+            {
+              "description": "Amortiguador trasero",
+              "quantity": "9.0",
+              "unit_price": null,
+              "amount": "362.88"
+            },
+            {
+              "description": "Silentblock",
+              "quantity": "4.0",
+              "unit_price": null,
+              "amount": "118.56"
+            },
+            {
+              "description": "Juego de juntas",
+              "quantity": "8.0",
+              "unit_price": null,
+              "amount": "269.68"
+            },
+            {
+              "description": "Papel de taller (rollo)",
+              "quantity": "1.0",
+              "unit_price": null,
+              "amount": "10.63"
+            },
+            {
+              "description": "Desengrasante (5 L)",
+              "quantity": "11.0",
+              "unit_price": null,
+              "amount": "241.12"
+            },
+            {
+              "description": "Líquido de frenos DOT4 (1 L)",
+              "quantity": "5.0",
+              "unit_price": null,
+              "amount": "40.55"
+            }
+          ]
+        }
+      },
+      "seconds": 31.83,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-025",
+      "perfect": false,
+      "status": "needs_review",
+      "issues": [
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price"
+      ],
+      "wrong_fields": {
+        "lines": {
+          "expected": [
+            {
+              "description": "Lámpara H7",
+              "quantity": "4",
+              "unit_price": "8.81",
+              "amount": "35.24"
+            },
+            {
+              "description": "Amortiguador trasero",
+              "quantity": "2",
+              "unit_price": "106.15",
+              "amount": "212.30"
+            },
+            {
+              "description": "Pastillas de freno delanteras",
+              "quantity": "1",
+              "unit_price": "34.67",
+              "amount": "34.67"
+            },
+            {
+              "description": "Batería 12V 70Ah",
+              "quantity": "10",
+              "unit_price": "141.21",
+              "amount": "1412.10"
+            },
+            {
+              "description": "Rodamiento de rueda",
+              "quantity": "1",
+              "unit_price": "64.66",
+              "amount": "64.66"
+            },
+            {
+              "description": "Bomba de agua",
+              "quantity": "5",
+              "unit_price": "57.37",
+              "amount": "286.85"
+            }
+          ],
+          "got": [
+            {
+              "description": "Lámpara H7",
+              "quantity": "4.0",
+              "unit_price": null,
+              "amount": "35.24"
+            },
+            {
+              "description": "Amortiguador trasero",
+              "quantity": "2.0",
+              "unit_price": null,
+              "amount": "212.30"
+            },
+            {
+              "description": "Pastillas de freno delanteras",
+              "quantity": "1.0",
+              "unit_price": null,
+              "amount": "34.67"
+            },
+            {
+              "description": "Batería 12V 70Ah",
+              "quantity": "10.0",
+              "unit_price": null,
+              "amount": "1412.10"
+            },
+            {
+              "description": "Rodamiento de rueda",
+              "quantity": "1.0",
+              "unit_price": null,
+              "amount": "64.66"
+            },
+            {
+              "description": "Bomba de agua",
+              "quantity": "5.0",
+              "unit_price": null,
+              "amount": "286.85"
+            }
+          ]
+        }
+      },
+      "seconds": 28.81,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-026",
+      "perfect": false,
+      "status": "needs_review",
+      "issues": [
+        "missing_line_price",
+        "missing_line_price",
+        "low_confidence",
+        "low_confidence"
+      ],
+      "wrong_fields": {
+        "lines": {
+          "expected": [
+            {
+              "description": "Escobillas limpiaparabrisas",
+              "quantity": "8",
+              "unit_price": "22.34",
+              "amount": "178.72"
+            },
+            {
+              "description": "Desengrasante (5 L)",
+              "quantity": "5",
+              "unit_price": "34.08",
+              "amount": "170.40"
+            }
+          ],
+          "got": [
+            {
+              "description": "Escobillas limpiaparabrisas",
+              "quantity": "8.0",
+              "unit_price": null,
+              "amount": "178.72"
+            },
+            {
+              "description": "Desengrasante (5 L)",
+              "quantity": "5.0",
+              "unit_price": null,
+              "amount": "170.40"
+            }
+          ]
+        }
+      },
+      "seconds": 17.73,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-027",
+      "perfect": false,
+      "status": "needs_review",
+      "issues": [
+        "line_amount_mismatch"
+      ],
+      "wrong_fields": {
+        "issuer_name": {
+          "expected": "Osorio y asociados S.Com.",
+          "got": "Ximena Pascual Pintor S.L.L."
+        },
+        "issuer_tax_id": {
+          "expected": "G63343750",
+          "got": "B00650226"
+        },
+        "lines": {
+          "expected": [
+            {
+              "description": "Escobillas limpiaparabrisas",
+              "quantity": "12",
+              "unit_price": "20.50",
+              "amount": "246.00"
+            },
+            {
+              "description": "Silentblock",
+              "quantity": "12",
+              "unit_price": "14.97",
+              "amount": "179.64"
+            },
+            {
+              "description": "Kit de embrague",
+              "quantity": "8",
+              "unit_price": "323.17",
+              "amount": "2585.36"
+            },
+            {
+              "description": "Amortiguador trasero",
+              "quantity": "11",
+              "unit_price": "83.49",
+              "amount": "918.39"
+            }
+          ],
+          "got": [
+            {
+              "description": "Escobillas limpiaparabrisas",
+              "quantity": "1.0",
+              "unit_price": "20.5",
+              "amount": "246.00"
+            },
+            {
+              "description": "Silentblock",
+              "quantity": "12.0",
+              "unit_price": "14.97",
+              "amount": "179.64"
+            },
+            {
+              "description": "Kit de embrague",
+              "quantity": "8.0",
+              "unit_price": "323.17",
+              "amount": "2585.36"
+            },
+            {
+              "description": "Amortiguador trasero",
+              "quantity": "11.0",
+              "unit_price": "83.49",
+              "amount": "918.39"
+            }
+          ]
+        }
+      },
+      "seconds": 50.96,
+      "attempts": 2
+    },
+    {
+      "id": "invoice-028",
+      "perfect": false,
+      "status": "needs_review",
+      "issues": [
+        "missing_line_price"
+      ],
+      "wrong_fields": {
+        "lines": {
+          "expected": [
+            {
+              "description": "Lámpara H7",
+              "quantity": "4",
+              "unit_price": "8.95",
+              "amount": "35.80"
+            },
+            {
+              "description": "Mano de obra (hora)",
+              "quantity": "11",
+              "unit_price": "35.85",
+              "amount": "394.35"
+            }
+          ],
+          "got": [
+            {
+              "description": "Lámpara H7",
+              "quantity": "4.0",
+              "unit_price": null,
+              "amount": "35.80"
+            },
+            {
+              "description": "Mano de obra (hora)",
+              "quantity": "11.0",
+              "unit_price": "35.85",
+              "amount": "394.35"
+            }
+          ]
+        }
+      },
+      "seconds": 17.51,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-029",
+      "perfect": false,
+      "status": "needs_review",
+      "issues": [
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price"
+      ],
+      "wrong_fields": {
+        "lines": {
+          "expected": [
+            {
+              "description": "Desengrasante (5 L)",
+              "quantity": "3",
+              "unit_price": "30.92",
+              "amount": "92.76"
+            },
+            {
+              "description": "Amortiguador trasero",
+              "quantity": "5",
+              "unit_price": "79.69",
+              "amount": "398.45"
+            },
+            {
+              "description": "Papel de taller (rollo)",
+              "quantity": "3",
+              "unit_price": "19.56",
+              "amount": "58.68"
+            },
+            {
+              "description": "Juego de juntas",
+              "quantity": "9",
+              "unit_price": "11.85",
+              "amount": "106.65"
+            },
+            {
+              "description": "Líquido de frenos DOT4 (1 L)",
+              "quantity": "5",
+              "unit_price": "11.22",
+              "amount": "56.10"
+            }
+          ],
+          "got": [
+            {
+              "description": "Desengrasante (5 L)",
+              "quantity": "3.0",
+              "unit_price": null,
+              "amount": "92.76"
+            },
+            {
+              "description": "Amortiguador trasero",
+              "quantity": "5.0",
+              "unit_price": null,
+              "amount": "398.45"
+            },
+            {
+              "description": "Papel de taller (rollo)",
+              "quantity": "3.0",
+              "unit_price": null,
+              "amount": "58.68"
+            },
+            {
+              "description": "Juego de juntas",
+              "quantity": "9.0",
+              "unit_price": null,
+              "amount": "106.65"
+            },
+            {
+              "description": "Líquido de frenos DOT4 (1 L)",
+              "quantity": "5.0",
+              "unit_price": null,
+              "amount": "56.10"
+            }
+          ]
+        }
+      },
+      "seconds": 25.3,
+      "attempts": 1
+    },
+    {
+      "id": "invoice-030",
+      "perfect": false,
+      "status": "needs_review",
+      "issues": [
+        "missing_line_price",
+        "line_amount_mismatch",
+        "line_amount_mismatch"
+      ],
+      "wrong_fields": {
+        "issuer_name": {
+          "expected": "Alimentación Carretero y asociados S.Coop.",
+          "got": "Distribuciones Iriarte S.L."
+        },
+        "issuer_tax_id": {
+          "expected": "B11240553",
+          "got": "A27537919"
+        },
+        "lines": {
+          "expected": [
+            {
+              "description": "Desengrasante (5 L)",
+              "quantity": "11",
+              "unit_price": "23.29",
+              "amount": "256.19"
+            },
+            {
+              "description": "Filtro de habitáculo",
+              "quantity": "10",
+              "unit_price": "15.23",
+              "amount": "152.30"
+            },
+            {
+              "description": "Bomba de agua",
+              "quantity": "4",
+              "unit_price": "121.52",
+              "amount": "486.08"
+            }
+          ],
+          "got": [
+            {
+              "description": "Desengrasante (5 L)",
+              "quantity": "0.01",
+              "unit_price": null,
+              "amount": "256.19"
+            },
+            {
+              "description": "Filtro de habitáculo",
+              "quantity": "0.1",
+              "unit_price": "15.23",
+              "amount": "152.30"
+            },
+            {
+              "description": "Bomba de agua",
+              "quantity": "0.04",
+              "unit_price": "121.52",
+              "amount": "486.08"
+            }
+          ]
+        }
+      },
+      "seconds": 20.98,
+      "attempts": 1
+    },
+    {
+      "id": "delivery-note-001",
+      "perfect": false,
+      "status": "needs_review",
+      "issues": [
+        "invalid_tax_id"
+      ],
+      "wrong_fields": {
+        "issuer_tax_id": {
+          "expected": "A87778015",
+          "got": "A8778015"
+        },
+        "subtotal": {
+          "expected": null,
+          "got": "12.00"
+        },
+        "total": {
+          "expected": null,
+          "got": "12.00"
+        },
+        "lines": {
+          "expected": [
+            {
+              "description": "Líquido de frenos DOT4 (1 L)",
+              "quantity": "12",
+              "unit_price": null,
+              "amount": null
+            },
+            {
+              "description": "Guantes de nitrilo (caja 100)",
+              "quantity": "9",
+              "unit_price": null,
+              "amount": null
+            },
+            {
+              "description": "Mano de obra (hora)",
+              "quantity": "5",
+              "unit_price": null,
+              "amount": null
+            }
+          ],
+          "got": [
+            {
+              "description": "Liquido de frenos DOT4 (1 L)",
+              "quantity": "1.0",
+              "unit_price": null,
+              "amount": null
+            },
+            {
+              "description": "Guantes de nitrilo (caja 100)",
+              "quantity": "1.0",
+              "unit_price": null,
+              "amount": null
+            },
+            {
+              "description": "Mano de obra (hora)",
+              "quantity": "1.0",
+              "unit_price": null,
+              "amount": null
+            }
+          ]
+        }
+      },
+      "seconds": 17.95,
+      "attempts": 1
+    },
+    {
+      "id": "delivery-note-002",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 24.04,
+      "attempts": 1
+    },
+    {
+      "id": "delivery-note-003",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 18.55,
+      "attempts": 1
+    },
+    {
+      "id": "delivery-note-004",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 22.1,
+      "attempts": 1
+    },
+    {
+      "id": "delivery-note-005",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 25.14,
+      "attempts": 1
+    },
+    {
+      "id": "delivery-note-006",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 27.52,
+      "attempts": 1
+    },
+    {
+      "id": "delivery-note-007",
+      "perfect": true,
+      "status": "needs_review",
+      "issues": [
+        "low_confidence",
+        "low_confidence"
+      ],
+      "wrong_fields": {},
+      "seconds": 12.69,
+      "attempts": 1
+    },
+    {
+      "id": "delivery-note-008",
+      "perfect": false,
+      "status": "needs_review",
+      "issues": [
+        "low_confidence",
+        "low_confidence",
+        "low_confidence"
+      ],
+      "wrong_fields": {
+        "subtotal": {
+          "expected": null,
+          "got": "0.00"
+        },
+        "vat_amount": {
+          "expected": null,
+          "got": "0.00"
+        },
+        "total": {
+          "expected": null,
+          "got": "0.00"
+        }
+      },
+      "seconds": 25.85,
+      "attempts": 1
+    },
+    {
+      "id": "delivery-note-009",
+      "perfect": false,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {
+        "issue_date": {
+          "expected": "2025-12-04",
+          "got": "2025-04-12"
+        }
+      },
+      "seconds": 23.2,
+      "attempts": 1
+    },
+    {
+      "id": "delivery-note-010",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 19.89,
+      "attempts": 1
+    },
+    {
+      "id": "order-001",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 12.5,
+      "attempts": 1
+    },
+    {
+      "id": "order-002",
+      "perfect": false,
+      "status": "needs_review",
+      "issues": [
+        "low_confidence"
+      ],
+      "wrong_fields": {
+        "subtotal": {
+          "expected": null,
+          "got": "0.00"
+        }
+      },
+      "seconds": 29.23,
+      "attempts": 1
+    },
+    {
+      "id": "order-003",
+      "perfect": false,
+      "status": "needs_review",
+      "issues": [
+        "low_confidence"
+      ],
+      "wrong_fields": {
+        "subtotal": {
+          "expected": null,
+          "got": "0.00"
+        }
+      },
+      "seconds": 25.78,
+      "attempts": 1
+    },
+    {
+      "id": "order-004",
+      "perfect": false,
+      "status": "needs_review",
+      "issues": [
+        "low_confidence",
+        "low_confidence",
+        "low_confidence"
+      ],
+      "wrong_fields": {
+        "subtotal": {
+          "expected": null,
+          "got": "0.00"
+        },
+        "vat_amount": {
+          "expected": null,
+          "got": "0.00"
+        },
+        "total": {
+          "expected": null,
+          "got": "0.00"
+        }
+      },
+      "seconds": 19.3,
+      "attempts": 1
+    },
+    {
+      "id": "order-005",
+      "perfect": false,
+      "status": "needs_review",
+      "issues": [
+        "missing_field"
+      ],
+      "wrong_fields": {
+        "issue_date": {
+          "expected": "2025-11-02",
+          "got": null
+        }
+      },
+      "seconds": 19.89,
+      "attempts": 1
+    },
+    {
+      "id": "order-006",
+      "perfect": false,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {
+        "issuer_name": {
+          "expected": "Desarrollo Calderón S.A.",
+          "got": "Infraestructuras Acevedo S.L."
+        },
+        "issuer_tax_id": {
+          "expected": "B11550464",
+          "got": null
+        }
+      },
+      "seconds": 14.09,
+      "attempts": 1
+    },
+    {
+      "id": "order-007",
+      "perfect": false,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {
+        "lines": {
+          "expected": [
+            {
+              "description": "Líquido de frenos DOT4 (1 L)",
+              "quantity": "1",
+              "unit_price": null,
+              "amount": null
+            },
+            {
+              "description": "Escobillas limpiaparabrisas",
+              "quantity": "3",
+              "unit_price": null,
+              "amount": null
+            },
+            {
+              "description": "Silentblock",
+              "quantity": "5",
+              "unit_price": null,
+              "amount": null
+            },
+            {
+              "description": "Anticongelante (5 L)",
+              "quantity": "11",
+              "unit_price": null,
+              "amount": null
+            },
+            {
+              "description": "Juego de juntas",
+              "quantity": "4",
+              "unit_price": null,
+              "amount": null
+            },
+            {
+              "description": "Kit de embrague",
+              "quantity": "10",
+              "unit_price": null,
+              "amount": null
+            },
+            {
+              "description": "Bujía de encendido",
+              "quantity": "3",
+              "unit_price": null,
+              "amount": null
+            }
+          ],
+          "got": [
+            {
+              "description": "Liquido de frenos DOT4 (1 L)",
+              "quantity": "1.0",
+              "unit_price": null,
+              "amount": null
+            },
+            {
+              "description": "Escobillas limpiaparabrisas",
+              "quantity": "3.0",
+              "unit_price": null,
+              "amount": null
+            },
+            {
+              "description": "Silentblock",
+              "quantity": "5.0",
+              "unit_price": null,
+              "amount": null
+            },
+            {
+              "description": "Anticongelante (5 L)",
+              "quantity": "11.0",
+              "unit_price": null,
+              "amount": null
+            },
+            {
+              "description": "Juego de juntas",
+              "quantity": "4.0",
+              "unit_price": null,
+              "amount": null
+            },
+            {
+              "description": "Kit de embrague",
+              "quantity": "10.0",
+              "unit_price": null,
+              "amount": null
+            },
+            {
+              "description": "Bujía de encendido",
+              "quantity": "3.0",
+              "unit_price": null,
+              "amount": null
+            }
+          ]
+        }
+      },
+      "seconds": 22.57,
+      "attempts": 1
+    },
+    {
+      "id": "order-008",
+      "perfect": false,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {
+        "issuer_name": {
+          "expected": "Lupe Vallejo Barón",
+          "got": "Ángela"
+        }
+      },
+      "seconds": 14.74,
+      "attempts": 1
+    },
+    {
+      "id": "order-009",
+      "perfect": true,
+      "status": "valid",
+      "issues": [],
+      "wrong_fields": {},
+      "seconds": 26.32,
+      "attempts": 1
+    },
+    {
+      "id": "order-010",
+      "perfect": false,
+      "status": "needs_review",
+      "issues": [
+        "low_confidence"
+      ],
+      "wrong_fields": {
+        "subtotal": {
+          "expected": null,
+          "got": "0.00"
+        }
+      },
+      "seconds": 25.05,
+      "attempts": 1
+    }
+  ],
+  "scores": [
+    {
+      "doc_id": "invoice-001",
+      "document_type": "invoice",
+      "layout": "classic",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": false
+      },
+      "status": "needs_review",
+      "latency_ms": 24227.185899995675,
+      "input_tokens": 605,
+      "output_tokens": 264,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": [
+        "missing_line_price"
+      ]
+    },
+    {
+      "doc_id": "invoice-002",
+      "document_type": "invoice",
+      "layout": "compact",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": false
+      },
+      "status": "needs_review",
+      "latency_ms": 15542.49439999694,
+      "input_tokens": 575,
+      "output_tokens": 237,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": [
+        "missing_line_price"
+      ]
+    },
+    {
+      "doc_id": "invoice-003",
+      "document_type": "invoice",
+      "layout": "modern",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": false,
+          "issuer_tax_id": false,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": false
+      },
+      "status": "needs_review",
+      "latency_ms": 29482.486799999606,
+      "input_tokens": 743,
+      "output_tokens": 450,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": [
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "subtotal_mismatch"
+      ]
+    },
+    {
+      "doc_id": "invoice-004",
+      "document_type": "invoice",
+      "layout": "classic",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": false
+      },
+      "status": "needs_review",
+      "latency_ms": 36586.94649999961,
+      "input_tokens": 775,
+      "output_tokens": 566,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": [
+        "missing_line_price"
+      ]
+    },
+    {
+      "doc_id": "invoice-005",
+      "document_type": "invoice",
+      "layout": "compact",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": false
+      },
+      "status": "needs_review",
+      "latency_ms": 23350.370200001635,
+      "input_tokens": 662,
+      "output_tokens": 360,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": [
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price"
+      ]
+    },
+    {
+      "doc_id": "invoice-006",
+      "document_type": "invoice",
+      "layout": "modern",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": false,
+          "issuer_tax_id": false,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": false
+      },
+      "status": "needs_review",
+      "latency_ms": 22132.650299994566,
+      "input_tokens": 659,
+      "output_tokens": 340,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": [
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price"
+      ]
+    },
+    {
+      "doc_id": "invoice-007",
+      "document_type": "invoice",
+      "layout": "classic",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": false
+      },
+      "status": "needs_review",
+      "latency_ms": 20390.949000000546,
+      "input_tokens": 642,
+      "output_tokens": 314,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": [
+        "missing_line_price"
+      ]
+    },
+    {
+      "doc_id": "invoice-008",
+      "document_type": "invoice",
+      "layout": "compact",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": false
+      },
+      "status": "needs_review",
+      "latency_ms": 21380.17179999588,
+      "input_tokens": 635,
+      "output_tokens": 326,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": [
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price"
+      ]
+    },
+    {
+      "doc_id": "invoice-009",
+      "document_type": "invoice",
+      "layout": "modern",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": false,
+          "issuer_tax_id": false,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": false
+      },
+      "status": "needs_review",
+      "latency_ms": 23676.404699996056,
+      "input_tokens": 672,
+      "output_tokens": 365,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": [
+        "missing_line_price"
+      ]
+    },
+    {
+      "doc_id": "invoice-010",
+      "document_type": "invoice",
+      "layout": "classic",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": false
+      },
+      "status": "needs_review",
+      "latency_ms": 26520.310100000643,
+      "input_tokens": 710,
+      "output_tokens": 404,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": [
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price"
+      ]
+    },
+    {
+      "doc_id": "invoice-011",
+      "document_type": "invoice",
+      "layout": "compact",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": false
+      },
+      "status": "needs_review",
+      "latency_ms": 23143.42890000262,
+      "input_tokens": 663,
+      "output_tokens": 361,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": [
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price"
+      ]
+    },
+    {
+      "doc_id": "invoice-012",
+      "document_type": "invoice",
+      "layout": "modern",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": false
+      },
+      "status": "needs_review",
+      "latency_ms": 29020.136499995715,
+      "input_tokens": 743,
+      "output_tokens": 445,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": [
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "subtotal_mismatch"
+      ]
+    },
+    {
+      "doc_id": "invoice-013",
+      "document_type": "invoice",
+      "layout": "classic",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": false
+      },
+      "status": "needs_review",
+      "latency_ms": 27308.59480000072,
+      "input_tokens": 707,
+      "output_tokens": 423,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": [
+        "missing_line_price"
+      ]
+    },
+    {
+      "doc_id": "invoice-014",
+      "document_type": "invoice",
+      "layout": "compact",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": false
+      },
+      "status": "needs_review",
+      "latency_ms": 22771.201200004725,
+      "input_tokens": 640,
+      "output_tokens": 357,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": [
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price"
+      ]
+    },
+    {
+      "doc_id": "invoice-015",
+      "document_type": "invoice",
+      "layout": "modern",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": false,
+          "issuer_tax_id": false,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": false
+      },
+      "status": "needs_review",
+      "latency_ms": 33195.068599998194,
+      "input_tokens": 771,
+      "output_tokens": 504,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": [
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price"
+      ]
+    },
+    {
+      "doc_id": "invoice-016",
+      "document_type": "invoice",
+      "layout": "classic",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": false
+      },
+      "status": "needs_review",
+      "latency_ms": 35826.213099993765,
+      "input_tokens": 775,
+      "output_tokens": 557,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": [
+        "missing_line_price"
+      ]
+    },
+    {
+      "doc_id": "invoice-017",
+      "document_type": "invoice",
+      "layout": "compact",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": false
+      },
+      "status": "needs_review",
+      "latency_ms": 17559.186300000874,
+      "input_tokens": 595,
+      "output_tokens": 271,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": [
+        "missing_line_price",
+        "missing_line_price"
+      ]
+    },
+    {
+      "doc_id": "invoice-018",
+      "document_type": "invoice",
+      "layout": "modern",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": false,
+          "issuer_tax_id": false,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": false
+      },
+      "status": "needs_review",
+      "latency_ms": 15205.893799997284,
+      "input_tokens": 586,
+      "output_tokens": 232,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": [
+        "line_amount_mismatch",
+        "subtotal_mismatch"
+      ]
+    },
+    {
+      "doc_id": "invoice-019",
+      "document_type": "invoice",
+      "layout": "classic",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": false
+      },
+      "status": "needs_review",
+      "latency_ms": 21307.462199998554,
+      "input_tokens": 656,
+      "output_tokens": 329,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": [
+        "missing_line_price"
+      ]
+    },
+    {
+      "doc_id": "invoice-020",
+      "document_type": "invoice",
+      "layout": "compact",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": false
+      },
+      "status": "needs_review",
+      "latency_ms": 31591.86580000096,
+      "input_tokens": 733,
+      "output_tokens": 491,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": [
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price"
+      ]
+    },
+    {
+      "doc_id": "invoice-021",
+      "document_type": "invoice",
+      "layout": "modern",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": false,
+          "issuer_name": false,
+          "issuer_tax_id": false,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": false
+      },
+      "status": "needs_review",
+      "latency_ms": 27922.61000000144,
+      "input_tokens": 751,
+      "output_tokens": 425,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": [
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price"
+      ]
+    },
+    {
+      "doc_id": "invoice-022",
+      "document_type": "invoice",
+      "layout": "classic",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": false
+      },
+      "status": "needs_review",
+      "latency_ms": 29327.53049999883,
+      "input_tokens": 738,
+      "output_tokens": 448,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": [
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price"
+      ]
+    },
+    {
+      "doc_id": "invoice-023",
+      "document_type": "invoice",
+      "layout": "compact",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": false
+      },
+      "status": "needs_review",
+      "latency_ms": 30248.067900000024,
+      "input_tokens": 715,
+      "output_tokens": 473,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": [
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price"
+      ]
+    },
+    {
+      "doc_id": "invoice-024",
+      "document_type": "invoice",
+      "layout": "modern",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": false,
+          "issuer_tax_id": false,
+          "issue_date": true,
+          "subtotal": false,
+          "vat_amount": true,
+          "total": false
+        },
+        "lines": false
+      },
+      "status": "needs_review",
+      "latency_ms": 31828.361799998675,
+      "input_tokens": 780,
+      "output_tokens": 478,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": [
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "subtotal_mismatch"
+      ]
+    },
+    {
+      "doc_id": "invoice-025",
+      "document_type": "invoice",
+      "layout": "classic",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": false
+      },
+      "status": "needs_review",
+      "latency_ms": 28813.93609999941,
+      "input_tokens": 725,
+      "output_tokens": 445,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": [
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price"
+      ]
+    },
+    {
+      "doc_id": "invoice-026",
+      "document_type": "invoice",
+      "layout": "compact",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": false
+      },
+      "status": "needs_review",
+      "latency_ms": 17728.493000002345,
+      "input_tokens": 600,
+      "output_tokens": 269,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": [
+        "missing_line_price",
+        "missing_line_price",
+        "low_confidence",
+        "low_confidence"
+      ]
+    },
+    {
+      "doc_id": "invoice-027",
+      "document_type": "invoice",
+      "layout": "modern",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": false,
+          "issuer_tax_id": false,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": false
+      },
+      "status": "needs_review",
+      "latency_ms": 50960.524900001474,
+      "input_tokens": 1762,
+      "output_tokens": 756,
+      "attempts": 2,
+      "extraction_failed": false,
+      "issues": [
+        "line_amount_mismatch"
+      ]
+    },
+    {
+      "doc_id": "invoice-028",
+      "document_type": "invoice",
+      "layout": "classic",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": false
+      },
+      "status": "needs_review",
+      "latency_ms": 17507.566600004793,
+      "input_tokens": 607,
+      "output_tokens": 263,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": [
+        "missing_line_price"
+      ]
+    },
+    {
+      "doc_id": "invoice-029",
+      "document_type": "invoice",
+      "layout": "compact",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": false
+      },
+      "status": "needs_review",
+      "latency_ms": 25298.52650000248,
+      "input_tokens": 675,
+      "output_tokens": 393,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": [
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price",
+        "missing_line_price"
+      ]
+    },
+    {
+      "doc_id": "invoice-030",
+      "document_type": "invoice",
+      "layout": "modern",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": false,
+          "issuer_tax_id": false,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": false
+      },
+      "status": "needs_review",
+      "latency_ms": 20976.85709999496,
+      "input_tokens": 642,
+      "output_tokens": 320,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": [
+        "missing_line_price",
+        "line_amount_mismatch",
+        "line_amount_mismatch"
+      ]
+    },
+    {
+      "doc_id": "delivery-note-001",
+      "document_type": "delivery_note",
+      "layout": "delivery_note",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": false,
+          "issue_date": true,
+          "subtotal": false,
+          "vat_amount": true,
+          "total": false
+        },
+        "lines": false
+      },
+      "status": "needs_review",
+      "latency_ms": 17954.444599999988,
+      "input_tokens": 567,
+      "output_tokens": 285,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": [
+        "invalid_tax_id"
+      ]
+    },
+    {
+      "doc_id": "delivery-note-002",
+      "document_type": "delivery_note",
+      "layout": "delivery_note",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 24043.775500002084,
+      "input_tokens": 584,
+      "output_tokens": 388,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "delivery-note-003",
+      "document_type": "delivery_note",
+      "layout": "delivery_note",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 18547.46840000007,
+      "input_tokens": 557,
+      "output_tokens": 293,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "delivery-note-004",
+      "document_type": "delivery_note",
+      "layout": "delivery_note",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 22099.828700003854,
+      "input_tokens": 569,
+      "output_tokens": 355,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "delivery-note-005",
+      "document_type": "delivery_note",
+      "layout": "delivery_note",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 25142.927599998075,
+      "input_tokens": 604,
+      "output_tokens": 402,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "delivery-note-006",
+      "document_type": "delivery_note",
+      "layout": "delivery_note",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 27518.43319999898,
+      "input_tokens": 594,
+      "output_tokens": 444,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "delivery-note-007",
+      "document_type": "delivery_note",
+      "layout": "delivery_note",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "needs_review",
+      "latency_ms": 12693.208699995012,
+      "input_tokens": 531,
+      "output_tokens": 194,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": [
+        "low_confidence",
+        "low_confidence"
+      ]
+    },
+    {
+      "doc_id": "delivery-note-008",
+      "document_type": "delivery_note",
+      "layout": "delivery_note",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": false,
+          "vat_amount": false,
+          "total": false
+        },
+        "lines": true
+      },
+      "status": "needs_review",
+      "latency_ms": 25851.55559999839,
+      "input_tokens": 607,
+      "output_tokens": 412,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": [
+        "low_confidence",
+        "low_confidence",
+        "low_confidence"
+      ]
+    },
+    {
+      "doc_id": "delivery-note-009",
+      "document_type": "delivery_note",
+      "layout": "delivery_note",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": false,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 23202.33569999982,
+      "input_tokens": 583,
+      "output_tokens": 374,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "delivery-note-010",
+      "document_type": "delivery_note",
+      "layout": "delivery_note",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 19885.690000002796,
+      "input_tokens": 565,
+      "output_tokens": 318,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "order-001",
+      "document_type": "order",
+      "layout": "email",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 12503.835299998173,
+      "input_tokens": 545,
+      "output_tokens": 190,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "order-002",
+      "document_type": "order",
+      "layout": "email",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": false,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "needs_review",
+      "latency_ms": 29230.027799996606,
+      "input_tokens": 628,
+      "output_tokens": 465,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": [
+        "low_confidence"
+      ]
+    },
+    {
+      "doc_id": "order-003",
+      "document_type": "order",
+      "layout": "email",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": false,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "needs_review",
+      "latency_ms": 25783.560600000783,
+      "input_tokens": 594,
+      "output_tokens": 418,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": [
+        "low_confidence"
+      ]
+    },
+    {
+      "doc_id": "order-004",
+      "document_type": "order",
+      "layout": "email",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": false,
+          "vat_amount": false,
+          "total": false
+        },
+        "lines": true
+      },
+      "status": "needs_review",
+      "latency_ms": 19304.95990000054,
+      "input_tokens": 565,
+      "output_tokens": 303,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": [
+        "low_confidence",
+        "low_confidence",
+        "low_confidence"
+      ]
+    },
+    {
+      "doc_id": "order-005",
+      "document_type": "order",
+      "layout": "email",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": false,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "needs_review",
+      "latency_ms": 19887.471000001824,
+      "input_tokens": 595,
+      "output_tokens": 313,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": [
+        "missing_field"
+      ]
+    },
+    {
+      "doc_id": "order-006",
+      "document_type": "order",
+      "layout": "email",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": false,
+          "issuer_tax_id": false,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 14092.897700000321,
+      "input_tokens": 553,
+      "output_tokens": 218,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "order-007",
+      "document_type": "order",
+      "layout": "email",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": false
+      },
+      "status": "valid",
+      "latency_ms": 22567.26969999727,
+      "input_tokens": 618,
+      "output_tokens": 349,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "order-008",
+      "document_type": "order",
+      "layout": "email",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": false,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 14742.534600001818,
+      "input_tokens": 553,
+      "output_tokens": 225,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "order-009",
+      "document_type": "order",
+      "layout": "email",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": true,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "valid",
+      "latency_ms": 26322.507699995185,
+      "input_tokens": 609,
+      "output_tokens": 424,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": []
+    },
+    {
+      "doc_id": "order-010",
+      "document_type": "order",
+      "layout": "email",
+      "score": {
+        "fields": {
+          "document_type": true,
+          "document_number": true,
+          "issuer_name": true,
+          "issuer_tax_id": true,
+          "issue_date": true,
+          "subtotal": false,
+          "vat_amount": true,
+          "total": true
+        },
+        "lines": true
+      },
+      "status": "needs_review",
+      "latency_ms": 25045.24510000192,
+      "input_tokens": 636,
+      "output_tokens": 391,
+      "attempts": 1,
+      "extraction_failed": false,
+      "issues": [
+        "low_confidence"
+      ]
+    }
+  ]
+}
