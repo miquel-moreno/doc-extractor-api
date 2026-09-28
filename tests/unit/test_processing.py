@@ -18,7 +18,7 @@ TEXT = "FACTURA F-2026-0001 ..."
 
 async def run(session: AsyncSession, llm: FakeLLMClient, content: bytes = CONTENT) -> Any:
     return await process_document(
-        content=content,
+        sha256=fingerprint(content),
         text=TEXT,
         media_type="application/pdf",
         filename="factura.pdf",

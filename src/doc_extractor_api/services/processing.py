@@ -36,7 +36,7 @@ def fingerprint(content: bytes) -> str:
 
 async def process_document(
     *,
-    content: bytes,
+    sha256: str,
     text: str,
     media_type: str,
     filename: str | None,
@@ -44,7 +44,7 @@ async def process_document(
     llm: LLMClient,
     today: date | None = None,
 ) -> ProcessedDocument:
-    sha256 = fingerprint(content)
+    """`sha256` is the fingerprint of the raw content (see `fingerprint`)."""
     if existing := await get_by_sha256(session, sha256):
         return ProcessedDocument(existing, created=False)
 
