@@ -9,7 +9,7 @@ from collections.abc import Sequence
 from datetime import UTC, datetime
 from typing import Any
 
-from sqlalchemy import JSON, DateTime, Float, Integer, String, select
+from sqlalchemy import JSON, DateTime, Float, ForeignKey, Integer, String, Text, select
 from sqlalchemy.ext.asyncio import (
     AsyncEngine,
     AsyncSession,
@@ -46,6 +46,27 @@ class DocumentRecord(Base):
     output_tokens: Mapped[int] = mapped_column(Integer)
     latency_ms: Mapped[float] = mapped_column(Float)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now)
+
+
+class JobRecord(Base):
+    """A queued request to process a document. The worker fills in the result."""
+
+    __tablename__ = "jobs"
+
+    id: Mapped[str] = mapped_column(String(36), primary_key=True, default=lambda: str(uuid.uuid4()))
+    # queued -> processing -> done | failed
+    status: Mapped[str] = mapped_column(String(20), index=True)
+    sha256: Mapped[str] = mapped_column(String(64))
+    filename: Mapped[str | None] = mapped_column(String(255))
+    media_type: Mapped[str] = mapped_column(String(100))
+    text: Mapped[str] = mapped_column(Text)
+    attempts: Mapped[int] = mapped_column(Integer, default=0)
+    error: Mapped[str | None] = mapped_column(Text)
+    document_id: Mapped[str | None] = mapped_column(ForeignKey("documents.id"))
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=_now)
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), default=_now, onupdate=_now
+    )
 
 
 def make_engine(database_url: str) -> AsyncEngine:

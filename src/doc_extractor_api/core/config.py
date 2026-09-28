@@ -22,6 +22,7 @@ class Settings(BaseSettings):
     ollama_base_url: str = "http://localhost:11434"
 
     database_url: str = "postgresql+asyncpg://app:app@localhost:5432/app"
+    redis_url: str = "redis://localhost:6379/0"
 
 
 @lru_cache

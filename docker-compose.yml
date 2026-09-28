@@ -1,20 +1,36 @@
+x-app: &app
+  build: .
+  env_file:
+    - path: .env
+      required: false
+  environment:
+    DATABASE_URL: postgresql+asyncpg://app:app@db:5432/app
+    REDIS_URL: redis://redis:6379/0
+    # Ollama runs on the host machine, not in this compose file.
+    OLLAMA_BASE_URL: http://host.docker.internal:11434
+  extra_hosts:
+    - "host.docker.internal:host-gateway"
+
 services:
   api:
-    build: .
+    <<: *app
     ports:
       - "8000:8000"
-    env_file:
-      - path: .env
-        required: false
-    environment:
-      DATABASE_URL: postgresql+asyncpg://app:app@db:5432/app
-      # Ollama runs on the host machine, not in this compose file.
-      OLLAMA_BASE_URL: http://host.docker.internal:11434
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
     depends_on:
       db:
         condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  # Same image, different command: takes job ids from Redis and processes them.
+  worker:
+    <<: *app
+    command: ["arq", "doc_extractor_api.worker.WorkerSettings"]
+    healthcheck:
+      disable: true
+    depends_on:
+      api:
+        condition: service_healthy  # the API applies the migrations on start
 
   db:
     image: pgvector/pgvector:pg16
@@ -28,6 +44,16 @@ services:
       - pgdata:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U app -d app"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
       interval: 5s
       timeout: 3s
       retries: 10

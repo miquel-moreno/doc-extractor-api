@@ -1,5 +1,6 @@
 """Document endpoints: submit a document, read one, list the review queue."""
 
+from dataclasses import dataclass
 from datetime import UTC, datetime
 from typing import Annotated, Any
 
@@ -18,7 +19,7 @@ from doc_extractor_api.core.errors import (
     UnprocessableDocumentError,
     UnsupportedMediaTypeError,
 )
-from doc_extractor_api.services.processing import process_document
+from doc_extractor_api.services.processing import fingerprint, process_document
 from doc_extractor_api.services.validation import ReviewStatus
 
 router = APIRouter(tags=["documents"])
@@ -56,6 +57,33 @@ class DocumentOut(BaseModel):
         return cls.model_validate(record, from_attributes=True)
 
 
+@dataclass(frozen=True)
+class IncomingDocument:
+    sha256: str
+    text: str
+    media_type: str
+    filename: str | None
+
+
+async def read_incoming(file: UploadFile | None, text: str | None) -> IncomingDocument:
+    """Validate the request and turn it into text. Shared by /extract and /jobs.
+
+    Every input error is raised here, before any LLM call or queueing.
+    """
+    if (file is None) == (text is None):
+        raise UnprocessableDocumentError("send exactly one of: a file or a text field")
+    if file is not None:
+        content = await file.read(MAX_UPLOAD_BYTES + 1)
+        filename = file.filename
+    else:
+        content = (text or "").encode("utf-8")
+        filename = None
+    if len(content) > MAX_UPLOAD_BYTES:
+        raise PayloadTooLargeError(f"the maximum size is {MAX_UPLOAD_BYTES // (1024 * 1024)} MB")
+    document_text, media_type = _read_input(content, filename)
+    return IncomingDocument(fingerprint(content), document_text, media_type, filename)
+
+
 def _read_input(content: bytes, filename: str | None) -> tuple[str, str]:
     """Return (text, media_type) for a PDF or a UTF-8 text document."""
     if is_pdf(content):
@@ -90,25 +118,13 @@ async def extract(
     text: Annotated[str | None, Form(description="Plain text, e.g. an email body")] = None,
 ) -> DocumentOut:
     """Extract and validate a document. 201 if new, 200 if the same content was already sent."""
-    if (file is None) == (text is None):
-        raise UnprocessableDocumentError("send exactly one of: a file or a text field")
-
-    if file is not None:
-        content = await file.read(MAX_UPLOAD_BYTES + 1)
-        filename = file.filename
-    else:
-        content = (text or "").encode("utf-8")
-        filename = None
-    if len(content) > MAX_UPLOAD_BYTES:
-        raise PayloadTooLargeError(f"the maximum size is {MAX_UPLOAD_BYTES // (1024 * 1024)} MB")
-
-    document_text, media_type = _read_input(content, filename)
+    incoming = await read_incoming(file, text)
     try:
         result = await process_document(
-            content=content,
-            text=document_text,
-            media_type=media_type,
-            filename=filename,
+            sha256=incoming.sha256,
+            text=incoming.text,
+            media_type=incoming.media_type,
+            filename=incoming.filename,
             session=session,
             llm=llm,
         )
