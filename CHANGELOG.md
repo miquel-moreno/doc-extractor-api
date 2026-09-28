@@ -5,6 +5,8 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), versio
 
 ## [Unreleased]
 
+## [1.0.0] - 2026-09-28
+
 ### Added
 - Evaluation on the 50-document dataset (`make eval`): per-field accuracy, perfect documents,
   safety metrics (wrong documents marked valid), time and cost. Results for gpt-4.1-mini
@@ -44,5 +46,6 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), versio
 - Low confidence on empty fields no longer sends correct documents to review.
 - Amounts are always returned with two decimals (cents).
 
-[Unreleased]: https://github.com/miquel-moreno/doc-extractor-api/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/miquel-moreno/doc-extractor-api/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/miquel-moreno/doc-extractor-api/compare/v0.1.0...v1.0.0
 [0.1.0]: https://github.com/miquel-moreno/doc-extractor-api/releases/tag/v0.1.0
