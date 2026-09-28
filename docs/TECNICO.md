@@ -7,7 +7,29 @@ cp .env.example .env   # elige proveedor de LLM y añade tu clave
 docker compose up --build
 ```
 
-La API queda en http://localhost:8000 (documentación interactiva en `/docs`).
+La API queda en http://localhost:8000 (documentación interactiva en `/docs`). Al arrancar, el contenedor aplica las migraciones pendientes. Con `LLM_PROVIDER=ollama`, el contenedor usa el Ollama de la máquina anfitriona (`host.docker.internal`).
+
+## Uso de la API
+
+| Método y ruta | Qué hace | Respuestas |
+|---|---|---|
+| `POST /extract` | Extrae y valida un documento: `file` (PDF con texto o texto UTF-8) **o** `text` (formulario) | `201` nuevo · `200` ya procesado (mismo contenido, sin llamar al LLM) · `413` > 10 MB · `415` ni PDF ni texto · `422` PDF ilegible o escaneado, o entrada vacía · `503` LLM caído o sin configurar |
+| `GET /documents/{id}` | Un documento procesado | `200` · `404` |
+| `GET /reviews?limit=&offset=` | Bandeja de revisión humana (`needs_review`), más recientes primero | `200` |
+| `GET /health` | Comprobación de vida | `200` |
+
+```bash
+# Una factura en PDF
+curl -F "file=@evals/dataset/invoice-002.pdf;type=application/pdf" http://localhost:8000/extract
+
+# El cuerpo de un email
+curl --data-urlencode "text@evals/dataset/order-003.txt" http://localhost:8000/extract
+
+# Lo que tiene que revisar una persona
+curl http://localhost:8000/reviews
+```
+
+Cada respuesta incluye los datos extraídos (`data`, importes como texto con 2 decimales), el estado (`valid` o `needs_review`), los motivos (`issues`), el modelo, los intentos, los tokens y la latencia.
 
 Desarrollo local:
 
@@ -47,6 +69,8 @@ src/doc_extractor_api/
 | Nada se pierde | Si la extracción falla tras el reintento, el documento se guarda igualmente como `needs_review` con el motivo `extraction_failed`. Si el proveedor del LLM está caído, no se guarda nada, para poder reintentar después |
 | SQLAlchemy 2 asíncrono + Alembic | Las llamadas al LLM son asíncronas; una base de datos síncrona bloquearía el servidor mientras espera. Alembic versiona la estructura de la base de datos como Git versiona el código |
 | `asyncpg` para la aplicación, `psycopg` para las migraciones | psycopg en modo asíncrono no funciona con el bucle de eventos por defecto de Windows (`ProactorEventLoop`); se detectó probando contra un PostgreSQL real. asyncpg funciona igual en Windows y Linux. Las migraciones son un script síncrono y usan psycopg (`migrations/env.py` cambia el driver solo) |
+| `201` / `200` para distinguir nuevo y repetido | Quien llama (por ejemplo n8n) sabe si el documento es nuevo sin mirar el cuerpo, y reenviar el mismo archivo es seguro |
+| Errores de entrada antes de llamar al LLM | Un PDF roto, escaneado, vacío o demasiado grande se rechaza con un código claro y sin gastar tokens |
 | Tests con SQLite en memoria; producción con PostgreSQL | La CI no necesita un PostgreSQL. El modelo solo usa tipos portables (`JSON`, no `JSONB`), y un test aplica las migraciones y comprueba que el esquema resultante es idéntico al de los modelos |
 | Casi todos los campos del esquema son opcionales | Si el LLM no encuentra un campo, el documento no se rechaza: la regla de campos obligatorios lo marca para revisión y la persona ve exactamente qué falta. |
 
