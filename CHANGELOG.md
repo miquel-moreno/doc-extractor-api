@@ -5,6 +5,15 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), versio
 
 ## [Unreleased]
 
+### Added
+- Evaluation on the 50-document dataset (`make eval`): per-field accuracy, perfect documents,
+  safety metrics (wrong documents marked valid), time and cost. Results for gpt-4.1-mini
+  and qwen2.5:3b in `evals/results/`.
+
+### Fixed
+- Invoice lines without unit price or amount now go to review (found by the evaluation).
+- The document number is extracted without its label ("Factura nº …").
+
 ## [0.1.0] - 2026-09-28
 
 ### Added

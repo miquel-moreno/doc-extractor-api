@@ -88,6 +88,17 @@ def test_line_amount_must_match_quantity_times_price() -> None:
     assert issue.field == "lines[1].amount"
 
 
+@pytest.mark.parametrize("missing", ["unit_price", "amount"])
+def test_invoice_line_without_price_or_amount_needs_review(missing: str) -> None:
+    line = make_invoice().lines[0].model_copy(update={missing: None})
+    doc = make_invoice(lines=[line, make_invoice().lines[1]])
+
+    report = validate_document(doc, today=TODAY)
+
+    issue = next(i for i in report.issues if i.code == IssueCode.MISSING_LINE_PRICE)
+    assert issue.field == "lines[0]"
+
+
 def test_line_rounding_within_one_cent_is_accepted() -> None:
     line = LineItem(
         description="Tornillo",

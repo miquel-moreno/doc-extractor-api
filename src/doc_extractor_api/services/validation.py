@@ -38,6 +38,7 @@ class IssueCode(StrEnum):
     EXTRACTION_FAILED = "extraction_failed"
     MISSING_FIELD = "missing_field"
     NO_LINES = "no_lines"
+    MISSING_LINE_PRICE = "missing_line_price"
     LINE_AMOUNT_MISMATCH = "line_amount_mismatch"
     SUBTOTAL_MISMATCH = "subtotal_mismatch"
     TOTAL_MISMATCH = "total_mismatch"
@@ -99,6 +100,16 @@ def _check_line_amounts(doc: ExtractedDocument) -> list[ValidationIssue]:
     issues = []
     for i, line in enumerate(doc.lines):
         if line.unit_price is None or line.amount is None:
+            # Every invoice line has a price and an amount; without them the line
+            # cannot be checked, so a person must look at it.
+            if doc.document_type == DocumentType.INVOICE:
+                issues.append(
+                    ValidationIssue(
+                        code=IssueCode.MISSING_LINE_PRICE,
+                        field=f"lines[{i}]",
+                        message="invoice line without unit price or amount",
+                    )
+                )
             continue
         expected = (line.quantity * line.unit_price).quantize(CENT, rounding=ROUND_HALF_UP)
         if abs(expected - line.amount) > LINE_TOLERANCE:

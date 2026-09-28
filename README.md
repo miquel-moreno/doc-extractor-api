@@ -13,7 +13,10 @@ Para empresas que reciben facturas, albaranes y pedidos por email y hoy los copi
 - Avisa automáticamente al terminar, para conectarlo con herramientas como n8n
 
 ## Resultado
-- Pendiente: se medirá con 50 facturas y albaranes de prueba generados automáticamente
+- Lee **perfectamente 49 de cada 50 documentos** de prueba (98 %), en unos **3 segundos** cada uno y por menos de 0,1 céntimos
+- **Ningún documento con errores se dio por bueno**: el que falló fue a revisión humana
+
+<sub>Examen con 50 facturas, albaranes y pedidos inventados · modelo gpt-4.1-mini · 28/09/2026 · [detalle](docs/TECNICO.md#evaluación)</sub>
 
 ## Tecnologías
 Python · FastAPI · IA (LLM) · PostgreSQL · Redis · Docker · GitHub Actions

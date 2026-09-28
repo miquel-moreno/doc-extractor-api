@@ -11,7 +11,7 @@ help:
 	@echo "typecheck  Check types (mypy strict)"
 	@echo "test       Run tests with coverage (min 80%)"
 	@echo "check      lint + typecheck + test (run before every commit)"
-	@echo "eval       Run the evaluation against a real LLM (local only, costs money)"
+	@echo "eval       Run the evaluation against a real LLM (local only, costs money). ARGS=\"--provider openai --model gpt-4.1-mini\""
 	@echo "up / down  Start / stop everything with Docker Compose"
 
 install:
@@ -38,7 +38,7 @@ test:
 check: lint typecheck test
 
 eval:
-	uv run python -m evals.run
+	uv run python -m evals.run $(ARGS)
 
 up:
 	docker compose up --build
