@@ -7,7 +7,7 @@ from fastapi import FastAPI
 
 from doc_extractor_api import __version__
 from doc_extractor_api.adapters.db import make_engine, make_session_factory
-from doc_extractor_api.api import documents, health
+from doc_extractor_api.api import documents, health, jobs
 from doc_extractor_api.api.middleware import request_id_middleware
 from doc_extractor_api.core.config import get_settings
 from doc_extractor_api.core.errors import register_error_handlers
@@ -19,7 +19,10 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
     # One connection pool for the whole process, closed on shutdown.
     engine = make_engine(get_settings().database_url)
     app.state.session_factory = make_session_factory(engine)
+    app.state.queue = None
     yield
+    if app.state.queue is not None:
+        await app.state.queue.close()
     await engine.dispose()
 
 
@@ -32,6 +35,7 @@ def create_app() -> FastAPI:
     register_error_handlers(app)
     app.include_router(health.router)
     app.include_router(documents.router)
+    app.include_router(jobs.router)
     return app
 
 
