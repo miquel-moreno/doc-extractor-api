@@ -5,6 +5,8 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), versio
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-09-28
+
 ### Added
 - Project scaffold: FastAPI app, health endpoint, JSON logging, CI, Docker.
 - Extracted document schema (invoice, delivery note, order) with per-field confidence.
@@ -26,3 +28,6 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), versio
 ### Fixed
 - Low confidence on empty fields no longer sends correct documents to review.
 - Amounts are always returned with two decimals (cents).
+
+[Unreleased]: https://github.com/miquel-moreno/doc-extractor-api/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/miquel-moreno/doc-extractor-api/releases/tag/v0.1.0
