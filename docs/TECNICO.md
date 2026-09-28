@@ -16,6 +16,7 @@ make install   # dependencias + hooks de pre-commit
 make dev       # API con recarga automática
 make check     # lint + tipos + tests
 make eval      # evaluación con un LLM real (solo en local)
+uv run alembic upgrade head   # crea o actualiza las tablas (usa DATABASE_URL)
 ```
 
 ## Arquitectura
@@ -42,6 +43,10 @@ src/doc_extractor_api/
 | Un reintento con los errores | Si la respuesta no es JSON válido o no cumple el esquema o el modelo de dominio, se reenvía al modelo su respuesta y la lista de errores, y tiene una segunda oportunidad. Si vuelve a fallar, no se insiste: el documento irá a revisión |
 | `temperature: 0` | Para extracción queremos la respuesta más probable y repetible, no creatividad |
 | La confianza baja solo cuenta en campos con valor | Detectado en una prueba real: un albarán sin totales iba a revisión porque el modelo (correctamente) no estaba seguro de unos totales que no existen |
+| Idempotencia por huella SHA-256 del contenido (`services/processing.py`) | El mismo documento devuelve siempre el mismo registro y el LLM solo se paga la primera vez. La columna `sha256` es `UNIQUE`: si dos copias llegan a la vez, la base de datos rechaza la segunda y se devuelve la primera |
+| Nada se pierde | Si la extracción falla tras el reintento, el documento se guarda igualmente como `needs_review` con el motivo `extraction_failed`. Si el proveedor del LLM está caído, no se guarda nada, para poder reintentar después |
+| SQLAlchemy 2 asíncrono + Alembic | Las llamadas al LLM son asíncronas; una base de datos síncrona bloquearía el servidor mientras espera. Alembic versiona la estructura de la base de datos como Git versiona el código |
+| Tests con SQLite en memoria; producción con PostgreSQL | La CI no necesita un PostgreSQL. El modelo solo usa tipos portables (`JSON`, no `JSONB`), y un test aplica las migraciones y comprueba que el esquema resultante es idéntico al de los modelos |
 | Casi todos los campos del esquema son opcionales | Si el LLM no encuentra un campo, el documento no se rechaza: la regla de campos obligatorios lo marca para revisión y la persona ve exactamente qué falta. |
 
 ## Datos de prueba
