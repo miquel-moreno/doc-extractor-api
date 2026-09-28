@@ -35,6 +35,26 @@ curl http://localhost:8000/jobs/<id>
 curl http://localhost:8000/reviews
 ```
 
+### Aviso al terminar (webhook)
+
+Si `WEBHOOK_URL` está configurada, cuando un trabajo de la cola termina (`done` o `failed`) el worker envía un `POST` a esa dirección con el mismo trabajo que devuelve `GET /jobs/{id}`:
+
+```json
+{"event": "job.finished", "sent_at": "2026-09-28T14:30:00+00:00", "job": {"id": "…", "status": "done", "document": {"status": "valid", "data": {"total": "840.93", "…": "…"}}}}
+```
+
+Cabeceras: `X-Webhook-Signature: sha256=<HMAC-SHA256 del cuerpo con WEBHOOK_SECRET>`, `X-Webhook-Event: job.finished` y `X-Webhook-Id: <id del trabajo>` (para ignorar entregas repetidas). El receptor (por ejemplo, un flujo de n8n) debe calcular la firma sobre el **cuerpo en bruto** y compararla:
+
+```python
+import hashlib, hmac
+
+def is_valid(raw_body: bytes, secret: str, header: str) -> bool:
+    expected = "sha256=" + hmac.new(secret.encode(), raw_body, hashlib.sha256).hexdigest()
+    return hmac.compare_digest(expected, header)
+```
+
+Si el receptor no responde `2xx`, el aviso se reintenta a los 5 s y a los 10 s (3 intentos) sin volver a procesar el documento.
+
 Cada respuesta incluye los datos extraídos (`data`, importes como texto con 2 decimales), el estado (`valid` o `needs_review`), los motivos (`issues`), el modelo, los intentos, los tokens y la latencia.
 
 Desarrollo local:
@@ -83,6 +103,8 @@ src/doc_extractor_api/
 | El estado del trabajo vive en PostgreSQL, Redis solo lleva el id | Si Redis se reinicia no se pierde el historial. Un trabajo terminado que llegue dos veces no se reprocesa. Si no se puede encolar, el trabajo se marca `failed` en vez de quedarse `queued` para siempre |
 | Reintentos con espera creciente | Si el proveedor del LLM falla, el worker reintenta a los 10 s y a los 20 s (3 intentos en total) antes de marcar el trabajo como `failed` |
 | La API conecta con Redis al primer uso | La API arranca y `/extract` funciona aunque Redis no esté; solo `/jobs` responde `503` |
+| Webhook con URL fija y firmado con HMAC | La URL sale de la configuración, nunca de la petición: así nadie puede usar el servicio para llamar a direcciones internas (SSRF). La firma HMAC-SHA256 permite al receptor comprobar que el aviso viene de este servicio y no se ha modificado, como hacen Stripe o GitHub. El worker no arranca si hay URL pero no clave |
+| El aviso es una tarea aparte en la cola | Si el receptor está caído, se reintenta solo el aviso: el documento no se vuelve a procesar ni a pagar |
 | Tests con SQLite en memoria; producción con PostgreSQL | La CI no necesita un PostgreSQL. El modelo solo usa tipos portables (`JSON`, no `JSONB`), y un test aplica las migraciones y comprueba que el esquema resultante es idéntico al de los modelos |
 | Casi todos los campos del esquema son opcionales | Si el LLM no encuentra un campo, el documento no se rechaza: la regla de campos obligatorios lo marca para revisión y la persona ve exactamente qué falta. |
 

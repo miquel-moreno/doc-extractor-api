@@ -12,6 +12,8 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), versio
 - Job queue: `POST /jobs` (202 + job id) and `GET /jobs/{id}`, with a Redis (arq) worker that
   retries with backoff when the LLM provider fails. `docker compose` now runs API, worker,
   PostgreSQL and Redis.
+- Signed webhook (HMAC-SHA256) when a queued job finishes, sent as a separate task retried
+  with backoff. `WEBHOOK_URL` comes from the configuration only.
 
 ### Fixed
 - Invoice lines without unit price or amount now go to review (found by the evaluation).
