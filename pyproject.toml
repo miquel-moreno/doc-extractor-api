@@ -1,6 +1,6 @@
 [project]
 name = "doc-extractor-api"
-version = "0.1.0"
+version = "1.0.0"
 description = "Turns invoices and orders (PDF or email) into validated data with AI"
 readme = "README.md"
 requires-python = ">=3.12,<3.13"
